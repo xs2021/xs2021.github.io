@@ -4,6 +4,9 @@
     .container {
         width: 95%;
     }
+       header .brand-logo .logo-img{
+        display: none;
+    }
 }
 
 /*中等屏幕下(平板类)的样式*/
