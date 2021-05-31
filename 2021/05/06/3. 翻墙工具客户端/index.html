@@ -2,6 +2,17 @@
 <html lang="zh-CN">
 
 
+<script>
+  fetch('https://v1.hitokoto.cn')
+    .then(response => response.json())
+    .then(data => {
+      const hitokoto = document.getElementById('hitokoto_text')
+      hitokoto.href = 'https://hitokoto.cn/?uuid=' + data.uuid
+      hitokoto.innerText = data.hitokoto
+    })
+    .catch(console.error)
+</script>
+
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="第三篇:代理工具客户端, zh-CN">

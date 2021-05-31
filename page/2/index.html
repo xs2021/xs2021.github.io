@@ -2,6 +2,17 @@
 <html lang="zh-CN">
 
 
+<script>
+  fetch('https://v1.hitokoto.cn')
+    .then(response => response.json())
+    .then(data => {
+      const hitokoto = document.getElementById('hitokoto_text')
+      hitokoto.href = 'https://hitokoto.cn/?uuid=' + data.uuid
+      hitokoto.innerText = data.hitokoto
+    })
+    .catch(console.error)
+</script>
+
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="zh-CN">
@@ -302,7 +313,7 @@
                 <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
                 <script>
                     var typed = new Typed("#subtitle", {
-                        strings: ['做人如果没梦想，跟咸鱼有什么分别？','No dream, no life'],
+                        strings: ['',''],
                         startDelay: 300,
                         typeSpeed: 100,
                         loop: true,
