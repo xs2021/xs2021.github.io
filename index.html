@@ -83,7 +83,7 @@
       
       <i class="fas fa-archive" style="zoom: 0.6;"></i>
       
-      <span>时间轴</span>
+      <span>归档</span>
     </a>
     
   </li>
@@ -163,7 +163,7 @@
 			
 			    <i class="fa-fw fas fa-archive"></i>
 			
-			时间轴
+			归档
 		</a>
           
         </li>
@@ -342,7 +342,7 @@
 
 
             <div class="cover-btns">
-                <a href="#articles" class="waves-effect waves-light btn">
+                <a href="#indexCard" class="waves-effect waves-light btn">
                     <i class="fa fa-angle-double-down"></i>开始阅读
                 </a>
 
@@ -480,6 +480,42 @@
                     
 
                     
+
+                    
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xs2021/xs2021.github.io/libs/dplayer/DPlayer.min.css">
+<div class="video-player">
+    
+    <div class="title center-align">
+        <i class="fas fa-video-camera"></i>&nbsp;&nbsp;每日一遍
+    </div>
+    
+    <div class="row">
+        <div class="col l8 offset-l2 m10 offset-m1 s12">
+            <div id="dplayer" class="dplayer-video"
+                    ></div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/xs2021/xs2021.github.io/libs/dplayer/DPlayer.min.js"></script>
+<script>
+    $(function () {
+        new DPlayer({
+            container: document.getElementById('dplayer'),
+            autoplay: 'false' === 'true',
+            theme: '#42b983',
+            loop: 'false' === 'true',
+            lang: 'zh-CN' === 'zh-CN' ? 'zh-cn' : 'en',
+            preload: 'auto',
+            volume: Number('0.7'),
+            video: {
+                url: 'https://www.bilibili.com/video/av29789749?zw',
+                pic: '',
+                thumbnails: ''
+            }
+        });
+    });
+</script>
 
                     
 
@@ -879,8 +915,6 @@ WIN端一键fq工具
 <style>
     .aplayer .aplayer-lrc p {
         
-        display: none;
-        
         font-size: 12px;
         font-weight: 700;
         line-height: 16px !important;
@@ -888,10 +922,8 @@ WIN端一键fq工具
 
     .aplayer .aplayer-lrc p.aplayer-lrc-current {
         
-        display: none;
-        
         font-size: 15px;
-        color: #42b983;
+        color: purple;
     }
 
     
@@ -909,12 +941,12 @@ WIN端一键fq工具
     
     <div class="row">
         <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
+                   server="tencent"
                    type="playlist"
-                   id="503838841"
+                   id="7660234225"
                    fixed='true'
                    autoplay='false'
-                   theme='#42b983'
+                   theme='purple'
                    loop='all'
                    order='random'
                    preload='auto'
