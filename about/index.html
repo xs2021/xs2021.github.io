@@ -836,8 +836,8 @@
             <script>
                 $(document).ready(function () {
                     var int = setInterval(fixCount, 50);
-                    var pvcountOffset = 80000;
-                    var uvcountOffset = 20000;
+                    var pvcountOffset = 8000;
+                    var uvcountOffset = 500;
                     function fixCount() {
                         if (document.getElementById("busuanzi_container_site_pv").style.display != "none") {
                             $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + pvcountOffset);
