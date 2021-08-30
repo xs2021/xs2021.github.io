@@ -991,9 +991,24 @@
             
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://github.com/xs2021" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-        <i class="fab fa-github"></i>
+<a href="https://xydh.fun/gmengshuai" class="tooltipped" target="_blank" data-tooltip="常用网站，一触即达" data-position="top" data-delay="50">
+    <i class="fab fa-edge"></i>
+</a>
+
+
+
+<a href="http://gmengshuai.uepan.com/" class="tooltipped" target="_blank" data-tooltip="资源站+留言区" data-position="top" data-delay="50">
+    <i class="fab fa-connectdevelop"></i>
+</a>
+
+
+
+
+    <a href="https://qm.qq.com/cgi-bin/qm/qr?k=rfqcLjDjVbqu4xFnlZq1STCjj55DlTo4&amp;jump_from=webapi" class="tooltipped" target="_blank" data-tooltip="QQ交流群" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
     </a>
+
+
 
 
 
@@ -1007,10 +1022,6 @@
 
 
 
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=191639197" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 191639197" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
-    </a>
-
 
 
 
@@ -1022,7 +1033,6 @@
     <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
         <i class="fas fa-rss"></i>
     </a>
-
 </div>
     </div>
 </footer>
@@ -1204,3 +1214,34 @@ $(function () {
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/xs2021/codecdn@main/fireworks.js"></script>
 
 <script src="https://cdn.jsdelivr.net/gh/xs2021/codecdn@main/cursor.js"></script>
+
+<!-- 屏蔽网页源码（单纯的屏蔽鼠标右键和键盘事件） -->
+<script type="text/javascript">
+        window.onload = function(){
+            //屏蔽键盘事件
+            document.onkeydown = function (){
+                var e = window.event || arguments[0];
+                //F12
+                if(e.keyCode == 123){
+                    alert('大佬别扒了')
+                    return false;
+                //Ctrl+Shift+I
+                }else if((e.ctrlKey) && (e.shiftKey) && (e.keyCode == 73)){
+                    alert('大佬别扒了')
+                    return false;
+                //Shift+F10
+                }else if((e.shiftKey) && (e.keyCode == 121)){
+                    alert('大佬别扒了')
+                    return false;
+                //Ctrl+U
+                }else if((e.ctrlKey) && (e.keyCode == 85)){
+                    alert('大佬别扒了')
+                    return false;
+                }
+            };
+            //屏蔽鼠标右键
+            document.oncontextmenu = function (){
+                return false;
+            }
+        }
+</script>
