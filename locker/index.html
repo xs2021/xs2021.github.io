@@ -356,19 +356,19 @@
         top: 64px;
     }
 
-        .toc-widget {
+    .toc-widget {
         width: 345px;
         padding-left: 20px;
-        background-color: rgb(255, 255, 255,0.7);
-        border-radius: 10px;
-        box-shadow: 0 10px 35px 2px rgba(0, 0, 0, .15), 0 5px 15px rgba(0, 0, 0, .07), 0 2px 5px -5px rgba(0, 0, 0, .1) !important;
+        overflow-y: auto;
+        max-height: 70vh
     }
+
 
     .toc-widget .toc-title {
         padding: 35px 0 15px 17px;
         font-size: 1.5rem;
-        font-weight: bold;
-        line-height: 1.5rem;
+        font-weight: 700;
+        line-height: 1.5rem
     }
 
     .toc-widget ol {
@@ -407,6 +407,35 @@
     #toc-content .is-active-link {
         color: #42b983;
     }
+
+#toc-content .toc-list-item.is-active-li {
+     background-color: var(--toc-activ-bg-color)
+}
+
+#toc-content .toc-list-item {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+
+
+#toc-content ol.toc-list.is-collapsible {
+    border-left: 2px solid #dbdbdb;
+    margin: 0 0 0 .5em
+}
+
+#toc-content .toc-list-item.is-active-li::before {
+    padding-left: 5px;
+    margin-left: -10px;
+    color: var(--post-link-color)!important;
+    visibility: visible
+}
+
+#toc-content .toc-list-item::before {
+    position: inherit;
+    left: 20px;
+    border-radius: 2px
+}
 
     #floating-toc-btn {
         position: fixed;
@@ -457,7 +486,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-05-11
+                    2023-05-15
                 </div>
                 
 
@@ -494,9 +523,7 @@
 
 <div style="text-align:center;color:#000;font-size:14px;border-style:solid; border-width:1px;"> 💻<b><font size="3">电脑端按下键盘「CTRL + F」即可进行搜索<br>📱手机端用浏览器自带的「在页面中查找」进行搜索</font></b></div> <br>
 
-
-
-
+<p>[toc]</p>
 <h1 id="📕-00-稀有资源"><a href="#📕-00-稀有资源" class="headerlink" title="📕 00 稀有资源"></a>📕 00 稀有资源</h1><blockquote>
 <p>📂 <strong>01.FXXKMAKEDING</strong></p>
 <ul>
@@ -559,7 +586,7 @@
 </blockquote>
 <h1 id="┄┄✂┄┄-Windows"><a href="#┄┄✂┄┄-Windows" class="headerlink" title="┄┄✂┄┄　Windows"></a>┄┄✂┄┄　Windows</h1><h1 id="📒-01-电脑常用软件"><a href="#📒-01-电脑常用软件" class="headerlink" title="📒 01 电脑常用软件"></a>📒 01 电脑常用软件</h1><h2 id="📂01-系统安全—软件卸载—禁止更新—远程工具"><a href="#📂01-系统安全—软件卸载—禁止更新—远程工具" class="headerlink" title="📂01 系统安全—软件卸载—禁止更新—远程工具"></a>📂01 系统安全—软件卸载—禁止更新—远程工具</h2><p>📂<strong>01.系统优化清理</strong></p>
 <ul>
-<li>📂系统清理<ul>
+<li>📂<code>系统清理</code><ul>
 <li>🌐<a target="_blank" rel="noopener" href="https://cloud.189.cn/web/share?code=iMfIzqY7fuEn">Windows10Manager-v3.2.3（Win10必备） 👍</a></li>
 <li>🌐<a target="_blank" rel="noopener" href="https://cloud.189.cn/web/share?code=iUra6nreEJbm">360清理大师单文件版 👍</a></li>
 <li>🌐<a target="_blank" rel="noopener" href="https://cloud.189.cn/web/share?code=mYZ77n3YN7zy">Wise Disk Cleaner</a></li>
@@ -568,7 +595,7 @@
 <li>🌐<a target="_blank" rel="noopener" href="http://pan-yz.chaoxing.com/share/info/f4b78882d485732a">Privacy Eraser隐私橡皮擦</a></li>
 </ul>
 </li>
-<li>📂系统优化<ul>
+<li>📂<code>系统优化</code><ul>
 <li>🌐<a target="_blank" rel="noopener" href="https://cloud.189.cn/web/share?code=3u2iInUBRrum">Ashampoo 2021免费安装版</a></li>
 <li>🌐<a target="_blank" rel="noopener" href="https://cloud.189.cn/web/share?code=7nuUNjRVVRRr">Wise_Care_365_Pro绿色破解版</a></li>
 <li>🌐<a target="_blank" rel="noopener" href="https://cloud.189.cn/web/share?code=JvYBniJvaMjm">Advanced SystemCare Pro绿色版</a></li>
@@ -613,8 +640,8 @@
 </ul>
 <p>📂<strong>02.硬件检测</strong></p>
 <ul>
-<li>🌐<a target="_blank" rel="noopener" href="https://pan.bilnn.com/s/NWpOFl">IsMyHdOK_x64（硬盘检测工具）</a></li>
-<li>🌐<a target="_blank" rel="noopener" href="https://pan.bilnn.com/s/BMOkIN">CrystalDiskInfo（硬盘状态检测工具）v8.12.5标准单文件版</a></li>
+<li>🌐<a target="_blank" rel="noopener" href="https://pan.quark.cn/s/90dc71189743">IsMyHdOK_x64（硬盘检测工具）</a></li>
+<li>🌐<a target="_blank" rel="noopener" href="https://pan.quark.cn/s/a06a26846f41">CrystalDiskInfo（硬盘状态检测工具）v8.12.5标准单文件版</a></li>
 <li>🌐<a target="_blank" rel="noopener" href="https://gmengshuai.lanzoux.com/iTW5Olablqj">电脑维护工具收集箱</a></li>
 <li>🌐<a target="_blank" rel="noopener" href="https://cloud.189.cn/t/vq6VZnmQFVJj">AIDA64_Extreme_v6.30_Lite</a></li>
 <li>🌐<a target="_blank" rel="noopener" href="https://cloud.189.cn/t/2eYjimUNzYFn">AIDA64 系统检测 6.25.5400 单文件商业版</a></li>
