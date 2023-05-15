@@ -350,19 +350,19 @@
                 </a>
                 
                 
-                <a href="/tags/%E7%99%BE%E5%BA%A6%E4%BA%91%E4%B8%8D%E9%99%90%E9%80%9F/" title="百度云不限速: 1">
+                <a href="/tags/%E8%B5%84%E6%BA%90/" title="资源: 1">
                     <span class="chip center-align waves-effect waves-light
-                             chip-active "
-                            data-tagname="百度云不限速" style="background-color: #F5EEF8;">百度云不限速
+                             chip-default "
+                            data-tagname="资源" style="background-color: #F5EEF8;">资源
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/tags/%E8%B5%84%E6%BA%90/" title="资源: 1">
+                <a href="/tags/%E7%99%BE%E5%BA%A6%E4%BA%91%E4%B8%8D%E9%99%90%E9%80%9F/" title="百度云不限速: 1">
                     <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="资源" style="background-color: #D5F5E3;">资源
+                             chip-active "
+                            data-tagname="百度云不限速" style="background-color: #D5F5E3;">百度云不限速
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -728,25 +728,32 @@ $(function () {
                 var e = window.event || arguments[0];
                 //F12
                 if(e.keyCode == 123){
-                    alert('大佬别扒了')
+                    alert('大佬别扒了(～￣▽￣)～')
                     return false;
                 //Ctrl+Shift+I
                 }else if((e.ctrlKey) && (e.shiftKey) && (e.keyCode == 73)){
-                    alert('大佬别扒了')
+                    alert('大佬别扒了(～￣▽￣)～')
                     return false;
                 //Shift+F10
                 }else if((e.shiftKey) && (e.keyCode == 121)){
-                    alert('大佬别扒了')
+                    alert('大佬别扒了(～￣▽￣)～')
                     return false;
                 //Ctrl+U
                 }else if((e.ctrlKey) && (e.keyCode == 85)){
-                    alert('大佬别扒了')
+                    alert('大佬别扒了(～￣▽￣)～')
                     return false;
                 }
             };
-            //屏蔽鼠标右键
-            document.oncontextmenu = function (){
-                return false;
-            }
+            // //屏蔽鼠标右键
+            // document.oncontextmenu = function (){
+            //     return false;
+            // }
+
+            // 禁止文字选择
+            document.onselectstart = function(){ return false; };
+            // // 禁止复制
+            // document.oncopy = function(){ return false; };
+            // // 禁止剪切
+            // document.oncut = function(){ return false; };
         }
 </script>

@@ -598,7 +598,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"越狱","value":4},{"name":"百度云不限速","value":1},{"name":"资源","value":1}],
+                data: [{"name":"越狱","value":4},{"name":"资源","value":1},{"name":"百度云不限速","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -622,7 +622,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["越狱","百度云不限速","资源"]
+                data: ["越狱","资源","百度云不限速"]
             }
         ],
         yAxis: [
@@ -1001,25 +1001,32 @@ $(function () {
                 var e = window.event || arguments[0];
                 //F12
                 if(e.keyCode == 123){
-                    alert('大佬别扒了')
+                    alert('大佬别扒了(～￣▽￣)～')
                     return false;
                 //Ctrl+Shift+I
                 }else if((e.ctrlKey) && (e.shiftKey) && (e.keyCode == 73)){
-                    alert('大佬别扒了')
+                    alert('大佬别扒了(～￣▽￣)～')
                     return false;
                 //Shift+F10
                 }else if((e.shiftKey) && (e.keyCode == 121)){
-                    alert('大佬别扒了')
+                    alert('大佬别扒了(～￣▽￣)～')
                     return false;
                 //Ctrl+U
                 }else if((e.ctrlKey) && (e.keyCode == 85)){
-                    alert('大佬别扒了')
+                    alert('大佬别扒了(～￣▽￣)～')
                     return false;
                 }
             };
-            //屏蔽鼠标右键
-            document.oncontextmenu = function (){
-                return false;
-            }
+            // //屏蔽鼠标右键
+            // document.oncontextmenu = function (){
+            //     return false;
+            // }
+
+            // 禁止文字选择
+            document.onselectstart = function(){ return false; };
+            // // 禁止复制
+            // document.oncopy = function(){ return false; };
+            // // 禁止剪切
+            // document.oncut = function(){ return false; };
         }
 </script>
