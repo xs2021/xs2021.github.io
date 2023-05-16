@@ -71,7 +71,6 @@ $(function() {
     /*文章内容详情的一些初始化特性*/
     let articleInit = function() {
 
-
         // 选择所有的链接元素
         const links = $('#articleContent a');
         // 遍历所有链接元素
