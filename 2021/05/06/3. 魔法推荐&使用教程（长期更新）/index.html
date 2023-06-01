@@ -379,7 +379,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-05-27
+                    2023-06-01
                 </div>
                 
 
@@ -388,7 +388,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    14 分
+                    16 分
                 </div>
                 
 
@@ -408,7 +408,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><strong>教程已经很详细了，请自行摸索，公众号与储物间中小帅一律不回答此类问题</strong></p>
+                <p><strong>教程已经很详细了，请自行摸索，在公众号中小帅一律不回答此类问题</strong></p>
 <p><strong>阅读必看</strong>：通过 SSR/V2ray/Clash 软件越狱，其实很简单，总的来说分为两大步：</p>
 <blockquote>
 <ol>
@@ -592,7 +592,7 @@
 <li><a href="https://sublink.dev/">sub-web (sublink.dev)</a></li>
 <li><a href="https://sub.ssplife.pw/">Subscription Converter (ssplife.pw)</a></li>
 </ul>
-<h1><span id="电脑代理软件示例图解教程">电脑代理软件示例图解教程</span></h1><p>通过代理软件SSR/V2ray/Clash越狱分为两种：</p>
+<h1><span id="win代理软件示例图解教程">Win代理软件示例图解教程</span></h1><p>通过代理软件SSR/V2ray/Clash越狱分为两种：</p>
 <blockquote>
 <ul>
 <li><p>第一种：一键导入（通常是Clash代理软件支持）</p>
@@ -650,6 +650,27 @@
 <p><img src="https://gcore.jsdelivr.net/gh/gms2020/BlogPicture/img/image-20210818001623918.png"></p>
 <p>5、最后一步，选择【<code>服务器</code>】，模式选择 <code>[网页代理]绕过局域网和中国大陆</code>，然后点击【<code>启动</code>】按钮</p>
 <p><img src="https://gcore.jsdelivr.net/gh/gms2020/BlogPicture/img/image-20210818001918173.png"></p>
+<h1><span id="linux代理软件示例图解教程">Linux代理软件示例图解教程</span></h1><p>在Linux安装Clash图形界面，此方法仅适合64操作系统</p>
+<pre class=" language-shell"><code class="language-shell">sudo su
+
+mkdir clash
+
+wget https://tntv2.lol/software/Clash.for.Windows-0.20.15-x64-linux.tar.gz
+
+tar -zxvf Clash.for.Windows-0.20.15-x64-linux.tar.gz
+
+mv 'Clash for Windows-0.20.15-x64-linux'/ clash
+
+cd clash/
+
+su 自己的用户名
+
+./cfw
+</code></pre>
+<p>通过以上命令安装运行后，使用方法与Windows一样</p>
+<p>以 Ubuntu 18.04 为例，打开系统设置，选择网络，点击网络代理右边的 ⚙ 按钮，选择手动，填写 HTTP 和 HTTPS 代理为 <code>127.0.0.1:7890</code>，填写 Socks 主机为 <code>127.0.0.1:7891</code>，即可启用系统代理。</p>
+<p><img src="https://pic.imgdb.cn/item/6478a720f024cca173a2c6c7.jpg"></p>
+<p><a href="https://github.com/Fndroid/clash_for_windows_pkg/releases">Linux版GitHub更新地址：Fndroid/clash_for_windows_pkg </a></p>
 <h1><span id="苹果代理软件示例图解教程">苹果代理软件示例图解教程</span></h1><p>苹果端稍比安卓端复杂一点，甚至会有锁机的风险，自行考虑是否需要「魔法上网」</p>
 <p>这里说明一下：</p>
 <ul>
@@ -657,7 +678,7 @@
 <li>「苹果越狱」相当于安卓中开启「root」权限。</li>
 <li>苹果端「魔法上网」不需要「苹果越狱」，只需按照以下步骤操作即可。</li>
 </ul>
-<blockquote>
+<h2><span id="法一通过已购小火箭的美区账号">法一：通过已购小火箭的美区账号</span></h2><blockquote>
 <p>第一步：获取【已购买 <strong>Shadowrocket</strong>（小火箭）+ <strong>美区</strong> 】的apple ID</p>
 </blockquote>
 <p><strong>免费获取：</strong></p>
@@ -703,6 +724,17 @@
 <blockquote>
 <p>第五步：到机场官网导入订阅链接到小火箭中，步骤同电脑端，不再详细介绍啦。</p>
 </blockquote>
+<h2><span id="法二ios系统在140~1541之间">法二：iOS系统在14.0~15.4.1之间</span></h2><p>你的系统若是在此之间，安装小火箭相对会简单且安全很多。</p>
+<p><strong>方法：安装 TrollStore 后即可安装任意的 ipa 安装包。</strong></p>
+<p>第一步：根据系统版本安装先安装 <code>TrollHelperOTA</code></p>
+<p>去下载：<a href="https://github.com/opa334/TrollStore">https://github.com/opa334/TrollStore</a></p>
+<blockquote>
+<p>注意：下载时一定要对应自己的系统版本</p>
+</blockquote>
+<p>第二步：打开 <code>TrollHelperOTA</code>这款软件，点击「Install TrollStore」安装 <code>TrollStore</code></p>
+<p>第三步：下载 小火箭的 ipa 安装包后在 TrollStore 中打开即可完成安装</p>
+<p>去下载 Shadowrocket 的 ipa 安装包：</p>
+<p><a href="https://github.com/hkjswong/shadowrocket-ipa/tree/master">https://github.com/hkjswong/shadowrocket-ipa/tree/master</a></p>
 <h1><span id="小结一下">小结一下</span></h1><blockquote>
 <ul>
 <li>小帅 电脑 目前在用「<strong>Clash+Netch</strong>」，安卓「<strong>Clash+V2rayNG</strong>」，苹果「<strong>Shadowrocket</strong>」</li>
