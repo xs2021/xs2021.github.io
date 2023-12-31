@@ -6,7 +6,7 @@
   <link href="https://xiaoshuai.link/atom.xml" rel="self"/>
   
   <link href="https://xiaoshuai.link/"/>
-  <updated>2023-05-19T15:55:37.290Z</updated>
+  <updated>2023-12-31T15:39:30.736Z</updated>
   <id>https://xiaoshuai.link/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>iOS最新伪装APP(附去广告方法)</title>
+    <link href="https://xiaoshuai.link/2023/12/31/iOS%E6%9C%80%E6%96%B0%E4%BC%AA%E8%A3%85APP(%E9%99%84%E5%8E%BB%E5%B9%BF%E5%91%8A%E6%96%B9%E6%B3%95)/"/>
+    <id>https://xiaoshuai.link/2023/12/31/iOS%E6%9C%80%E6%96%B0%E4%BC%AA%E8%A3%85APP(%E9%99%84%E5%8E%BB%E5%B9%BF%E5%91%8A%E6%96%B9%E6%B3%95)/</id>
+    <published>2023-12-31T15:23:23.000Z</published>
+    <updated>2023-12-31T15:39:30.736Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>如若出现「目前你所在国家或地区尚不提供此App」字样，可以等待小帅下次分享。</p></blockquote><p>这类影视软件虽然免费，但是大部分都会嵌入广告来维持服务器的费用</p><p>这里小帅提供一种<strong>通用的去广告方法</strong>（可去除大部分APP开屏/网页）：<strong>修改DNS服务器</strong></p><p>DNS服务器由 18比特 提供</p><blockquote><ul><li>18bit 官网：<a href="https://www.18bit.cn/index.html">https://www.18bit.cn/index.html</a></li><li>公众号：18比特</li></ul></blockquote><h2><span id="iosmacos去广告方法">iOS/macOS去广告方法</span></h2><p>注意：仅限 iOS 14 及以上版本系统使用</p><p><strong>第一步：下载DNS描述文件</strong>，复制下方链接在 Safari 浏览器打开，点「<code>允许</code>」</p><p>描述文件 ：<a href="https://down.18bit.cn/doh/doh.mobileconfig">https://down.18bit.cn/doh/doh.mobileconfig</a></p><p><img src="https://pic.imgdb.cn/item/65918a0fc458853aef1aaf99.png"></p><p><strong>第二步：安装刚刚下载的 DNS 描述文件</strong></p><p>进入「<code>设置</code>」-&gt;「<code>通用</code>」-&gt;「<code>VPN、DNS与设备管理</code>」，进入描述文件，选择「<code>安装</code>」</p><p><img src="https://pic.imgdb.cn/item/65918a22c458853aef1b04a0.png"></p><p><strong>第三步：验证去广告功能</strong></p><p>打开测试网址：<a href="https://help.18bit.cn/index.html">https://help.18bit.cn/index.html</a></p><p>出现如下图黄框所示：三条红色已拦截，表示 DNS 配置成功</p><p><img src="https://pic.imgdb.cn/item/65918a2ec458853aef1b3c99.png"></p><p>此时再打开下载的APP就会发现广告已经被屏蔽，如果想取消使用DNS服务器可以根据上图右侧进行操作。</p><h2><span id="安卓win去广告方法">安卓/Win去广告方法</span></h2><blockquote><p>推荐浏览器插件(<strong>Adguard</strong>)：<a href="https://mp.weixin.qq.com/s/jYtNWZl7snWku8_pT5piqg">https://mp.weixin.qq.com/s/jYtNWZl7snWku8_pT5piqg</a></p><p>安卓：<a href="https://www.18bit.cn/help-docs/help-docs-android.html">https://www.18bit.cn/help-docs/help-docs-android.html</a></p><p>鸿蒙：<a href="https://www.18bit.cn/help-docs/help-docs-harmonyos.html">https://www.18bit.cn/help-docs/help-docs-harmonyos.html</a></p><p>Windows：<a href="https://www.18bit.cn/help-docs/help-docs-windows.html">https://www.18bit.cn/help-docs/help-docs-windows.html</a></p><p>浏览器(谷歌/微软/火狐)：<a href="https://www.18bit.cn/help-docs/help-docs-chrome.html">https://www.18bit.cn/help-docs/help-docs-chrome.html</a></p></blockquote><h2><span id="1231更新">12.31更新</span></h2><blockquote><p><strong>伪装APP ：因子之美</strong></p></blockquote><ul><li><p>官网：<a href="https://lbxxtv.com/">lbxxtv.com</a></p></li><li><p>解锁教程：</p><p>进入软件后，选择「联系我们」→ 输入暗号「野原新之助」，点击提交后会自动闪退，重新进入即可。</p></li><li><p>下载地址：<a href="https://apps.apple.com/cn/app/id6470121005">https://apps.apple.com/cn/app/id6470121005</a></p></li></ul><blockquote><p><strong>伪装APP ：数学小马达</strong></p></blockquote><ul><li><p>官网：<a href="http://peiqi.tv/">peiqi.tv</a></p></li><li><p>解锁教程：</p><p>进入软件后，选择「联系我们」→ 输入暗号「小猪佩奇」，点击提交后会自动闪退，重新进入即可。</p></li><li><p>下载地址：<a href="https://apps.apple.com/us/app/id6474478690">https://apps.apple.com/us/app/id6474478690</a></p></li></ul><h2><span id="82更新">8.2更新</span></h2><blockquote><p><strong>伪装APP ：星空梦境（推荐，无广告）</strong></p></blockquote><ul><li><p>解锁教程：</p><p>进入软件后，选择「解释说明」→ 「右上角叹号按钮」→ 输入暗号「土豆盒子」，点击提交后会自动闪退，重新进入即可。</p></li><li><p>下载地址：<a href="https://apps.apple.com/cn/app/id6451370603">https://apps.apple.com/cn/app/id6451370603</a></p></li></ul><blockquote><p><strong>伪装APP：易水成长计划（推荐，广告较少）</strong></p></blockquote><ul><li><p>解锁教程：</p><p>进入软件后，连续点击上方「Plan Sharing」5次以上会自动变身。</p></li><li><p>下载地址：<a href="https://apps.apple.com/cn/app/id6450494267">https://apps.apple.com/cn/app/id6450494267</a></p></li></ul><blockquote><p><strong>伪装APP：到店预约宝（推荐，广告较少）</strong></p></blockquote><ul><li><p>解锁教程：</p><p>进入软件后，右上角设置→ 意见反馈框中输入暗号「皮皮真不错」，点击「反馈」后会自动闪退，重新进入即可。</p></li><li><p>下载地址：<a href="https://apps.apple.com/cn/app/id6450675026">https://apps.apple.com/cn/app/id6450675026</a></p></li></ul><h2><span id="719更新">7.19更新</span></h2><blockquote><p><strong>伪装APP：飞豹书架（推荐，广告较少）</strong></p></blockquote><ul><li><p>解锁教程：</p><p>打开app后，上滑把这款app清理后台，然后重新进入即可</p></li><li><p>下载地址：</p><p><a href="https://apps.apple.com/cn/app/id6450988067">‎飞豹书架</a></p></li></ul><blockquote><p><strong>伪装APP：找不同合相同（广告较多）</strong></p></blockquote><ul><li><p>解锁教程：</p><p>进入软件后，「反馈」→ 输入暗号「可达鸭666」，提交后会自动闪退，重新进入即可。</p></li><li><p>下载地址：<a href="https://apps.apple.com/cn/app/id6450794077">‎找不同合相同</a></p></li></ul><blockquote><p><strong>伪装APP：我的打卡（广告较多）</strong></p></blockquote><ul><li><p>解锁教程：</p><p>进入软件后，右上角「添加习惯」，习惯命名内输入「agdd」后右上角完成即可</p></li><li><p>下载地址：<a href="https://apps.apple.com/cn/app/id6451301973">‎我的打卡</a></p></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;如若出现「目前你所在国家或地区尚不提供此App」字样，可以等待小帅下次分享。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这类影视软件虽然免费，但是大部分都会嵌入广告来维持服务器的费用&lt;/p&gt;
+&lt;p&gt;这里小帅提供一种&lt;strong&gt;通用的去广告方法&lt;</summary>
+      
+    
+    
+    
+    <category term="iOS" scheme="https://xiaoshuai.link/categories/iOS/"/>
+    
+    
+    <category term="iOS" scheme="https://xiaoshuai.link/tags/iOS/"/>
+    
+  </entry>
   
   <entry>
     <title>原储物间留言汇总</title>
@@ -120,34 +148,6 @@
     
     
     <category term="资源" scheme="https://xiaoshuai.link/tags/%E8%B5%84%E6%BA%90/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>iOS最新伪装APP(附去广告方法)</title>
-    <link href="https://xiaoshuai.link/2021/05/07/iOS%E6%9C%80%E6%96%B0%E4%BC%AA%E8%A3%85APP(%E9%99%84%E5%8E%BB%E5%B9%BF%E5%91%8A%E6%96%B9%E6%B3%95)/"/>
-    <id>https://xiaoshuai.link/2021/05/07/iOS%E6%9C%80%E6%96%B0%E4%BC%AA%E8%A3%85APP(%E9%99%84%E5%8E%BB%E5%B9%BF%E5%91%8A%E6%96%B9%E6%B3%95)/</id>
-    <published>2021-05-07T14:42:49.000Z</published>
-    <updated>2023-12-31T15:37:13.725Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>如若出现「目前你所在国家或地区尚不提供此App」字样，可以等待小帅下次分享。</p></blockquote><p>这类影视软件虽然免费，但是大部分都会嵌入广告来维持服务器的费用</p><p>这里小帅提供一种<strong>通用的去广告方法</strong>（可去除大部分APP开屏/网页）：<strong>修改DNS服务器</strong></p><p>DNS服务器由 18比特 提供</p><blockquote><ul><li>18bit 官网：<a href="https://www.18bit.cn/index.html">https://www.18bit.cn/index.html</a></li><li>公众号：18比特</li></ul></blockquote><h2><span id="iosmacos去广告方法">iOS/macOS去广告方法</span></h2><p>注意：仅限 iOS 14 及以上版本系统使用</p><p><strong>第一步：下载DNS描述文件</strong>，复制下方链接在 Safari 浏览器打开，点「<code>允许</code>」</p><p>描述文件 ：<a href="https://down.18bit.cn/doh/doh.mobileconfig">https://down.18bit.cn/doh/doh.mobileconfig</a></p><p><img src="https://pic.imgdb.cn/item/65918a0fc458853aef1aaf99.png"></p><p><strong>第二步：安装刚刚下载的 DNS 描述文件</strong></p><p>进入「<code>设置</code>」-&gt;「<code>通用</code>」-&gt;「<code>VPN、DNS与设备管理</code>」，进入描述文件，选择「<code>安装</code>」</p><p><img src="https://pic.imgdb.cn/item/65918a22c458853aef1b04a0.png"></p><p><strong>第三步：验证去广告功能</strong></p><p>打开测试网址：<a href="https://help.18bit.cn/index.html">https://help.18bit.cn/index.html</a></p><p>出现如下图黄框所示：三条红色已拦截，表示 DNS 配置成功</p><p><img src="https://pic.imgdb.cn/item/65918a2ec458853aef1b3c99.png"></p><p>此时再打开下载的APP就会发现广告已经被屏蔽，如果想取消使用DNS服务器可以根据上图右侧进行操作。</p><h2><span id="安卓win去广告方法">安卓/Win去广告方法</span></h2><blockquote><p>推荐浏览器插件(<strong>Adguard</strong>)：<a href="https://mp.weixin.qq.com/s/jYtNWZl7snWku8_pT5piqg">https://mp.weixin.qq.com/s/jYtNWZl7snWku8_pT5piqg</a></p><p>安卓：<a href="https://www.18bit.cn/help-docs/help-docs-android.html">https://www.18bit.cn/help-docs/help-docs-android.html</a></p><p>鸿蒙：<a href="https://www.18bit.cn/help-docs/help-docs-harmonyos.html">https://www.18bit.cn/help-docs/help-docs-harmonyos.html</a></p><p>Windows：<a href="https://www.18bit.cn/help-docs/help-docs-windows.html">https://www.18bit.cn/help-docs/help-docs-windows.html</a></p><p>浏览器(谷歌/微软/火狐)：<a href="https://www.18bit.cn/help-docs/help-docs-chrome.html">https://www.18bit.cn/help-docs/help-docs-chrome.html</a></p></blockquote><h2><span id="1231更新">12.31更新</span></h2><blockquote><p><strong>伪装APP ：因子之美</strong></p></blockquote><ul><li><p>官网：<a href="https://lbxxtv.com/">lbxxtv.com</a></p></li><li><p>解锁教程：</p><p>进入软件后，选择「联系我们」→ 输入暗号「野原新之助」，点击提交后会自动闪退，重新进入即可。</p></li><li><p>下载地址：<a href="https://apps.apple.com/cn/app/id6470121005">https://apps.apple.com/cn/app/id6470121005</a></p></li></ul><blockquote><p><strong>伪装APP ：数学小马达</strong></p></blockquote><ul><li><p>官网：<a href="http://peiqi.tv/">peiqi.tv</a></p></li><li><p>解锁教程：</p><p>进入软件后，选择「联系我们」→ 输入暗号「小猪佩奇」，点击提交后会自动闪退，重新进入即可。</p></li><li><p>下载地址：<a href="https://apps.apple.com/us/app/id6474478690">https://apps.apple.com/us/app/id6474478690</a></p></li></ul><h2><span id="82更新">8.2更新</span></h2><blockquote><p><strong>伪装APP ：星空梦境（推荐，无广告）</strong></p></blockquote><ul><li><p>解锁教程：</p><p>进入软件后，选择「解释说明」→ 「右上角叹号按钮」→ 输入暗号「土豆盒子」，点击提交后会自动闪退，重新进入即可。</p></li><li><p>下载地址：<a href="https://apps.apple.com/cn/app/id6451370603">https://apps.apple.com/cn/app/id6451370603</a></p></li></ul><blockquote><p><strong>伪装APP：易水成长计划（推荐，广告较少）</strong></p></blockquote><ul><li><p>解锁教程：</p><p>进入软件后，连续点击上方「Plan Sharing」5次以上会自动变身。</p></li><li><p>下载地址：<a href="https://apps.apple.com/cn/app/id6450494267">https://apps.apple.com/cn/app/id6450494267</a></p></li></ul><blockquote><p><strong>伪装APP：到店预约宝（推荐，广告较少）</strong></p></blockquote><ul><li><p>解锁教程：</p><p>进入软件后，右上角设置→ 意见反馈框中输入暗号「皮皮真不错」，点击「反馈」后会自动闪退，重新进入即可。</p></li><li><p>下载地址：<a href="https://apps.apple.com/cn/app/id6450675026">https://apps.apple.com/cn/app/id6450675026</a></p></li></ul><h2><span id="719更新">7.19更新</span></h2><blockquote><p><strong>伪装APP：飞豹书架（推荐，广告较少）</strong></p></blockquote><ul><li><p>解锁教程：</p><p>打开app后，上滑把这款app清理后台，然后重新进入即可</p></li><li><p>下载地址：</p><p><a href="https://apps.apple.com/cn/app/id6450988067">‎飞豹书架</a></p></li></ul><blockquote><p><strong>伪装APP：找不同合相同（广告较多）</strong></p></blockquote><ul><li><p>解锁教程：</p><p>进入软件后，「反馈」→ 输入暗号「可达鸭666」，提交后会自动闪退，重新进入即可。</p></li><li><p>下载地址：<a href="https://apps.apple.com/cn/app/id6450794077">‎找不同合相同</a></p></li></ul><blockquote><p><strong>伪装APP：我的打卡（广告较多）</strong></p></blockquote><ul><li><p>解锁教程：</p><p>进入软件后，右上角「添加习惯」，习惯命名内输入「agdd」后右上角完成即可</p></li><li><p>下载地址：<a href="https://apps.apple.com/cn/app/id6451301973">‎我的打卡</a></p></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;如若出现「目前你所在国家或地区尚不提供此App」字样，可以等待小帅下次分享。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;这类影视软件虽然免费，但是大部分都会嵌入广告来维持服务器的费用&lt;/p&gt;
-&lt;p&gt;这里小帅提供一种&lt;strong&gt;通用的去广告方法&lt;</summary>
-      
-    
-    
-    
-    <category term="iOS" scheme="https://xiaoshuai.link/categories/iOS/"/>
-    
-    
-    <category term="iOS" scheme="https://xiaoshuai.link/tags/iOS/"/>
     
   </entry>
   
