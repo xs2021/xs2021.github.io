@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://xiaoshuai.link/2021/05/07/iOS%E6%9C%80%E6%96%B0%E4%BC%AA%E8%A3%85APP(%E9%99%84%E5%8E%BB%E5%B9%BF%E5%91%8A%E6%96%B9%E6%B3%95)/</loc>
+    
+    <lastmod>2023-12-31</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://xiaoshuai.link/locker/index.html</loc>
     
     <lastmod>2023-11-02</lastmod>
@@ -109,7 +116,7 @@
 
   <url>
     <loc>https://xiaoshuai.link/</loc>
-    <lastmod>2023-11-02</lastmod>
+    <lastmod>2023-12-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -117,28 +124,35 @@
   
   <url>
     <loc>https://xiaoshuai.link/tags/%E8%B5%84%E6%BA%90/</loc>
-    <lastmod>2023-11-02</lastmod>
+    <lastmod>2023-12-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://xiaoshuai.link/tags/%E7%99%BE%E5%BA%A6%E4%BA%91%E4%B8%8D%E9%99%90%E9%80%9F/</loc>
-    <lastmod>2023-11-02</lastmod>
+    <lastmod>2023-12-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://xiaoshuai.link/tags/%E7%95%99%E8%A8%80/</loc>
-    <lastmod>2023-11-02</lastmod>
+    <lastmod>2023-12-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://xiaoshuai.link/tags/%E8%B6%8A%E7%8B%B1/</loc>
-    <lastmod>2023-11-02</lastmod>
+    <lastmod>2023-12-31</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://xiaoshuai.link/tags/iOS/</loc>
+    <lastmod>2023-12-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -147,28 +161,35 @@
   
   <url>
     <loc>https://xiaoshuai.link/categories/%E8%B5%84%E6%BA%90/</loc>
-    <lastmod>2023-11-02</lastmod>
+    <lastmod>2023-12-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://xiaoshuai.link/categories/%E7%99%BE%E5%BA%A6%E4%BA%91%E4%B8%8D%E9%99%90%E9%80%9F/</loc>
-    <lastmod>2023-11-02</lastmod>
+    <lastmod>2023-12-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://xiaoshuai.link/categories/%E7%95%99%E8%A8%80/</loc>
-    <lastmod>2023-11-02</lastmod>
+    <lastmod>2023-12-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://xiaoshuai.link/categories/%E8%B6%8A%E7%8B%B1/</loc>
-    <lastmod>2023-11-02</lastmod>
+    <lastmod>2023-12-31</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://xiaoshuai.link/categories/iOS/</loc>
+    <lastmod>2023-12-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>

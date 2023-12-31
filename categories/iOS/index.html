@@ -7,7 +7,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="标签: 资源, zh-CN">
+    <meta name="keywords" content="分类: iOS, zh-CN">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -19,7 +19,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>标签: 资源 | 小帅同学的博客</title>
+    <title>分类: iOS | 小帅同学的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -225,82 +225,246 @@
 
     
 
-<div id="tags" class="container chip-container">
+<style>
+/* 文章分类书本样式 */
+.chip-container .tag-chips {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.chip-container .tag-chips a {
+    margin: 0 7px 10px;
+}
+
+.chip-container .chip {
+    max-width: calc(100% / 4);
+    min-width: 10em;
+    height: 200px;
+    position: relative;
+    transition: .5s linear;
+    padding: 19px 0;
+    line-height: 20px;
+    z-index: 990;
+    border-radius: 5px 15px 15px 5px;
+    transform-origin: left center 0;
+}
+
+.chip-container .notebook-cover::before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: calc(100% + 2px);
+    top: -1px;
+    z-index: 100;
+    border-radius: 2px;
+    right: 25px;
+    transition: 2s ease;
+    /* background: linear-gradient(to right,#9c2e2b 0,#cc4b48 12%,#9c2e2b 25%,#cc4b48 37%,#9c2e2b 50%,#cc4b48 62%,#9c2e2b 75%,#cc4b48 87%,#9c2e2b 100%); */
+    background: linear-gradient(to right, #1e606e 0, #2e95aa 12%, #1e606e 25%, #2e95aa 37%, #1e606e 50%, #2e95aa 62%, #1e606e 75%, #2e95aa 87%, #1e606e 100%);
+}
+
+.chip .notebook-skin {
+    height: 50px;
+    width: 100%;
+    background: #e8e8e0;
+    margin-top: 42px;
+    padding: 10px 32px 64px 10px;
+    font-size: 19px;
+    position: relative;
+    z-index: 10;
+    color: #222;
+    text-align: left;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .2);
+}
+
+.chip .notebook-skin:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 15px;
+    left: 0;
+    bottom: 0;
+    background: #cddc39;
+}
+
+.notebook-cover {
+    background: #cc4b48;
+    height: 200px;
+    width: 140px;
+    position: absolute;
+    border-radius: 5px 15px 15px 5px;
+    z-index: 10;
+    transition: .5s linear;
+    transform-style: preserve-3d;
+    transform-origin: left center 0;
+}
+
+.moleskine-wrapper {
+    max-width: calc(100% / 4);
+    min-width: 10em;
+}
+
+.moleskine-notebook:hover .notebook-cover {
+    transform: rotateY(-50deg);
+    z-index: 99;
+    box-shadow: 20px 10px 50px rgba(0, 0, 0, .2);
+}
+
+.moleskine-notebook {
+    height: 200px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    transition: .5s linear;
+    border-radius: 5px 15px 15px 5px;
+    transform-origin: left center 0;
+}
+
+.moleskine-notebook:hover {
+    transform: rotateZ(-10deg);
+}
+
+.notebook-page.dotted {
+    background: linear-gradient(to bottom, #fbfae8 9px, #e4e4e4 1px);
+    background-size: 100% 10px;
+}
+
+.chip-container .chip:hover {
+    background: none;
+}
+
+.notebook-page {
+    height: 100%;
+    width: 140px;
+    position: absolute;
+    top: 10px;
+    background-color: #fbfae8;
+    z-index: 0;
+    border-radius: 5px 16px 16px 5px;
+    overflow: hidden;
+}
+</style>
+
+<div id="category-cloud" class="container chip-container">
     <div class="card">
         <div class="card-content">
             <div class="tag-title center-align">
-                <i class="fas fa-tags"></i>&nbsp;&nbsp;文章标签
+                <i class="fas fa-bookmark"></i>&nbsp;&nbsp;文章分类
             </div>
             <div class="tag-chips">
                 
                 
-                <a href="/tags/%E8%B5%84%E6%BA%90/" title="资源: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-active "
-                            data-tagname="资源" style="background-color: #F9EBEA;">资源
-                        <span class="tag-length">1</span>
-                    </span>
+                
+                <a href="/categories/%E8%B5%84%E6%BA%90/" title="资源: 1">
+                <!--  文章分类书本样式 -->
+					<div class="moleskine-wrapper">
+						<div class="moleskine-notebook">
+							<div class="chip notebook-cover center-align waves-effect waves-light  chip-default " style="background-color: #F9EBEA;">
+								<div class="notebook-skin  chip-default ">
+									资源
+								</div>
+							</div>
+							<div class="notebook-page dotted"></div>
+						</div>
+					</div>
                 </a>
                 
                 
-                <a href="/tags/%E7%99%BE%E5%BA%A6%E4%BA%91%E4%B8%8D%E9%99%90%E9%80%9F/" title="百度云不限速: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="百度云不限速" style="background-color: #F5EEF8;">百度云不限速
-                        <span class="tag-length">1</span>
-                    </span>
+                <a href="/categories/%E7%99%BE%E5%BA%A6%E4%BA%91%E4%B8%8D%E9%99%90%E9%80%9F/" title="百度云不限速: 1">
+                <!--  文章分类书本样式 -->
+					<div class="moleskine-wrapper">
+						<div class="moleskine-notebook">
+							<div class="chip notebook-cover center-align waves-effect waves-light  chip-default " style="background-color: #F5EEF8;">
+								<div class="notebook-skin  chip-default ">
+									百度云不限速
+								</div>
+							</div>
+							<div class="notebook-page dotted"></div>
+						</div>
+					</div>
                 </a>
                 
                 
-                <a href="/tags/%E7%95%99%E8%A8%80/" title="留言: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="留言" style="background-color: #D5F5E3;">留言
-                        <span class="tag-length">1</span>
-                    </span>
+                <a href="/categories/%E7%95%99%E8%A8%80/" title="留言: 1">
+                <!--  文章分类书本样式 -->
+					<div class="moleskine-wrapper">
+						<div class="moleskine-notebook">
+							<div class="chip notebook-cover center-align waves-effect waves-light  chip-default " style="background-color: #D5F5E3;">
+								<div class="notebook-skin  chip-default ">
+									留言
+								</div>
+							</div>
+							<div class="notebook-page dotted"></div>
+						</div>
+					</div>
                 </a>
                 
                 
-                <a href="/tags/%E8%B6%8A%E7%8B%B1/" title="越狱: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="越狱" style="background-color: #E8F8F5;">越狱
-                        <span class="tag-length">1</span>
-                    </span>
+                <a href="/categories/%E8%B6%8A%E7%8B%B1/" title="越狱: 1">
+                <!--  文章分类书本样式 -->
+					<div class="moleskine-wrapper">
+						<div class="moleskine-notebook">
+							<div class="chip notebook-cover center-align waves-effect waves-light  chip-default " style="background-color: #E8F8F5;">
+								<div class="notebook-skin  chip-default ">
+									越狱
+								</div>
+							</div>
+							<div class="notebook-page dotted"></div>
+						</div>
+					</div>
                 </a>
                 
                 
-                <a href="/tags/iOS/" title="iOS: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="iOS" style="background-color: #FEF9E7;">iOS
-                        <span class="tag-length">1</span>
-                    </span>
+                <a href="/categories/iOS/" title="iOS: 1">
+                <!--  文章分类书本样式 -->
+					<div class="moleskine-wrapper">
+						<div class="moleskine-notebook">
+							<div class="chip notebook-cover center-align waves-effect waves-light  chip-active " style="background-color: #FEF9E7;">
+								<div class="notebook-skin  chip-active ">
+									iOS
+								</div>
+							</div>
+							<div class="notebook-page dotted"></div>
+						</div>
+					</div>
                 </a>
+                
                 
             </div>
         </div>
     </div>
 </div>
 
+
     
 
     <article id="articles" class="container articles">
         <div class="row tags-posts">
             
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="资源" data-aos="fade-up">
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/05/07/10TB%E8%B5%84%E6%BA%90%EF%BC%88%E5%86%85%E6%B6%B5%E5%A4%9A%E9%87%8D%E7%A6%8F%E5%88%A9%EF%BC%89/">
+                    <a href="/2021/05/07/iOS%E6%9C%80%E6%96%B0%E4%BC%AA%E8%A3%85APP(%E9%99%84%E5%8E%BB%E5%B9%BF%E5%91%8A%E6%96%B9%E6%B3%95)/">
                         <div class="card-image tag-image">
                             
                             
-                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="几十TB 资源（内涵多重福利）">
+                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="iOS最新伪装APP(附去广告方法)">
                             
-                            <span class="card-title">几十TB 资源（内涵多重福利）</span>
+                            <span class="card-title">iOS最新伪装APP(附去广告方法)</span>
                         </div>
                     </a>
                     <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+如若出现「目前你所在国家或地区尚不提供此App」字样，可以等待小帅下次分享。
+
+这类影视软件虽然免费，但是大部分都会嵌入广告来维持服务器的费用
+这里小帅提供一种通用的去广告方法（可去除大部分APP开屏/网页）：修改DNS服务器
+DNS服务
+                            
+                        </div>
                         <div class="publish-info">
                             <span class="publish-date">
                                 <i class="far fa-clock fa-fw icon-date"></i>2021-05-07
@@ -309,14 +473,24 @@
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E8%B5%84%E6%BA%90/" class="post-category">
-                                资源
+                                <a href="/categories/iOS/" class="post-category">
+                                    iOS
                                 </a>
                                 
                                 
                             </span>
                         </div>
                     </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/iOS/">
+                            <span class="chip bg-color">iOS</span>
+                        </a>
+                        
+                    </div>
+                    
                 </div>
             </div>
             
