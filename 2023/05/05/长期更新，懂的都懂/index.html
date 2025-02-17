@@ -191,19 +191,6 @@
 </header>
 
     
-<script src="/libs/cryptojs/crypto-js.min.js"></script>
-<script>
-    (function() {
-        let pwd = '36a71a5bca2513f92fc85544531b1605c3515ee5f6039882db0b17b05082652f';
-        if (pwd && pwd.length > 0) {
-            if (pwd !== CryptoJS.SHA256(prompt('获取本文章的密码，关注微信公众号：小帅随笔，回复：yy')).toString(CryptoJS.enc.Hex)) {
-                alert('密码错误，将返回主页！');
-                location.href = '/';
-            }
-        }
-    })();
-</script>
-
 
 
 
@@ -392,7 +379,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2024-07-13
+                    2025-02-17
                 </div>
                 
 
@@ -421,21 +408,18 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>该教程在博客上已经公开分享了 3 年（于 2021.05.05 发布），目前已经非常完善</p>
-<p>2024.05.01 起不再公开分享，有需要的可发送关键词到下方邮箱（<strong>免费共享、自动回复</strong>）</p>
-<blockquote>
-<p><strong>邮箱：</strong></p>
-<ul>
-<li><a href="mailto:&#x62;&#111;&#116;&#50;&#48;&#x32;&#52;&#64;&#x71;&#x71;&#x2e;&#x63;&#111;&#x6d;">&#x62;&#111;&#116;&#50;&#48;&#x32;&#52;&#64;&#x71;&#x71;&#x2e;&#x63;&#111;&#x6d;</a></li>
-<li><a href="mailto:&#x62;&#x6f;&#116;&#95;&#x32;&#x30;&#x32;&#52;&#64;&#x66;&#111;&#120;&#x6d;&#97;&#x69;&#108;&#46;&#x63;&#x6f;&#109;">&#x62;&#x6f;&#116;&#95;&#x32;&#x30;&#x32;&#52;&#64;&#x66;&#111;&#120;&#x6d;&#97;&#x69;&#108;&#46;&#x63;&#x6f;&#109;</a></li>
-</ul>
-<p><strong>关键词：yy</strong></p>
-</blockquote>
-<p><strong>邮件回复后会在文档中提供单独的访问密码，请留意。</strong></p>
-<p><strong>教程已经很详细了，请自行摸索，在公众号中小帅一律不回答此类问题。</strong></p>
-<p>小白务必把第一篇和第三篇文章看完。</p>
-<p>若有不懂的地方建议先跟着教程操作一遍，实在搞不定再去<a href="https://mp.weixin.qq.com/s/BeBmjuR7pEBxAxcRpioUfA">QQ频道</a>提问（注意用词）</p>
-
+                <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="💡密码错误哦，请根据提示获取！" data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="400005f23140f24246d364a04bd79fbcd7be82d778b20c981caf8d78b07c22f1">31c36449d9bfb570fec2008cb0060e9b10252ce73a3d7d7da19f0c596d6b663b4246dbb532226bd931c50089b79f6103fb5ddd6bac5585e8a0c899cf6642031885d7eb9e72e42c47c36fc36e32a0b543af7b351c6164f77bfe5754305097c44e3e20f663c99e26de9a32494da674a5dfbb7e7d08f0a09e37c1655e138ca125d3857cd04b75e302faa37aed90578c1c41566a04312ce22bd3ac1b54b965c0c3078c76dfd1974d37bd1e669fb0716d2d5ab94b7f810329c0a06a477e27b8d9ce1a32ebe980dc4c1c479854b5c1f8edd43b46554c630136629cde5f4e540627a64e76f66ef5a4607eca36aee1cf816d3803e89913d12518c19af7936f0242fb66c5658af2215dd29ea3eb59c1bc6b8a560d310e8bbf382da053955445da84272ce38023916008f434c0969e7b80637d4c75bd4b47e728f7baeff68cf056bd582754015c30c9cb2245eb20da46809e8de8bedbf1e3032330d434f00aca5580fc9e1dd08bcb2780c2da30fd372343cb141786f77e7408272e6fd2143ac6d73b2a25c0ca225353e2ec6f7446cf7806c0a36c24443a38d030e9c447593631a9025d55bf9130304d836eb0d2bc830501b4be0d30027503350e0d059d0dd0b5601e3d27701e9069cff0cf632c8a49aa01de37540eb66f502d0af58ee4b644253afec32764dbac9e2780fcee0be8abbabc4ae5e406a75f67b251969b33de6993db0107f165d8659313ac771bac61e4adafeb1239f63f561704c4ab913757e9614eb53451563040d4c2eb3686633bc5f4898cd4a67c961e1031b5dfed24abde3093624f54d31874e374d8bed4bc2691aba0c609a30022da27c4e0e848c7c842d422d51946fba6ae0e6b52060f0eddb1171026ddf79bd17a7772a462513b997978c085aedaa94764f22023ad4869d95e281ea78bf41846f14bf56068f5a0e3a06042f9a1399aeb5d9c2786cfb6c981ae3a947c024baed8fbc6ef9e8c1a43c4eb5c866e3fc619ef1ce35e043fe4947dd149e46dace5477cb2a1ad04f7fb76d927e91fdcc9520d9d0b0a75e9929a28aa438f71caa3fa2bf491ecbafdb95dd8b9dbc954641a7df45870f03bfb8b9450b3ed6a22646082d07f560c38ac5d51f7b0e715a07337d8b09f5e770e38652c9e8c4c07597fd1e6d887c08c5250884eafe3e3a5aee5727ca3a84469a1beda772a427c843250152dac8543ecb6cae912333e7c74c703b5d3ef22a75f3153570792983af60152b44ab3e4e21b7774bf4d98ce9108946aa66f8394a54e555653e02c4f7f9a07e5b41b0c304c0c8c292dd9d8ba0785a63ffb5314c458dbf1893860757c6b012528050fcee94e1587fa9caaefd19b7e31fcd161dfb25bac2572a984b449978a1aca2b1a51bbd22061f1aed95193fc70f5c349ae87fcd27af4d60d52546c418c405ffab01cfa8a6591d1917865f048a7aebf0479c1ea74aa3edb271ccdd11b4b235625c8d891db2136330e4cbad848f514ba098a1d24fa53dab1f8bb35b3ac0fce77a092d6724c19713f8b5138bdb1f3cef9eb9b22f7ccbebb0aa0bf1fff90a1828bc43cf69b68b238c89686858b9f9b796c166e752bbf27ad091192e3c70b46467b9cff2f96dd609a95d8df7e93b713671a0ba1d7d53243b1b578112231e604d2a4123846ab896e9f965eca74836319caaf9d4450e17a8f946bbb6a32ae0abb15262d7e14ddb06809c0210e632c8ac066e2d586bda152a127dcd043b24020adf1aeb5376cc16dddfafaefd509c50d21de94455653af090129d49c98c4fb6441ce09cc43e935eeed445b357e6820e8a12205850511fbeaa6d0b1f3a8f40578be27abf5ad24</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-shrink">
+      <input class="hbe hbe-input-field hbe-input-field-shrink" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-shrink" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-shrink">🔐请输入密码！获取本文密码，公众号-小帅随笔，回复：yy</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
                 
             </div>
             <hr/>
