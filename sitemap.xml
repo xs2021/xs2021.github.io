@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://xiaoshuai.link/room/index.html</loc>
+    
+    <lastmod>2025-02-23</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xiaoshuai.link/2021/05/06/1.%20%E7%BF%BB%E7%89%86%E7%A7%91%E6%99%AE/</loc>
+    
+    <lastmod>2025-02-22</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xiaoshuai.link/2021/05/06/2.%20%E4%B8%80%E9%94%AE%E7%A7%91%E5%AD%A6/</loc>
+    
+    <lastmod>2025-02-22</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xiaoshuai.link/2021/05/06/3.%20%E9%AD%94%E6%B3%95%E6%8E%A8%E8%8D%90&%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%EF%BC%88%E9%95%BF%E6%9C%9F%E6%9B%B4%E6%96%B0%EF%BC%89/</loc>
+    
+    <lastmod>2025-02-22</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://xiaoshuai.link/2024/05/06/%E5%85%A8%E7%BD%91%E7%9A%84PDF%E7%94%B5%E5%AD%90%E4%B9%A6%E4%BB%BB%E4%BD%A0%E4%B8%8B%E8%BD%BD%E3%80%902025%E6%9C%80%E6%96%B0%E3%80%91/</loc>
     
     <lastmod>2025-02-18</lastmod>
@@ -23,37 +51,9 @@
   </url>
   
   <url>
-    <loc>https://xiaoshuai.link/2021/05/06/3.%20%E9%AD%94%E6%B3%95%E6%8E%A8%E8%8D%90&%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%EF%BC%88%E9%95%BF%E6%9C%9F%E6%9B%B4%E6%96%B0%EF%BC%89/</loc>
-    
-    <lastmod>2025-02-18</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://xiaoshuai.link/2021/05/06/2.%20%E4%B8%80%E9%94%AE%E7%A7%91%E5%AD%A6/</loc>
-    
-    <lastmod>2025-02-18</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://xiaoshuai.link/2021/05/06/1.%20%E7%BF%BB%E7%89%86%E7%A7%91%E6%99%AE/</loc>
-    
-    <lastmod>2025-02-18</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://xiaoshuai.link/2024/02/20/ChatGPT_Plus%E6%9C%80%E6%96%B0(2025)%E5%8D%87%E7%BA%A7%E6%95%99%E7%A8%8B/</loc>
     
     <lastmod>2025-02-17</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://xiaoshuai.link/locker/index.html</loc>
-    
-    <lastmod>2025-01-29</lastmod>
     
   </url>
   
@@ -107,28 +107,7 @@
   </url>
   
   <url>
-    <loc>https://xiaoshuai.link/about/index.html</loc>
-    
-    <lastmod>2021-08-19</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://xiaoshuai.link/contact/index.html</loc>
-    
-    <lastmod>2021-08-15</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://xiaoshuai.link/categories/index.html</loc>
-    
-    <lastmod>2021-05-07</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://xiaoshuai.link/tags/index.html</loc>
     
     <lastmod>2021-05-07</lastmod>
     
@@ -144,7 +123,7 @@
 
   <url>
     <loc>https://xiaoshuai.link/</loc>
-    <lastmod>2025-02-18</lastmod>
+    <lastmod>2025-02-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -152,49 +131,49 @@
   
   <url>
     <loc>https://xiaoshuai.link/tags/%E8%B5%84%E6%BA%90/</loc>
-    <lastmod>2025-02-18</lastmod>
+    <lastmod>2025-02-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://xiaoshuai.link/tags/ChatGPT/</loc>
-    <lastmod>2025-02-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://xiaoshuai.link/tags/PDF/</loc>
-    <lastmod>2025-02-18</lastmod>
+    <lastmod>2025-02-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://xiaoshuai.link/tags/iOS/</loc>
-    <lastmod>2025-02-18</lastmod>
+    <lastmod>2025-02-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://xiaoshuai.link/tags/%E7%95%99%E8%A8%80/</loc>
-    <lastmod>2025-02-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://xiaoshuai.link/tags/%E7%99%BE%E5%BA%A6%E4%BA%91%E4%B8%8D%E9%99%90%E9%80%9F/</loc>
-    <lastmod>2025-02-18</lastmod>
+    <loc>https://xiaoshuai.link/tags/PDF/</loc>
+    <lastmod>2025-02-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://xiaoshuai.link/tags/%E8%B6%8A%E7%8B%B1/</loc>
-    <lastmod>2025-02-18</lastmod>
+    <lastmod>2025-02-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://xiaoshuai.link/tags/%E7%99%BE%E5%BA%A6%E4%BA%91%E4%B8%8D%E9%99%90%E9%80%9F/</loc>
+    <lastmod>2025-02-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://xiaoshuai.link/tags/%E7%95%99%E8%A8%80/</loc>
+    <lastmod>2025-02-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -203,49 +182,49 @@
   
   <url>
     <loc>https://xiaoshuai.link/categories/%E8%B5%84%E6%BA%90/</loc>
-    <lastmod>2025-02-18</lastmod>
+    <lastmod>2025-02-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://xiaoshuai.link/categories/ChatGPT/</loc>
-    <lastmod>2025-02-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://xiaoshuai.link/categories/PDF/</loc>
-    <lastmod>2025-02-18</lastmod>
+    <lastmod>2025-02-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://xiaoshuai.link/categories/iOS/</loc>
-    <lastmod>2025-02-18</lastmod>
+    <lastmod>2025-02-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://xiaoshuai.link/categories/%E7%95%99%E8%A8%80/</loc>
-    <lastmod>2025-02-18</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://xiaoshuai.link/categories/%E7%99%BE%E5%BA%A6%E4%BA%91%E4%B8%8D%E9%99%90%E9%80%9F/</loc>
-    <lastmod>2025-02-18</lastmod>
+    <loc>https://xiaoshuai.link/categories/PDF/</loc>
+    <lastmod>2025-02-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://xiaoshuai.link/categories/%E8%B6%8A%E7%8B%B1/</loc>
-    <lastmod>2025-02-18</lastmod>
+    <lastmod>2025-02-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://xiaoshuai.link/categories/%E7%99%BE%E5%BA%A6%E4%BA%91%E4%B8%8D%E9%99%90%E9%80%9F/</loc>
+    <lastmod>2025-02-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://xiaoshuai.link/categories/%E7%95%99%E8%A8%80/</loc>
+    <lastmod>2025-02-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
