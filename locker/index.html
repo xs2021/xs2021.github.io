@@ -542,6 +542,8 @@
       position: sticky;
       bottom: 0; /* Align to the bottom */
       width: 100%; /* Make it responsive */
+      /* 添加边框颜色，这里使用 --primary-color 作为示例 */
+      border: 2px solid var(--primary-color); 
     }
 
     .wechat-image {
@@ -553,7 +555,7 @@
     }
 
     .wechat-title {
-      font-size: 14px;    /* 字体稍微小一点 */
+      font-size: 16px;    /* 字体稍微小一点 */
       color: var(--text-primary);
       margin: 6px 0;
       text-align: center;
@@ -4542,13 +4544,12 @@
 
   </div>
 
-  <!-- 微信公众号展示 -->
+   <!-- 微信公众号展示 -->
   <div class="wechat-section">
-    <img src="https://img.picui.cn/free/2025/03/02/67c40a530ebbb.png" class="wechat-image">
+    <!-- 修改为文字展示，可根据实际情况修改内容 -->
+    <p class="wechat-title">欢迎关注我的微信公众号: 小帅随笔</p>
   </div>
 
-  <!-- 图片备用：https://i.ibb.co/nqFy6fvk/image.png -->
-  <!-- 图片备用： -->
 
   <!-- 右侧悬浮按钮和侧边栏 -->
   <div id="floating-button" style="
@@ -4625,18 +4626,44 @@
       </div>
   </div>
 
-  <script>
+<script>
     let highlightIndex = -1;
     let highlightElements = [];
 
     function expandAll() {
-      const details = document.querySelectorAll('details');
-      details.forEach(detail => detail.open = true);
+        const details = document.querySelectorAll('details');
+        const batchSize = 10; // 每批处理的元素数量
+        let index = 0;
+
+        // 禁用过渡效果
+        document.documentElement.style.setProperty('--transition-speed', '0s');
+
+        function processBatch() {
+            for (let i = 0; i < batchSize && index < details.length; i++) {
+                details[index].open = true;
+                index++;
+            }
+
+            if (index < details.length) {
+                // 继续处理下一批
+                requestAnimationFrame(processBatch);
+            } else {
+                // 操作完成后恢复过渡效果
+                document.documentElement.style.setProperty('--transition-speed', '0.2s');
+            }
+        }
+
+        // 开始处理第一批
+        requestAnimationFrame(processBatch);
     }
 
     function collapseAll() {
-      const details = document.querySelectorAll('details');
-      details.forEach(detail => detail.open = false);
+        const details = document.querySelectorAll('details');
+        // 禁用过渡效果
+        document.documentElement.style.setProperty('--transition-speed', '0s');
+        details.forEach(detail => detail.open = false);
+        // 操作完成后恢复过渡效果
+        document.documentElement.style.setProperty('--transition-speed', '0.2s');
     }
 
     function searchAndHighlight() {
