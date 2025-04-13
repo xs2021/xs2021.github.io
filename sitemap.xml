@@ -172,6 +172,13 @@
   </url>
   
   <url>
+    <loc>https://xiaoshuai.link/tags/PDF/</loc>
+    <lastmod>2025-04-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://xiaoshuai.link/tags/iOS/</loc>
     <lastmod>2025-04-13</lastmod>
     <changefreq>daily</changefreq>
@@ -179,7 +186,7 @@
   </url>
   
   <url>
-    <loc>https://xiaoshuai.link/tags/PDF/</loc>
+    <loc>https://xiaoshuai.link/tags/%E8%8B%B1%E8%AF%AD/</loc>
     <lastmod>2025-04-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -206,13 +213,6 @@
     <priority>0.6</priority>
   </url>
   
-  <url>
-    <loc>https://xiaoshuai.link/tags/%E8%8B%B1%E8%AF%AD/</loc>
-    <lastmod>2025-04-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
 
   
   <url>
@@ -230,6 +230,13 @@
   </url>
   
   <url>
+    <loc>https://xiaoshuai.link/categories/PDF/</loc>
+    <lastmod>2025-04-13</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://xiaoshuai.link/categories/iOS/</loc>
     <lastmod>2025-04-13</lastmod>
     <changefreq>daily</changefreq>
@@ -237,7 +244,7 @@
   </url>
   
   <url>
-    <loc>https://xiaoshuai.link/categories/PDF/</loc>
+    <loc>https://xiaoshuai.link/categories/%E8%8B%B1%E8%AF%AD/</loc>
     <lastmod>2025-04-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -259,13 +266,6 @@
   
   <url>
     <loc>https://xiaoshuai.link/categories/%E8%B6%8A%E7%8B%B1/</loc>
-    <lastmod>2025-04-13</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://xiaoshuai.link/categories/%E8%8B%B1%E8%AF%AD/</loc>
     <lastmod>2025-04-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
