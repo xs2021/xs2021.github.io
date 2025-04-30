@@ -37,7 +37,7 @@
       --primary-dark: #42A5F5;
       --primary-light: #1E88E5;
       --accent-color:rgba(238, 83, 83, 0.99);
-      --text-primary: #c6c6a1;
+      --text-primary: #FFFFFF;
       --text-secondary: #B0BEC5;
       --divider-color: #121212;
       --background-primary: #121212;
@@ -212,9 +212,8 @@
 
     /* 容器样式 */
     .content-container {
-      max-width: 100%;
-      overflow-x: hidden; /* 隐藏横向滚动条 */
-      width: 100%; /* 确保宽度为视口宽度 */
+      padding: 0px 8px 0px 16px;
+      margin-left: 16px;
     }
 
     details[open] {
@@ -359,6 +358,10 @@
     }
 
     @media (max-width: 767px) {
+    /* 移动端样式 */
+      .sidebar-ad {
+        width: 80%; /* 减小侧边栏宽度 */
+      }
       body {
         padding: 12px;
       }
