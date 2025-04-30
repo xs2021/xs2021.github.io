@@ -206,13 +206,15 @@
     /* 限制内容最大宽度 */
     .content {
       max-width: 100%;
-      overflow-x: auto; /* 当内容宽度超过最大宽度时，显示横向滚动条 */
+      overflow-x: hidden; /* 隐藏横向滚动条 */
+      width: 100%; /* 确保宽度为视口宽度 */
     }
 
     /* 容器样式 */
     .content-container {
-      padding: 0px 8px 0px 16px;
-      margin-left: 16px;
+      max-width: 100%;
+      overflow-x: hidden; /* 隐藏横向滚动条 */
+      width: 100%; /* 确保宽度为视口宽度 */
     }
 
     details[open] {
@@ -357,9 +359,10 @@
     }
 
     @media (max-width: 767px) {
-    /* 移动端样式 */
-      .sidebar-ad {
-        width: 80%; /* 减小侧边栏宽度 */
+      /* 移动端样式 */
+      * {
+        box-sizing: border-box;
+        max-width: 100%; /* 限制所有元素最大宽度为视口宽度 */
       }
       body {
         padding: 12px;
