@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <!-- 添加网站图标 -->
+  <link rel="icon" href="https://pic1.imgdb.cn/item/6810e9c958cb8da5c8d4a0e8.webp" type="image/x-icon">
   <title>小帅同学的储物间</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap">
   <style>
@@ -39,7 +41,7 @@
       --divider-color: #121212;
       --background-primary: #121212;
       --background-secondary: #1E1E1E;
-      --background-three: #a8becf;
+      --background-three:rgb(0, 0, 0);
       --folder-color: #FFD54F;
       --subfolder-color:rgba(51, 190, 67, 0.93);
       --file-color: #B0BEC5;
@@ -391,8 +393,9 @@
     ::-webkit-scrollbar-thumb:hover {
       background: var(--primary-dark);
     }
-      .info-section {
+    .info-section {
       display: flex;
+      flex-direction: row; /* 修改为垂直布局 */
       justify-content: space-between;
       align-items: center;
       background-color: var(--background-secondary);
@@ -448,19 +451,7 @@
       font-size: 16px;
     }
 
-    @media (max-width: 767px) {
-      .info-section {
-        flex-direction: column;
-        gap: 8px;
-      }
-
-      .info-left, .info-right {
-        width: 100%;
-        justify-content: center;
-      }
-    }
-
-    /* 修改信息显示区域样式 */
+     /* 公共的 .info-section 样式 */
     .info-section {
       display: flex;
       justify-content: space-between;
@@ -472,20 +463,61 @@
       gap: 8px;  /* Add gap between items */
     }
 
-    .datetime-display {
-      color: var(--text-primary);
-      font-size: 14px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
+   @media (max-width: 767px) {
+      .info-section {
+        padding: 4px; /* 最小内边距 */
+        display: flex;
+        justify-content: space-between; /* 两端对齐 */
+        width: auto; /* 让宽度由内容决定 */
+        gap: 4px; /* 最小间距 */
+      }
 
-    .user-display {
-      color: var(--text-primary);
-      font-size: 14px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      .datetime-display {
+        font-size: 12px;
+        white-space: nowrap; /* 防止文字换行 */
+      }
+
+      /* 移除不必要的空白和边距 */
+      .info-left, 
+      .info-right {
+        margin: 0;
+        padding: 0;
+        gap: 4px;
+      }
+
+    .theme-button {
+        all: unset; /* 重置所有样式 */
+        width: 20px !important; /* 强制应用宽度 */
+        height: 20px !important; /* 强制应用高度 */
+        min-width: unset !important; /* 移除最小宽度 */
+        background-color: var(--primary-color);
+        border-radius: 4px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        padding: 0;
+        margin: 0;
+      }
+      /* 强制应用紧凑布局 */
+      .control-panel-inner {
+        padding: 8px;
+      }
+      /* 确保主题图标不会导致按钮变大 */
+      #themeIcon {
+        font-size: 14px;
+        line-height: 1;
+        display: block;
+      }
+
+      .user-display {
+        color: var(--text-primary);
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
     }
 
     /* Theme button style modifications */
@@ -493,16 +525,16 @@
       background-color: var(--primary-color);
       color: white;
       border: none;
-      padding: 4px 8px;  /* Reduced padding */
+      padding: 4px;
       border-radius: var(--border-radius);
       cursor: pointer;
       display: flex;
       align-items: center;
-      min-width: auto;  /* Remove any minimum width */
-      width: 32px;      /* Set a fixed small width */
-      height: 32px;     /* Set a fixed height to make it square */
       justify-content: center;
-      font-size: 14px;
+      min-width: 32px;
+      width: 32px;
+      height: 32px;
+      font-size: 16px;
       transition: all 0.2s ease;
     }
 
@@ -666,18 +698,21 @@
   </style>
 </head>
 <body>
-      <!-- 修改控制面板部分 -->
-        <div class="control-panel">
-          <div class="control-panel-inner">
-            <!-- 修改信息显示区域的HTML结构 -->
-      <div class="info-section">
-        <div class="user-display">
-          <span>👤</span>
-          <span id="loginDisplay">作者：小帅同学</span>
-        </div>
-        <button class="theme-button" onclick="toggleTheme()" title="切换主题">
-          <span id="themeIcon">🌓</span>
-        </button>
+  <!-- 修改控制面板部分 -->
+    <div class="control-panel">
+      <div class="control-panel-inner">
+          
+        <!-- 修改信息显示区域的HTML结构 -->
+        <div class="info-section">
+          <!-- 添加最近更新日期显示 -->
+          <div class="datetime-display">
+            <span>👤</span>
+            <span id="lastUpdatedDate">更新：2025-04-30</span>
+          </div>
+          <!-- 添加主题切换按钮 -->
+          <button class="theme-button" onclick="toggleTheme()" title="切换主题">
+            <span id="themeIcon">🌓</span>
+          </button>
       </div>
 
       <div class="button-group">
@@ -697,7 +732,6 @@
       </div>
     </div>
   </div>
-
 
   <div class="content">
     <details class="indent-level-1"><summary><span class="folder-icon"></span>📢近期公告</summary>
@@ -731,8 +765,11 @@
 <p>2025.02.23 储物间全面更新，具体可查看文章：<a href="https://mp.weixin.qq.com/s/4iu8ZsqzpAzBF2PsrYgqww"><u>从永硕E盘到智能本地化管理：3次迭代的储物间有多能打！</u></a></p>
 <blockquote>
 <p>💨1，失效链接全部替换，标记❌的表示「需要魔法/失效网址」</p>
-<p>💨2，书签重新分类</p>
-<p>💨3，爆火 AI 栏增加大量可免费使用 DeepSeek 的第三方平台</p>
+<p>💨2，爆火 AI 栏增加大量可免费使用 DeepSeek 的第三方平台</p>
+<p>💨3，02-10-1 栏增加最新版离线下载的浏览器(谷歌、微软等)</p>
+<p>💨4，02-12 栏更新大批量 Adobe 全家桶下载地址</p>
+<p>💨5，07-05 栏更新大批量落雪音乐音源地址</p>
+<p>💨6，03-03 栏更新大批量电子书/漫画源地址</p>
 </blockquote>
 </div></details>
 <details class="indent-level-1"><summary><span class="folder-icon"></span>00 爆火 AI🔥</summary>
@@ -1226,6 +1263,7 @@
 <li>✅ <a href="https://pan.quark.cn/s/3cc59dd6bc8a">万兴PDF专家_v7.4.7.4726_简体中文绿铯特别版🌀夸克云</a>【✅ <a href="https://cloud.189.cn/t/6fIriqIjuQji">天翼云</a>】</li>
 <li>✅ <a href="https://pan.quark.cn/s/d40fe7cfbf00">福昕高级PDF编辑器_v9.7.1.29511_绿色精简版</a>【✅ <a href="https://pan.xunlei.com/s/VNVZf9WuRPg2e4D5C1m6MYBcA1">备，提取码：fycz</a>】</li>
 <li>✅ <a href="https://pan.quark.cn/s/1d8ad9d030bf">ABBYY FineReader Enterprise 14.0.107.212便携版🌀夸克云</a>【✅ <a href="https://cloud.189.cn/t/Rj2IZrNJvimm">天翼云</a>】</li>
+<li>✅ <a href="https://pan.quark.cn/s/b353d05aef09#/list/share">Adobe Acrobat Pro DC v2025.001.20458 PJ版 32位 &amp; 64位🌀夸克云</a>【✅ <a href="https://pan.baidu.com/share/init?surl=8K7KNVHXiKSb-4HFEOgfSg&amp;pwd=af1a">百度云</a>】</li>
 <li>✅ <a href="https://pan.quark.cn/s/4f0c07e2d651">Adobe Acrobat DC2018 多国语言特别版🌀夸克云</a>【✅ <a href="https://cloud.189.cn/t/i6BZrqnqMNBv">天翼云</a>】</li>
 <li>✅ <a href="https://pan.quark.cn/s/f9c77eb2d6fe">PDFdo_Converter3.0.0.0破解版🌀夸克云</a>【✅ <a href="https://cloud.189.cn/t/j2amMz7VFBfi">天翼云</a>】</li>
 <li>✅ <a href="https://pan.quark.cn/s/f969c418ed83">Sumatra快速查看PDF-3.2-64🌀夸克云</a>【✅ <a href="https://cloud.189.cn/t/m63aIjymumaa">天翼云</a>】</li>
@@ -1271,6 +1309,14 @@
 </div></details>
 <details class="indent-level-2"><summary><span class="folder-icon"></span>📂05 下载神器（磁力/视频/音乐/文库）</summary>
 <div class="content-container">
+<p>✅ <a href="https://www.yuque.com/docs/share/4fc7c1e2-82ca-4d42-916a-e104b8c71fe0">👍文库、CSDN等下载神器</a></p>
+<p>✅ <a href="https://github.com/bigintpro/csdn_downloader">👍CSDN资源&amp;文章下载器（稍微便宜点）</a></p>
+<p>✅ <a href="https://xtremedownloadmanager.com/">📥XDM官网「多线程下载器，IDM的替换首推」👍</a>【✅ <a href="https://github.com/subhra74/xdm">GitHub</a>】</p>
+<p>✅ <a href="https://neatdownload.com/">📥NDM官网「多线程下载器，IDM的替换」</a></p>
+<p>✅ <a href="https://www.freedownloadmanager.org/zh/">📥FDM中文官网「多线程下载器，IDM的替换」</a></p>
+<p>✅ <a href="https://github.com/PyJun/Mooc_Downloader/releases">📥学无止下载器-v1.9.3(支持慕课网,网易云课堂,中国大学,爱课程,学堂在线,超星视频及课件)</a></p>
+<p>✅ <a href="https://cloud.189.cn/t/UvQNRrArUj6b">📥WeChatDownload（微信公众号文章下载）</a></p>
+<p>✅ <a href="https://gmengshuai.lanzoul.com/ivDaY0trz0mj">📥AntDM</a> 【<a href="https://antdownloadmanager.com">官网</a>】</p>
 <details class="indent-level-3"><summary><span class="folder-icon"></span>📂01.IDM下载神器🔥</summary>
 <div class="content-container">
 <ul>
@@ -1351,14 +1397,6 @@
 <li>✅ <a href="https://cloud.189.cn/t/7vYv6bYfMBja">【WIN】Xdown - 适用于Aria下载【官网：https://xdown.org</a></li>
 <li>✅ <a href="https://cloud.189.cn/t/qEZbqeeyqMFb">【WIN】Motrix - 适用于RPC下载【官网：https://motrix.app/zh-CN</a></li>
 </ul>
-<p>✅ <a href="https://www.yuque.com/docs/share/4fc7c1e2-82ca-4d42-916a-e104b8c71fe0">👍文库、CSDN等下载神器</a></p>
-<p>✅ <a href="https://github.com/bigintpro/csdn_downloader">👍CSDN资源&amp;文章下载器（稍微便宜点）</a></p>
-<p>✅ <a href="https://xtremedownloadmanager.com/">📥XDM官网「多线程下载器，IDM的替换首推」👍</a>【✅ <a href="https://github.com/subhra74/xdm">GitHub</a>】</p>
-<p>✅ <a href="https://neatdownload.com/">📥NDM官网「多线程下载器，IDM的替换」</a></p>
-<p>✅ <a href="https://www.freedownloadmanager.org/zh/">📥FDM中文官网「多线程下载器，IDM的替换」</a></p>
-<p>✅ <a href="https://github.com/PyJun/Mooc_Downloader/releases">📥学无止下载器-v1.9.3(支持慕课网,网易云课堂,中国大学,爱课程,学堂在线,超星视频及课件)</a></p>
-<p>✅ <a href="https://cloud.189.cn/t/UvQNRrArUj6b">📥WeChatDownload（微信公众号文章下载）</a></p>
-<p>✅ <a href="https://gmengshuai.lanzoul.com/ivDaY0trz0mj">📥AntDM</a> 【<a href="https://antdownloadmanager.com">官网</a>】</p>
 </div></details>
 </div></details>
 </div></details>
@@ -1534,13 +1572,6 @@
 <details class="indent-level-4"><summary><span class="folder-icon"></span>📂 PS—CC版本</summary>
 <div class="content-container">
 <ul>
-<li>✅ <a href="https://pan.baidu.com/share/init?surl=SramgG9mgfeThy16VswXLQ&amp;pwd=1111">Adobe 全套2025版本(windows)👍</a></li>
-<li>✅ <a href="https://pan.quark.cn/s/e6b67eded834#/list/share">Adobe 全套2025版本(windows)👍</a></li>
-<li>✅ <a href="https://pan.baidu.com/s/1L7VmU-pSFvdjj7D2m2oImw?pwd=2beo">Adobe 全套2025版本(windows)👍</a></li>
-<li>✅ <a href="https://pan.quark.cn/s/332939bc1ce8#/list/share">Adobe 全套2025版本(windows, 一键安装24套需要占用硬盘70GB左右)👍</a></li>
-<li>✅ <a href="https://pan.quark.cn/s/502da64f3072#/list/share">Adobe 全套2024版本(windows)👍</a></li>
-<li>✅ <a href="https://pan.quark.cn/s/ffb1ffd6ab10#/list/share">Adobe 全套2017-2023版本(windows)👍</a></li>
-<li>✅ <a href="https://pan.quark.cn/s/ec3c807cb51b#/list/share">Adobe 全套2021版本(windows)👍</a></li>
 <li>✅ <a href="https://pan.quark.cn/s/23460adf9ad0">Adobe Photoshop 2025 v26.3.0 绿色版</a></li>
 <li>✅ <a href="https://pan.quark.cn/s/d0158f44c183">Adobe Photoshop 2024 v25.12.0 绿色版</a></li>
 <li>✅ <a href="https://pan.quark.cn/s/74d773af278e#/list/share">Mac Photoshop 2025 v26.0 直装版本</a>【苹果电脑版】</li>
@@ -1572,7 +1603,7 @@
 <li>✅ <a href="https://pan.quark.cn/s/0ff2636aab5d#/list/share">Adobe CC 最新版 GenP激活器 v3.5👍</a></li>
 <li>✅ <a href="https://cloud.189.cn/t/jYBNj2IRFjmy">Adobe CC 2019+2020 GenP激活器 v2.4</a>【✅ <a href="https://pan.quark.cn/s/8fdbb856e1de">🌀夸克云</a>】</li>
 <li>✅ <a href="https://cloud.189.cn/t/2yiiQbuAZ3Uf">Adobe CC2019-2020 GenP v2.5.7</a>【✅ <a href="https://pan.quark.cn/s/92123eeb876c">🌀夸克云</a>】</li>
-<li>✅ <a href="https://cloud.189.cn/t/nQFvAbJbEv6r">Aodbe2020 破解工具 (1)</a>【✅ <a href="https://pan.quark.cn/s/f6c8d7ba6a31">🌀夸克云</a>】</li>
+<li>✅ <a href="https://cloud.189.cn/t/nQFvAbJbEv6r">Aodbe2020 激活工具 (1)</a>【✅ <a href="https://pan.quark.cn/s/f6c8d7ba6a31">🌀夸克云</a>】</li>
 </ul>
 </div></details>
 <details class="indent-level-4"><summary><span class="folder-icon"></span>📂03.PS插件</summary>
@@ -1612,7 +1643,7 @@
 <p>✅ <a href="https://cloud.189.cn/t/uEJRNbbMFjIf">国外超简单顶级抠图软件 Topaz ReMask</a>【✅ <a href="https://pan.quark.cn/s/9f8224454930">🌀夸克云</a>】</p>
 </li>
 <li>
-<p>✅ <a href="https://cloud.189.cn/t/BbiUFjiYZBji">👍图片无损放大工具PhotoZoom Pro 7.0.4 单文件破解版</a>【✅ <a href="https://pan.quark.cn/s/c8862d2a890b">🌀夸克云</a>】</p>
+<p>✅ <a href="https://cloud.189.cn/t/BbiUFjiYZBji">👍图片无损放大工具PhotoZoom Pro 7.0.4 单文件PJ版</a>【✅ <a href="https://pan.quark.cn/s/c8862d2a890b">🌀夸克云</a>】</p>
 </li>
 </ul>
 </div></details>
@@ -1672,7 +1703,7 @@
 <li>✅👍 <a href="https://pan.quark.cn/s/37f8ce26854e">Bandicam(班迪)_7.0.2.2138_64bit_Portable (2024-04-06更新)🌀夸克云</a></li>
 <li>✅ <a href="https://cloud.189.cn/t/Vzia2iBZZFFv">Bandicam(班迪)_5.0.2.1813_VIP </a></li>
 <li>✅ <a href="https://cloud.189.cn/t/bemIvmAnI732">Bandicam(班迪)v4.5.7.1660</a></li>
-<li>✅👍 <a href="https://cloud.189.cn/t/mEB7FbyYvYji">EVCapture 4.0.2单文件破解版(登录即VIP)</a>【✅ <a href="https://pan.quark.cn/s/5cae8b6a1788">🌀夸克云</a>】</li>
+<li>✅👍 <a href="https://cloud.189.cn/t/mEB7FbyYvYji">EVCapture 4.0.2单文件PJ版(登录即VIP)</a>【✅ <a href="https://pan.quark.cn/s/5cae8b6a1788">🌀夸克云</a>】</li>
 <li>✅ <a href="https://cloud.189.cn/t/Rviaumnm2YZj">EVCapture_3.8.4单文件版</a></li>
 <li>✅ <a href="https://cloud.189.cn/t/aIbaIfyyYnYb">EV录屏 3.7.1单文件版</a></li>
 <li>✅ <a href="https://cloud.189.cn/t/qeMzUbbeMjAb">oCam_v515.0_去广告简体中文版（便携版）</a></li>
@@ -1797,17 +1828,68 @@
 <details class="indent-level-3"><summary><span class="folder-icon"></span>📂01.浏览器</summary>
 <div class="content-container">
 <ul>
-<li>✅ <a href="https://www.runningcheese.com/">奔跑中的奶酪（浏览器界的大佬，同时分享冲浪技巧） 👍</a></li>
-<li>✅ <a href="https://cloud.189.cn/t/RNZ73yYNZJri">Google Chrome 　Setup引导安装程序</a>【✅ <a href="https://pan.quark.cn/s/903671193ef0">夸克云</a>】</li>
-<li>✅ <a href="https://cloud.189.cn/t/jYVFJbf6JFRr">360 　安全浏览器12.1.2142.0 极简绿色</a>【✅ <a href="https://pan.quark.cn/s/6670414acfdc">夸克云</a>】</li>
-<li>✅ <a href="https://cloud.189.cn/t/3AvIJr73Qjii">Edge 　绿色版（兼容WIN7）</a>【✅ <a href="https://pan.quark.cn/s/65b8aafacf69">夸克云</a>】</li>
+<li>
+<p>谷歌浏览器（Chrome）-<strong>离线版</strong></p>
+<ul>
+<li>✅ <a href="https://chrome.noki.eu.org/">Chrome-官方各版本（含历史版本）</a></li>
+<li>✅ <a href="https://chrome.clang.cn/">Chrome-官方各版本（含历史版本）</a></li>
+<li>✅ <a href="https://www.iplaysoft.com/tools/chrome/">Chrome-官方各版本</a></li>
+<li>✅ <a href="https://ihacksoft.com/tools/chrome.html">Chrome-官方各版本</a></li>
+<li>✅ <a href="https://www.osssr.com/tools/chrome-updater">Chrome-官方各版本</a></li>
+<li>✅ <a href="https://www.lanzouo.com/b0ufru1i">Chrome-奶酪定制版（含win7）</a></li>
+</ul>
+</li>
+<li>
+<p>微软浏览器（Edge）-<strong>离线版</strong></p>
+<ul>
+<li>✅ <a href="https://www.microsoft.com/zh-cn/edge/business/download?form=MA13FJ">官网-Microsoft Edge 企业版</a></li>
+<li>✅ <a href="https://www.lanzouo.com/b01d5rz9vi">Edge-奶酪定制版（含win7）</a></li>
+</ul>
+</li>
+<li>
+<p>火狐浏览器（Firefox）-<strong>离线版</strong></p>
+<ul>
+<li>✅ <a href="https://www.mozilla.org/zh-CN/firefox/all/">官网-火狐国际版-中文</a></li>
+<li>✅ <a href="https://www.mozilla.org/en-US/firefox/new/">官网-火狐国际版-英文</a></li>
+<li>✅ <a href="https://ftp.mozilla.org/pub/firefox/releases/">火狐浏览器-官方各版本</a></li>
+<li>✅ <a href="https://github.com/runningcheese/RunningCheese-Firefox">火狐浏览器-奶酪定制版（含win7）</a></li>
+</ul>
+</li>
+<li>
+<p>360极速浏览器 -<strong>离线版</strong></p>
+<ul>
+<li>✅ <a href="https://bbs.360.cn/forum.php?mod=forumdisplay&amp;fid=142&amp;page=1">极速浏览器-360社区</a></li>
+</ul>
+</li>
+<li>
+<p>夸克浏览器 -<strong>离线版</strong></p>
+<ul>
+<li>✅ <a href="https://www.quark.cn/">官网-夸克浏览器</a></li>
+</ul>
+</li>
+<li>
+<p>浏览器 -<strong>联网版</strong></p>
+<ul>
 <li>✅ <a href="https://gmengshuai.lanzoui.com/iSvAdsy3z4j">Edge 　引导安装程序（中文版）</a>【✅ <a href="https://pan.quark.cn/s/ca2ec2ddb4bd">夸克云</a>】</li>
 <li>✅ <a href="https://gmengshuai.lanzoui.com/irqbbsy3z2h">Edge 　引导安装程序（英文版）</a>【✅ <a href="https://pan.quark.cn/s/8dd0249ad8f3">夸克云</a>】</li>
+<li>✅ <a href="https://cloud.189.cn/t/RNZ73yYNZJri">Google Chrome 　Setup引导安装程序</a>【✅ <a href="https://pan.quark.cn/s/903671193ef0">夸克云</a>】</li>
+<li>✅ <a href="https://www.firefox.com.cn/">官网-火狐国内版-中文</a></li>
+<li>✅ <a href="https://www.centbrowser.net/zh-cn/forum.php?mod=forumdisplay&amp;fid=2">百分浏览器论坛</a></li>
+</ul>
+</li>
+<li>
+<p>其它</p>
+<ul>
+<li>✅ <a href="https://www.runningcheese.com/">奔跑中的奶酪（浏览器界的大佬，同时分享冲浪技巧） 👍</a></li>
+<li>✅ <a href="https://cloud.189.cn/t/jYVFJbf6JFRr">360 　安全浏览器12.1.2142.0 极简绿色</a>【✅ <a href="https://pan.quark.cn/s/6670414acfdc">夸克云</a>】</li>
+<li>✅ <a href="https://cloud.189.cn/t/3AvIJr73Qjii">Edge 　绿色版（兼容WIN7）</a>【✅ <a href="https://pan.quark.cn/s/65b8aafacf69">夸克云</a>】</li>
 <li>✅ <a href="https://thoughts.teambition.com/share/607d821c593d870046e13e51#title=Google_Chrome_%E6%B5%8F%E8%A7%88%E5%99%A8_85.0.4183.102.x64_%E4%B8%AD%E6%96%87%E7%BB%BF%E8%89%B2%E4%BE%BF%E6%90%BA%E7%A8%B3%E5%AE%9A%E5%85%B1%E5%AD%98%E7%89%88">Google Chrome 　浏览器 85.0.4183.102.x64 中文绿色稳定共存版</a></li>
 <li>✅ <a href="https://thoughts.teambition.com/share/607d8299593d870046e13e52#title=Chrome_87.0.4280.141_64bit_Setup">Google Chrome 　浏览器_87.0.4280.141_64bit_Setup</a></li>
-<li>✅ <a href="https://moecloud.cn/s/mMwrIP">浏览器优化speedyfox</a></li>
 <li>✅ <a href="https://moecloud.cn/s/N1kDFe">极速 　浏览器12.0.1053.0 极简原版</a></li>
 <li>✅ <a href="https://cloud.189.cn/t/NVN3AjE7RJri">QQ 　浏览器_9.7_(13292)_正式版｜优化版</a></li>
+<li>✅ <a href="https://moecloud.cn/s/mMwrIP">浏览器优化speedyfox</a></li>
+</ul>
+</li>
 </ul>
 </div></details>
 <details class="indent-level-3"><summary><span class="folder-icon"></span>📂02.转换软件</summary>
@@ -1999,27 +2081,20 @@
 <details class="indent-level-4"><summary><span class="folder-icon"></span>📂Adobe系列插件</summary>
 <div class="content-container">
 <ul>
-<li>
-<p>✅ <a href="https://pan.baidu.com/s/1VcjV2LhfH-blDelxSqUbZw">AE全部插件 名称见目录 全部带安装教程【提取码：dhq2</a></p>
-</li>
-<li>
-<p>✅ <a href="https://cloud.189.cn/t/vqy2Mzfiamem">AE PR 调色插件【访问码：7n9z</a></p>
-</li>
-<li>
-<p>❌ <a href="http://182.92.242.149:5244/ty/CLAM%E8%97%8F%E7%BB%8F%E9%98%81%E5%A4%87%E7%94%A8%E5%88%86%E4%BA%AB/Adobe">Adobe全家桶 | AList（天翼云） 👍</a></p>
-</li>
-<li>
-<p>❌ <a href="http://182.92.242.149:5244/cm/Adobe">Adobe全家桶 | AList（移动云） 👍</a></p>
-</li>
-<li>
-<p>❌ <a href="http://182.92.242.149:5244/cm/Adobe">Adobe全家桶 | AList（onedrive） 👍</a></p>
-</li>
-<li>
-<p>✅ <a href="https://cloud.189.cn/t/vARZrqiaauyu">Adobe全家桶（天翼云）</a></p>
-</li>
-<li>
-<p>✅ <a href="https://weibo.com/u/1112829033">Adobe系列最新破解版—vposy大佬（微博关注才可见置顶微博）</a></p>
-</li>
+<li>✅ <a href="https://pan.baidu.com/share/init?surl=SramgG9mgfeThy16VswXLQ&amp;pwd=1111">Adobe 全套2025版本(windows)👍</a></li>
+<li>✅ <a href="https://pan.quark.cn/s/e6b67eded834#/list/share">Adobe 全套2025版本(windows)👍</a></li>
+<li>✅ <a href="https://pan.baidu.com/s/1L7VmU-pSFvdjj7D2m2oImw?pwd=2beo">Adobe 全套2025版本(windows)👍</a></li>
+<li>✅ <a href="https://pan.quark.cn/s/332939bc1ce8#/list/share">Adobe 全套2025版本(windows, 一键安装24套需要占用硬盘70GB左右)👍</a></li>
+<li>✅ <a href="https://pan.quark.cn/s/502da64f3072#/list/share">Adobe 全套2024版本(windows)👍</a></li>
+<li>✅ <a href="https://pan.quark.cn/s/ffb1ffd6ab10#/list/share">Adobe 全套2017-2023版本(windows)👍</a></li>
+<li>✅ <a href="https://pan.quark.cn/s/ec3c807cb51b#/list/share">Adobe 全套2021版本(windows)👍</a></li>
+<li>✅ <a href="https://pan.baidu.com/s/1VcjV2LhfH-blDelxSqUbZw">AE全部插件 名称见目录 全部带安装教程【提取码：dhq2</a></li>
+<li>✅ <a href="https://cloud.189.cn/t/vqy2Mzfiamem">AE PR 调色插件【访问码：7n9z</a></li>
+<li>❌ <a href="http://182.92.242.149:5244/ty/CLAM%E8%97%8F%E7%BB%8F%E9%98%81%E5%A4%87%E7%94%A8%E5%88%86%E4%BA%AB/Adobe">Adobe全家桶 | AList（天翼云） 👍</a></li>
+<li>❌ <a href="http://182.92.242.149:5244/cm/Adobe">Adobe全家桶 | AList（移动云） 👍</a></li>
+<li>❌ <a href="http://182.92.242.149:5244/cm/Adobe">Adobe全家桶 | AList（onedrive） 👍</a></li>
+<li>✅ <a href="https://cloud.189.cn/t/vARZrqiaauyu">Adobe全家桶（天翼云）</a></li>
+<li>✅ <a href="https://weibo.com/u/1112829033">Adobe系列最新PJ版—vposy大佬（微博关注才可见置顶微博）</a></li>
 </ul>
 </div></details>
 </div></details>
@@ -2270,19 +2345,11 @@
 </div></details>
 <details class="indent-level-1"><summary><span class="folder-icon"></span>03 手机常用</summary>
 <div class="content-container">
-<details class="indent-level-2"><summary><span class="folder-icon"></span>📂📱可长期使用Android软件</summary>
+<details class="indent-level-2"><summary><span class="folder-icon"></span>📱可长期使用Android软件</summary>
 <div class="content-container">
-<ul>
-<li>
 <p>✅ <a href="https://gmengshuai.lanzoux.com/b00udw4gb">虚拟定位/多开/分身软件（密码：9527）</a></p>
-</li>
-<li>
 <p>✅ <a href="https://support.qq.com/products/174298/">👍多开/分身软件：比翼多开</a></p>
-</li>
-<li>
 <p>✅ <a href="https://flowus.cn/yan1998-28/share/22b9ee36-987d-4bbd-b7dd-e1ffb07ad038">外卖软件科技——知识库</a></p>
-</li>
-</ul>
 <details class="indent-level-3"><summary><span class="folder-icon"></span>📂01.微博/知乎/贴吧/豆瓣/b站/Telegram</summary>
 <div class="content-container">
 <ul>
@@ -2309,27 +2376,66 @@
 <li>✅ <a href="https://thoughts.teambition.com/share/6066e7d2e561f6004634fd4e#title=%E3%80%90P%E5%9B%BE%E3%80%91Photoshop_Express-Premium-v5.8.561">Photoshop Express-Premium-v5.8.561</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span>📂03.电子书阅读器</summary>
-<div class="content-container">
-<p>✅ <a href="https://wws.lanzoux.com/b01trfnde">开源阅读3.0（提取码：52pj，专用书源更新至6200个）👍</a></p>
-<p>✅ <a href="https://thoughts.teambition.com/share/608109430bb4eb00462e0ee3#title=%E5%8D%9A%E7%9C%8B%E4%B9%A6%E8%8B%91%EF%BC%88%E5%85%8D%E8%B4%B9%E6%9D%82%E5%BF%97%EF%BC%89">博看书苑（免费杂志）👍</a></p>
-<p>✅ <a href="https://gmengshuai.lanzoux.com/iEayrodkjqh">阅读（原名：轻阅，书源多）</a></p>
-<p>✅ <a href="https://gedoor.github.io/">阅读官网（原名：轻阅，书源多）👍</a></p>
-<p>✅ <a href="https://app.mi.com/details?id=cn.deepink.reader&amp;ref=search">厚墨（支持epub / mobi / azw3）👍</a></p>
-<p>✅ <a href="https://thoughts.teambition.com/share/6117de2a9ad2ef004618fd76#title=%E5%85%8D%E8%B4%B9%E6%96%87%E5%AD%A6%E9%98%85%E8%AF%BB_%E7%A8%B3%E5%AE%9A%E7%89%882.7.2">免费文学阅读 稳定版2.7.2</a></p>
-<p>✅ <a href="https://thoughts.teambition.com/share/6117de7a4386ce00461da6d6#title=%E6%B5%81%E4%B9%A6v2.1.0%E5%8E%BB%E5%B9%BF%E5%91%8A%E8%A7%A3%E9%99%A4%E9%99%90%E5%88%B6%E7%89%88">流书v2.1.0去广告解除限制版</a></p>
-<p>✅ <a href="https://thoughts.teambition.com/share/6117deb59ad2ef004618fd77#title=book%E5%9B%BE%E4%B9%A6%E9%A6%86">book图书馆</a></p>
-<p>✅ <a href="https://thoughts.teambition.com/share/6117df069ad2ef004618fd78#title=%E7%AC%94%E8%B6%A3%E9%98%81%E6%97%A0%E5%B9%BF%E5%91%8A%E7%89%88">笔趣阁无广告版</a></p>
-<p>✅ <a href="https://thoughts.teambition.com/share/6117df6bc1be80004645ddf3#title=%E9%9D%99%E8%AF%BB%E5%A4%A9%E4%B8%8B%E4%B8%93%E4%B8%9A%E7%89%88_v6.3_%F0%9F%91%8D">静读天下专业版_v6.3 👍</a></p>
-<details class="indent-level-4"><summary><span class="folder-icon"></span>📂阅读源地址</summary>
+<details class="indent-level-3"><summary><span class="folder-icon"></span>📂03.电子书/漫画阅读器</summary>
 <div class="content-container">
 <ul>
-<li>📚https://yuedu.xiu2.xyz</li>
+<li>
+<p>电子书 APP</p>
+<ul>
+<li>✅ <a href="https://miaogongzi.lanzout.com/b01rgkhhe">阅读3.0 Beta👍</a></li>
+<li>✅ <a href="https://gedoor.github.io/">阅读3.0（原名：轻阅，书源多）- 开源👍</a>【<a href="https://wws.lanzoux.com/b01trfnde">蓝奏云</a>】</li>
+<li>✅ <a href="https://thoughts.teambition.com/share/608109430bb4eb00462e0ee3#title=%E5%8D%9A%E7%9C%8B%E4%B9%A6%E8%8B%91%EF%BC%88%E5%85%8D%E8%B4%B9%E6%9D%82%E5%BF%97%EF%BC%89">博看书苑（免费杂志）</a></li>
+<li>✅ <a href="https://thoughts.teambition.com/share/6117de2a9ad2ef004618fd76#title=%E5%85%8D%E8%B4%B9%E6%96%87%E5%AD%A6%E9%98%85%E8%AF%BB_%E7%A8%B3%E5%AE%9A%E7%89%882.7.2">免费文学阅读 稳定版2.7.2</a></li>
+<li>✅ <a href="https://thoughts.teambition.com/share/6117de7a4386ce00461da6d6#title=%E6%B5%81%E4%B9%A6v2.1.0%E5%8E%BB%E5%B9%BF%E5%91%8A%E8%A7%A3%E9%99%A4%E9%99%90%E5%88%B6%E7%89%88">流书v2.1.0去广告解除限制版</a></li>
+<li>✅ <a href="https://thoughts.teambition.com/share/6117deb59ad2ef004618fd77#title=book%E5%9B%BE%E4%B9%A6%E9%A6%86">book图书馆</a></li>
+<li>✅ <a href="https://thoughts.teambition.com/share/6117df069ad2ef004618fd78#title=%E7%AC%94%E8%B6%A3%E9%98%81%E6%97%A0%E5%B9%BF%E5%91%8A%E7%89%88">笔趣阁无广告版</a></li>
+<li>✅ <a href="https://thoughts.teambition.com/share/6117df6bc1be80004645ddf3#title=%E9%9D%99%E8%AF%BB%E5%A4%A9%E4%B8%8B%E4%B8%93%E4%B8%9A%E7%89%88_v6.3_%F0%9F%91%8D">静读天下专业版_v6.3 👍</a></li>
+</ul>
+</li>
+<li>
+<p>漫画 APP</p>
+<ul>
+<li>✅ <a href="https://fairyflower.github.io/">异次元 APP 👍</a>【<a href="https://github.com/FaIryFlower/FairyFlower.github.io">Github</a>】</li>
+</ul>
+</li>
+<li>
+<p><strong>阅读源 - 阅读 APP 专用</strong></p>
+<ul>
+<li>📚<a href="https://yuedu.xiu2.xyz/">阅读APP 精品书源 — 每日更新</a></li>
+<li>📚<a href="https://www.yckceo.sbs/yuedu/shuyuans/index.html">阅读 - 源仓库</a></li>
+<li>📚<a href="https://source.zgqinc.gq/">各种源大型整合</a></li>
+<li>一键导入
+<ul>
 <li>📚https://static.kfys.app/shuyuan/shuyuan.json</li>
 <li>📚https://www.gitlink.org.cn/api/yi-c/yd/raw?filepath=sy.json</li>
 <li>📚http://shuyuan.miaogongzi.net/shuyuan/1681271002.json</li>
+<li>📚https://www.yckceo.com/yuedu/shuyuans/json/id/790.json</li>
+<li>📚https://www.yckceo.com/yuedu/shuyuans/json/id/771.json</li>
+<li>📚https://www.yckceo.com/yuedu/shuyuans/json/id/718.json</li>
+<li>📚https://www.yckceo.com/yuedu/shuyuans/json/id/741.json</li>
+<li>📚https://www.yckceo.com/yuedu/shuyuans/json/id/755.json</li>
 </ul>
-</div></details>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>漫画源 - 异次元 APP 专用</strong></p>
+<ul>
+<li>一键导入
+<ul>
+<li>📚https://www.zhiyin.run/manhua.json</li>
+<li>📚https://www.yckceo.com/yiciyuan/tuyuans/json/id/36.json</li>
+<li>📚https://www.yckceo.com/yiciyuan/tuyuans/json/id/51.json</li>
+<li>📚https://www.yckceo.com/yiciyuan/tuyuans/json/id/55.json</li>
+<li>📚https://www.yckceo.com/yiciyuan/tuyuans/json/id/42.json</li>
+<li>📚https://www.yckceo.com/yiciyuan/tuyuans/json/id/51.json</li>
+<li>📚https://www.yckceo.com/yiciyuan/tuyuans/json/id/48.json</li>
+<li>📚https://www.yckceo.com/yiciyuan/tuyuans/json/id/53.json</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 </div></details>
 <details class="indent-level-3"><summary><span class="folder-icon"></span>📂04.动漫图片阅览器</summary>
 <div class="content-container">
@@ -2341,6 +2447,17 @@
 <li>✅ <a href="https://thoughts.teambition.com/share/609f404143b2b70046b09adf#title=Pix-EzViewer">Pix-EzViewer（Pixiv镜像软件）</a></li>
 <li>✅ <a href="https://thoughts.teambition.com/share/609f402f4e0cbb004646da87#title=PivisionM">PivisionM（Pixiv镜像软件）</a></li>
 </ul>
+<details class="indent-level-4"><summary><span class="folder-icon"></span>📂阅读源地址</summary>
+<div class="content-container">
+<ul>
+<li>📚<a href="https://yuedu.xiu2.xyz">https://yuedu.xiu2.xyz</a></li>
+<li>📚<a href="https://www.yckceo.sbs/yuedu/shuyuans/index.html">https://www.yckceo.sbs/yuedu/shuyuans/index.html</a></li>
+<li>📚<a href="https://source.zgqinc.gq">https://source.zgqinc.gq</a></li>
+<li>📚https://static.kfys.app/shuyuan/shuyuan.json</li>
+<li>📚https://www.gitlink.org.cn/api/yi-c/yd/raw?filepath=sy.json</li>
+<li>📚http://shuyuan.miaogongzi.net/shuyuan/1681271002.json</li>
+</ul>
+</div></details>
 </div></details>
 <details class="indent-level-3"><summary><span class="folder-icon"></span>📂05.本地视频播放器</summary>
 <div class="content-container">
@@ -2548,7 +2665,7 @@
 </ul>
 </div></details>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span>📂📱授之以鱼不如授之以渔</summary>
+<details class="indent-level-2"><summary><span class="folder-icon"></span>📱授之以鱼不如授之以渔</summary>
 <div class="content-container">
 <details class="indent-level-3"><summary><span class="folder-icon"></span>📂01.安卓社区（软件|游戏|资讯）</summary>
 <div class="content-container">
@@ -3690,9 +3807,18 @@
 <li>
 <p>01.客户端</p>
 <ul>
-<li>✅ <a href="https://lxmusic.toside.cn">洛雪，平台：Win/Mac/Linux/Android</a></li>
+<li>✅ <a href="https://lxmusic.toside.cn">洛雪，平台：Win/Mac/Linux/Android</a>
+<ul>
 <li>✅ <a href="https://soso.lanzouj.com/ioEEY0z25nmd">洛雪音乐助手自定义音源 v1.0.7</a></li>
 <li>✅ <a href="https://gmengshuai.lanzoul.com/imI7P1dk3wje">洛雪音乐助手自定义音源 v1.0.7</a></li>
+<li>✅ <a href="https://github.com/guoyue2010/lxmusic-">guoyue2010/lxmusic-: lxmusic(洛雪音乐)全网最新最全音源👍</a></li>
+<li>✅ <a href="https://file.ddot.top/files/66476d0be89e5/%E5%85%AD%E9%9F%B3%E9%9F%B3%E6%BA%90v1.2.1.js">音乐源1</a></li>
+<li>✅ <a href="https://raw.niuma666bet.buzz/Huibq/keep-alive/master/render_api.js">音乐源2</a></li>
+<li>✅ <a href="https://file.ddot.top/files/66476d2a03756/%E9%87%8E%E8%8D%89v1.js">音乐源3</a></li>
+<li>✅ <a href="https://file.ddot.top/files/66476d236ed20/%E9%87%8E%E8%8A%B1v1.js">音乐源4</a></li>
+<li>✅ <a href="https://file.ddot.top/files/66476d19f370f/%E5%B0%8F%E7%86%8A%E7%8C%ABv1.1.1.js">音乐源5</a></li>
+</ul>
+</li>
 <li>✅ <a href="https://github.com/OneCodeMonkey/music-sources">OneCodeMonkey/music-sources: 音乐播放可用源</a></li>
 <li>❌ <a href="http://morin.feiyu.vin">方格音乐，平台：Win/Android</a></li>
 <li>✅ <a href="https://listen1.github.io/listen1">Listen1音乐播放器，平台：Win/Mac/Linux/Android/插件</a></li>
@@ -4196,6 +4322,7 @@
 <li>✅ <a href="https://pan.quark.cn/s/86aa9362507">教资  教资面试资料大全</a></li>
 <li>✅ <a href="https://pan.quark.cn/s/df28bbdf792b">教资  FB2024网课【小学】笔试</a></li>
 <li>✅ <a href="https://pan.quark.cn/s/31402a99a6ef">教资  FB教资网课【初高中】笔试</a></li>
+<li>✅ <a href="https://www.bd6.net/">专升本/教资/考证/考研/考博/考公等  拉西学习资源站官网/lasee官网/lasee官方网站 - 一切为了助力您的学习成长。</a></li>
 </ul>
 </div></details>
 <details class="indent-level-2"><summary><span class="folder-icon"></span>📂02.考研 / 考博 / 考公</summary>
@@ -4230,6 +4357,7 @@
 <li>✅ <a href="http://gbgb400.edudisk.cn/newshare.aspx?page=1">考公 　教育网盘　 共享文件👍 </a></li>
 <li>✅ <a href="https://saduck.top/">考公 　SaDuck</a></li>
 <li>❌ <a href="http://freekaobo.ys168.com/">考博 　免费考博网盘（考博类）👍</a></li>
+<li>✅ <a href="https://www.bd6.net/">专升本/教资/考证/考研/考博/考公等  拉西学习资源站官网/lasee官网/lasee官方网站 - 一切为了助力您的学习成长👍</a></li>
 </ul>
 </div></details>
 <details class="indent-level-2"><summary><span class="folder-icon"></span>📂03.英语四六级</summary>
@@ -4260,6 +4388,7 @@
 <li>❌ <a href="http://daxuesheng123.ysepan.com">考证 　白嫖の地：（考研/考证）👍</a> 【✅ <a href="http://daxuesheng123.ysok.net">备用</a>】</li>
 <li>❌ <a href="http://2006b.ysepan.com/">考证 　外语学习中心资料空间👍 </a></li>
 <li>✅ <a href="https://okmike.listeneer.com/?btwaf=46243752">考证 　资源中心（教材、四六级等）</a></li>
+<li>✅ <a href="https://www.bd6.net/">专升本/教资/考证/考研/考博/考公等  拉西学习资源站官网/lasee官网/lasee官方网站 - 一切为了助力您的学习成长👍</a></li>
 </ul>
 </div></details>
 <details class="indent-level-2"><summary><span class="folder-icon"></span>📂04.会计 / 建造师 / 造价师</summary>
@@ -4284,6 +4413,7 @@
 <li>✅ <a href="https://pan.quark.cn/s/24277facb88d">二建　 2025二级建造师全机构👍</a></li>
 <li>✅ <a href="https://pan.quark.cn/s/196c8dcf3e83#/list/share">二建　 2025年二级建造师电子教材</a></li>
 <li>✅ <a href="http://zhulu.ys168.com/">建造师　 一建和二建资料（密码：pass）👍</a></li>
+<li>✅ <a href="https://www.bd6.net/">专升本/教资/考证/考研/考博/考公等  拉西学习资源站官网/lasee官网/lasee官方网站 - 一切为了助力您的学习成长👍</a></li>
 </ul>
 </div></details>
 <details class="indent-level-2"><summary><span class="folder-icon"></span>📂05.中小学课程 / 教师备课</summary>
@@ -4627,314 +4757,7 @@
   </div>
 
 <script>
-    let highlightIndex = -1;
-    let highlightElements = [];
-
-    function expandAll() {
-        const details = document.querySelectorAll('details');
-        const batchSize = 10; // 每批处理的元素数量
-        let index = 0;
-
-        // 禁用过渡效果
-        document.documentElement.style.setProperty('--transition-speed', '0s');
-
-        function processBatch() {
-            for (let i = 0; i < batchSize && index < details.length; i++) {
-                details[index].open = true;
-                index++;
-            }
-
-            if (index < details.length) {
-                // 继续处理下一批
-                requestAnimationFrame(processBatch);
-            } else {
-                // 操作完成后恢复过渡效果
-                document.documentElement.style.setProperty('--transition-speed', '0.2s');
-            }
-        }
-
-        // 开始处理第一批
-        requestAnimationFrame(processBatch);
-    }
-
-    function collapseAll() {
-        const details = document.querySelectorAll('details');
-        // 禁用过渡效果
-        document.documentElement.style.setProperty('--transition-speed', '0s');
-        details.forEach(detail => detail.open = false);
-        // 操作完成后恢复过渡效果
-        document.documentElement.style.setProperty('--transition-speed', '0.2s');
-    }
-
-    function searchAndHighlight() {
-      const searchTerm = document.getElementById('searchInput').value.trim();
-      if (!searchTerm) {
-        alert('请输入搜索内容');
-        return;
-      }
-      
-      removeHighlights();
-      
-      expandAll();
-      
-      highlightText(document.querySelector('.content'), searchTerm);
-      
-      highlightElements = Array.from(document.querySelectorAll('.highlight'));
-      
-      if (highlightElements.length > 0) {
-        highlightIndex = 0;
-        scrollToHighlight();
-      } else {
-        alert('没有找到匹配项');
-      }
-    }
-    
-    function highlightText(element, searchTerm) {
-      if (element.nodeType === Node.TEXT_NODE) {
-        const text = element.nodeValue;
-        const searchTermLower = searchTerm.toLowerCase();
-        const textLower = text.toLowerCase();
-        let position = textLower.indexOf(searchTermLower);
-        
-        if (position !== -1) {
-          const wrapper = document.createElement('span');
-          wrapper.appendChild(document.createTextNode(text.substring(0, position)));
-          
-          const highlightSpan = document.createElement('span');
-          highlightSpan.className = 'highlight';
-          highlightSpan.appendChild(document.createTextNode(
-            text.substring(position, position + searchTerm.length)
-          ));
-          wrapper.appendChild(highlightSpan);
-          
-          if (position + searchTerm.length < text.length) {
-            wrapper.appendChild(document.createTextNode(
-              text.substring(position + searchTerm.length)
-            ));
-          }
-          
-          element.parentNode.replaceChild(wrapper, element);
-          return true;
-        }
-      } else if (
-        element.nodeType === Node.ELEMENT_NODE && 
-        !['SCRIPT', 'STYLE', 'BUTTON'].includes(element.tagName)
-      ) {
-        Array.from(element.childNodes).forEach(child => {
-          highlightText(child, searchTerm);
-        });
-      }
-    }
-
-    function removeHighlights() {
-      document.querySelectorAll('.highlight').forEach(el => {
-        const parent = el.parentNode;
-        const textNode = document.createTextNode(el.textContent);
-        parent.replaceChild(textNode, el);
-        parent.normalize();
-      });
-      
-      highlightIndex = -1;
-      highlightElements = [];
-    }
-
-    function nextHighlight() {
-      if (highlightElements.length > 0) {
-        if (highlightIndex >= 0) {
-          highlightElements[highlightIndex].classList.remove('active-highlight');
-        }
-        highlightIndex = (highlightIndex + 1) % highlightElements.length;
-        scrollToHighlight();
-      }
-    }
-
-    function prevHighlight() {
-      if (highlightElements.length > 0) {
-        if (highlightIndex >= 0) {
-          highlightElements[highlightIndex].classList.remove('active-highlight');
-        }
-        highlightIndex = (highlightIndex - 1 + highlightElements.length) % highlightElements.length;
-        scrollToHighlight();
-      }
-    }
-
-    function scrollToHighlight() {
-      if (highlightElements.length > 0 && highlightIndex !== -1) {
-        highlightElements.forEach(el => el.classList.remove('active-highlight'));
-        highlightElements[highlightIndex].classList.add('active-highlight');
-        
-        let parent = highlightElements[highlightIndex].parentElement;
-        while (parent) {
-          if (parent.tagName === 'DETAILS') {
-            parent.open = true;
-          }
-          parent = parent.parentElement;
-        }
-        
-        highlightElements[highlightIndex].scrollIntoView({
-          behavior: 'smooth',
-          block: 'center'
-        });
-      }
-    }
-    // Enter键可触发下一个
-    document.getElementById('searchInput').addEventListener('keypress', function(e) {
-      if (e.key === 'Enter') {
-        if (highlightElements.length === 0) {
-          // If no search has been performed yet, do the initial search
-          searchAndHighlight();
-        } else {
-          // If we already have search results, move to the next highlight
-          nextHighlight();
-        }
-      }
-    });
-
-    // 优化移动端体验
-    if ('ontouchstart' in window) {
-      const buttons = document.querySelectorAll('button');
-      
-      buttons.forEach(button => {
-        button.addEventListener('touchstart', function() {
-          this.style.transform = 'scale(0.97)';
-        }, { passive: true });
-        
-        button.addEventListener('touchend', function() {
-          this.style.transform = '';
-        }, { passive: true });
-        
-        button.addEventListener('touchcancel', function() {
-          this.style.transform = '';
-        }, { passive: true });
-      });
-    }
-
-    // 添加主题切换功能
-    function toggleTheme() {
-      document.body.classList.toggle('dark-theme');
-      localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light');
-    }
-
-    // 检查并应用保存的主题
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      document.body.classList.toggle('dark-theme', savedTheme === 'dark');
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      document.body.classList.add('dark-theme');
-    }
-    
-    // 更新日期时间的函数
-    function updateDateTime() {
-      var now = new Date();
-      var year = now.getFullYear();
-      var month = (now.getMonth() + 1).toString().padStart(2, '0');
-      var day = now.getDate().toString().padStart(2, '0');
-      var hours = now.getHours().toString().padStart(2, '0');
-      var minutes = now.getMinutes().toString().padStart(2, '0');
-      var seconds = now.getSeconds().toString().padStart(2, '0');
-      
-      var dateTimeString = year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds;
-      document.getElementById('currentDateTime').textContent = dateTimeString;
-    }
-
-    // 修改主题切换函数
-    function toggleTheme() {
-      var body = document.body;
-      var currentTheme = localStorage.getItem('theme') || 'light';
-      var newTheme = currentTheme === 'light' ? 'dark' : 'light';
-      
-      body.classList.remove('light-theme', 'dark-theme');
-      body.classList.add(newTheme + '-theme');
-      localStorage.setItem('theme', newTheme);
-      
-      var themeIcon = document.getElementById('themeIcon');
-      themeIcon.textContent = newTheme === 'dark' ? '🌞' : '🌓';
-    }
-
-    // 初始化函数
-    function initialize() {
-        // 设置初始主题
-        var savedTheme = localStorage.getItem('theme') || 'light';
-        document.body.classList.add(savedTheme + '-theme');
-        document.getElementById('themeIcon').textContent = savedTheme === 'dark' ? '🌞' : '🌓';
-        
-        // 为所有链接添加 target="_blank" 属性
-        document.querySelectorAll('a').forEach(link => {
-            // 排除侧边栏的广告链接，因为它们已经有了 target="_blank"
-            if (!link.closest('#sidebar-content')) {
-                link.setAttribute('target', '_blank');
-                
-                // 添加 rel="noopener noreferrer" 以提高安全性
-                link.setAttribute('rel', 'noopener noreferrer');
-            }
-        });
-    }
-
-    // 当页面加载完成时初始化
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initialize);
-    } else {
-      initialize();
-    }
-
-    // 简化的侧边栏控制代码
-    function toggleSidebar() {
-        const sidebar = document.querySelector('.sidebar-ad');
-        const icon = document.getElementById('sidebarIcon');
-        
-        if (sidebar.classList.contains('open')) {
-            sidebar.classList.remove('open');
-            icon.textContent = '👈';
-        } else {
-            sidebar.classList.add('open');
-            icon.textContent = '👉';
-        }
-    }
-
-    // 仅初始化必要的元素
-    document.addEventListener('DOMContentLoaded', function() {
-        const button = document.getElementById('floating-button');
-        const sidebar = document.getElementById('sidebar-content');
-        let isOpen = false;
-
-        if (button && sidebar) {
-            button.addEventListener('click', function() {
-                if (!isOpen) {
-                    sidebar.style.right = '0';
-                    button.textContent = '👉';
-                } else {
-                    sidebar.style.right = '-300px';
-                    button.textContent = '👈';
-                }
-                isOpen = !isOpen;
-            });
-        }
-    });
-
-    // 监视 DOM 变化，为新添加的链接设置 target="_blank"
-    const observer = new MutationObserver(mutations => {
-        mutations.forEach(mutation => {
-            mutation.addedNodes.forEach(node => {
-                if (node.nodeType === 1) { // ELEMENT_NODE
-                    const links = node.querySelectorAll('a');
-                    links.forEach(link => {
-                        if (!link.closest('#sidebar-content')) {
-                            link.setAttribute('target', '_blank');
-                            link.setAttribute('rel', 'noopener noreferrer');
-                        }
-                    });
-                }
-            });
-        });
-    });
-
-    // 开始监视 DOM 变化
-    document.addEventListener('DOMContentLoaded', () => {
-        observer.observe(document.body, {
-            childList: true,
-            subtree: true
-        });
-    });
+    let highlightIndex=-1,highlightElements=[];function expandAll(){const e=document.querySelectorAll("details");let t=0;document.documentElement.style.setProperty("--transition-speed","0s"),requestAnimationFrame((function n(){for(let n=0;n<10&&t<e.length;n++)e[t].open=!0,t++;t<e.length?requestAnimationFrame(n):document.documentElement.style.setProperty("--transition-speed","0.2s")}))}function collapseAll(){const e=document.querySelectorAll("details");document.documentElement.style.setProperty("--transition-speed","0s"),e.forEach((e=>e.open=!1)),document.documentElement.style.setProperty("--transition-speed","0.2s")}function searchAndHighlight(){const e=document.getElementById("searchInput").value.trim();e?(removeHighlights(),expandAll(),highlightText(document.querySelector(".content"),e),highlightElements=Array.from(document.querySelectorAll(".highlight")),highlightElements.length>0?(highlightIndex=0,scrollToHighlight()):alert("没有找到匹配项")):alert("请输入搜索内容")}function highlightText(e,t){if(e.nodeType===Node.TEXT_NODE){const n=e.nodeValue,i=t.toLowerCase();let o=n.toLowerCase().indexOf(i);if(-1!==o){const i=document.createElement("span");i.appendChild(document.createTextNode(n.substring(0,o)));const l=document.createElement("span");return l.className="highlight",l.appendChild(document.createTextNode(n.substring(o,o+t.length))),i.appendChild(l),o+t.length<n.length&&i.appendChild(document.createTextNode(n.substring(o+t.length))),e.parentNode.replaceChild(i,e),!0}}else e.nodeType!==Node.ELEMENT_NODE||["SCRIPT","STYLE","BUTTON"].includes(e.tagName)||Array.from(e.childNodes).forEach((e=>{highlightText(e,t)}))}function removeHighlights(){document.querySelectorAll(".highlight").forEach((e=>{const t=e.parentNode,n=document.createTextNode(e.textContent);t.replaceChild(n,e),t.normalize()})),highlightIndex=-1,highlightElements=[]}function nextHighlight(){highlightElements.length>0&&(highlightIndex>=0&&highlightElements[highlightIndex].classList.remove("active-highlight"),highlightIndex=(highlightIndex+1)%highlightElements.length,scrollToHighlight())}function prevHighlight(){highlightElements.length>0&&(highlightIndex>=0&&highlightElements[highlightIndex].classList.remove("active-highlight"),highlightIndex=(highlightIndex-1+highlightElements.length)%highlightElements.length,scrollToHighlight())}function scrollToHighlight(){if(highlightElements.length>0&&-1!==highlightIndex){highlightElements.forEach((e=>e.classList.remove("active-highlight"))),highlightElements[highlightIndex].classList.add("active-highlight");let e=highlightElements[highlightIndex].parentElement;for(;e;)"DETAILS"===e.tagName&&(e.open=!0),e=e.parentElement;highlightElements[highlightIndex].scrollIntoView({behavior:"smooth",block:"center"})}}if(document.getElementById("searchInput").addEventListener("keypress",(function(e){"Enter"===e.key&&(0===highlightElements.length?searchAndHighlight():nextHighlight())})),"ontouchstart"in window){document.querySelectorAll("button").forEach((e=>{e.addEventListener("touchstart",(function(){this.style.transform="scale(0.97)"}),{passive:!0}),e.addEventListener("touchend",(function(){this.style.transform=""}),{passive:!0}),e.addEventListener("touchcancel",(function(){this.style.transform=""}),{passive:!0})}))}function toggleTheme(){document.body.classList.toggle("dark-theme"),localStorage.setItem("theme",document.body.classList.contains("dark-theme")?"dark":"light")}const savedTheme=localStorage.getItem("theme");function updateDateTime(){var e=new Date,t=e.getFullYear()+"-"+(e.getMonth()+1).toString().padStart(2,"0")+"-"+e.getDate().toString().padStart(2,"0")+" "+e.getHours().toString().padStart(2,"0")+":"+e.getMinutes().toString().padStart(2,"0")+":"+e.getSeconds().toString().padStart(2,"0");document.getElementById("currentDateTime").textContent=t}function toggleTheme(){var e=document.body,t="light"===(localStorage.getItem("theme")||"light")?"dark":"light";e.classList.remove("light-theme","dark-theme"),e.classList.add(t+"-theme"),localStorage.setItem("theme",t),document.getElementById("themeIcon").textContent="dark"===t?"🌞":"🌓"}function initialize(){var e=localStorage.getItem("theme")||"light";document.body.classList.add(e+"-theme"),document.getElementById("themeIcon").textContent="dark"===e?"🌞":"🌓",document.querySelectorAll("a").forEach((e=>{e.closest("#sidebar-content")||(e.setAttribute("target","_blank"),e.setAttribute("rel","noopener noreferrer"))}))}function toggleSidebar(){const e=document.querySelector(".sidebar-ad"),t=document.getElementById("sidebarIcon");e.classList.contains("open")?(e.classList.remove("open"),t.textContent="👈"):(e.classList.add("open"),t.textContent="👉")}savedTheme?document.body.classList.toggle("dark-theme","dark"===savedTheme):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark-theme"),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",initialize):initialize(),document.addEventListener("DOMContentLoaded",(function(){const e=document.getElementById("floating-button"),t=document.getElementById("sidebar-content");let n=!1;e&&t&&e.addEventListener("click",(function(){n?(t.style.right="-300px",e.textContent="👈"):(t.style.right="0",e.textContent="👉"),n=!n}))}));const observer=new MutationObserver((e=>{e.forEach((e=>{e.addedNodes.forEach((e=>{if(1===e.nodeType){e.querySelectorAll("a").forEach((e=>{e.closest("#sidebar-content")||(e.setAttribute("target","_blank"),e.setAttribute("rel","noopener noreferrer"))}))}}))}))}));document.addEventListener("DOMContentLoaded",(()=>{observer.observe(document.body,{childList:!0,subtree:!0})}));
   </script>
 </body>
 </html>
