@@ -203,6 +203,12 @@
       border-left-color: var(--divider-color);
     }
 
+    /* 限制内容最大宽度 */
+    .content {
+      max-width: 100%;
+      overflow-x: auto; /* 当内容宽度超过最大宽度时，显示横向滚动条 */
+    }
+
     /* 容器样式 */
     .content-container {
       padding: 0px 8px 0px 16px;
@@ -351,6 +357,10 @@
     }
 
     @media (max-width: 767px) {
+    /* 移动端样式 */
+      .sidebar-ad {
+        width: 80%; /* 减小侧边栏宽度 */
+      }
       body {
         padding: 12px;
       }
