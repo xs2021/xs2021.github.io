@@ -752,6 +752,21 @@
       body.dark-theme select#matchType {
         background-image: url('data:image/svg+xml;utf8,<svg fill="%23FFFFFF" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
       }
+
+      /* 添加链接悬浮样式 */
+      #sidebar-content .ad-container a {
+        /* 确保链接有默认的手型光标 */
+        cursor: pointer; 
+        /* 过渡效果，让颜色变化更平滑 */
+        transition: color 0.3s ease; 
+      }
+
+      #sidebar-content .ad-container a:hover {
+        /* 鼠标悬浮时改变文字颜色 */
+        color: var(--primary-color); 
+        /* 鼠标悬浮时显示下划线 */
+        text-decoration: underline; 
+      }
   </style>
   <!-- 引入 particles.js 库 -->
   <script src="https://cdn.staticfile.org/particles.js/2.0.0/particles.min.js"></script>
@@ -4736,25 +4751,34 @@
       👈侧边栏
   </div>
 
-  <!-- 侧边栏广告位 -->
+    <!-- 侧边栏广告位 -->
   <div id="sidebar-content" style="
+      /* 固定定位，位于页面右侧 */
       position: fixed;
+      /* 初始隐藏在页面右侧 */
       right: -300px;
+      /* 垂直居中 */
       top: 50%;
       transform: translateY(-50%);
-      width: 300px;
-      background-color: white;
-      box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+      /* 侧边栏宽度 */
+      width: 260px; 
+      /* 过渡动画，实现平滑显示和隐藏 */
       transition: right 0.3s ease;
+      /* 设置层级，确保显示在其他元素之上 */
       z-index: 9999;
+      /* 左侧圆角 */
       border-radius: 10px 0 0 10px;
-      padding: 20px;">
+      /* 内边距 */
+      padding-top: 10px;
+      padding-right: 40px;
+      padding-bottom: 10px;
+      padding-left: 10px;
+    ">
       
       <div class="ad-container" style="
           display: flex;
           flex-direction: column;
           gap: 20px;">
-          
           <a href="https://simhaoka.com/phone/index?id=0E47D457B933E60E233CD5772AB85559" 
             target="_blank" 
             style="
@@ -4762,34 +4786,28 @@
                 transition: transform 0.3s ease;
                 border-radius: 8px;
                 overflow: hidden;
-                box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-              <img src="https://pic.imgdb.cn/item/663233bd0ea9cb1403683ddd.png" 
-                  alt="Advertisement" 
-                  style="
-                      width: 100%;
-                      height: auto;
-                      display: block;
-                      transition: transform 0.3s ease;">
+                box-shadow: 0 1px 2px 2px #64b5f6;
+                text-align: center;
+                padding: 10px;
+                text-decoration: none;">
+              小帅的流量卡店铺
           </a>
 
-          <a href="https://simhaoka.com/phone/index?id=0E47D457B933E60E233CD5772AB85559" 
+          <a href="https://flowus.cn/share/45f5e4bf-0b9f-431a-9e18-86c47c490b78?code=JK1MBY" 
             target="_blank"
             style="
                 display: block;
                 transition: transform 0.3s ease;
                 border-radius: 8px;
                 overflow: hidden;
-                box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-              <img src="https://pic.imgdb.cn/item/663233bd0ea9cb1403683ddd.png" 
-                  alt="Advertisement"
-                  style="
-                      width: 100%;
-                      height: auto;
-                      display: block;
-                      transition: transform 0.3s ease;">
+                box-shadow: 0 1px 2px 2px #64b5f6;
+                text-align: center;
+                padding: 10px;
+                text-decoration: none;">
+              小帅的付费服务
           </a>
       </div>
-  </div>
+    </div>
     <!-- 添加粒子特效容器 -->
     <div id="particles-js" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none;">
     </div>
