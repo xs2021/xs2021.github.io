@@ -474,27 +474,6 @@
         gap: 6px;
       }
 
-      .help-tip {
-        display: flex;
-        align-items: center;
-        font-size: 14px;
-        color: var(--text-secondary);
-        background-color: rgba(33, 150, 243, 0.1);
-        padding: 4px 8px;
-        border-radius: 4px;
-      }
-
-      .help-tip span {
-        cursor: help;
-      }
-
-      @media (max-width: 767px) {
-        .help-tip {
-          font-size: 12px;
-          padding: 2px 4px;
-        }
-      }
-
       .icon {
         font-size: 16px;
       }
@@ -780,164 +759,66 @@
       }
 
       /* 添加链接悬浮样式 */
+      #sidebar-content .ad-container a {
+        /* 确保链接有默认的手型光标 */
+        cursor: pointer; 
+        /* 过渡效果，让颜色变化更平滑 */
+        transition: color 0.3s ease; 
+      }
+
       #sidebar-content .ad-container a:hover {
         /* 鼠标悬浮时改变文字颜色 */
         color: var(--primary-color); 
         /* 鼠标悬浮时显示下划线 */
         text-decoration: underline; 
       }
+  </style>
+  <!-- 引入 particles.js 库 -->
+  <script src="https://cdn.staticfile.org/particles.js/2.0.0/particles.min.js"></script>
+</head>
+<body>
+  <!-- 修改控制面板部分 -->
+    <div class="control-panel">
+      <div class="control-panel-inner">
+          
+        <!-- 修改信息显示区域的HTML结构 -->
+        <div class="info-section">
+          <!-- 添加最近更新日期显示 -->
+          <div class="datetime-display">
+            <span>🧭</span>
+            <span id="lastUpdatedDate">更新：2025-05-08</span>
+          </div>
+          <!-- 添加主题切换按钮 -->
+          <button class="theme-button" onclick="toggleTheme()" title="切换主题">
+            <span id="themeIcon">💧</span>
+          </button>
+      </div>
 
-      /* 模态窗口样式 */
-      .modal-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(0, 0, 0, 0.6);
-        z-index: 2000;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 20px;
-      }
-
-      .modal-content {
-        background-color: var(--background-primary);
-        border-radius: var(--border-radius);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        width: 90%;
-        max-width: 800px;
-        max-height: 90vh;
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-        animation: modalFadeIn 0.3s ease;
-        position: relative;
-      }
-
-      @keyframes modalFadeIn {
-        from { opacity: 0; transform: scale(0.95); }
-        to { opacity: 1; transform: scale(1); }
-      }
-
-      .modal-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 15px 20px;
-        border-bottom: 1px solid var(--divider-color);
-        background-color: var(--primary-color);
-        color: white;
-      }
-
-      .modal-header h3 {
-        margin: 0;
-        font-size: 1.3rem;
-        font-weight: 600;
-      }
-
-      .modal-close-button {
-        background: transparent;
-        border: none;
-        font-size: 1.5rem;
-        cursor: pointer;
-        color: white;
-        width: 28px;
-        height: 28px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0;
-        margin: 0;
-        border-radius: 50%;
-        transition: background-color 0.2s;
-      }
-
-      .modal-close-button:hover {
-        background-color: rgba(255, 255, 255, 0.2);
-      }
-
-      .modal-body {
-        padding: 20px;
-        overflow-y: auto;
-        max-height: calc(90vh - 60px);
-        color: var(--text-primary);
-      }
-
-      /* 为模态窗口内的内容添加样式 */
-      .modal-body a {
-        color: var(--primary-color);
-      }
-
-      .modal-body img {
-        max-width: 100%;
-        height: auto;
-        display: block;
-        margin: 10px auto;
-      }
-
-      /* 移动端适配 */
-      @media (max-width: 767px) {
-        .modal-content {
-          width: 95%;
-        }
-        
-        .modal-header {
-          padding: 10px 15px;
-        }
-        
-        .modal-body {
-          padding: 15px;
-        }
-      }
-    </style>
-    <!-- 引入 particles.js 库 -->
-    <script src="https://cdn.staticfile.org/particles.js/2.0.0/particles.min.js"></script>
-  </head>
-  <body>
-    <!-- 修改控制面板部分 -->
-      <div class="control-panel">
-        <div class="control-panel-inner">
-            
-          <!-- 修改信息显示区域的HTML结构 -->
-          <div class="info-section">
-            <!-- 添加最近更新日期显示 -->
-            <div class="datetime-display">
-              <span>🧭</span>
-              <span id="lastUpdatedDate">更新：2025-05-07</span>
-            </div>
-            <!-- 添加主题切换按钮 -->
-            <button class="theme-button" onclick="toggleTheme()" title="切换主题">
-              <span id="themeIcon">💧</span>
-            </button>
+      <div class="button-group">
+        <button onclick="expandAll()">一键展开</button>
+        <button onclick="collapseAll()">一键折叠</button>
+      </div>
+      
+      <div class="search-section">
+        <div class="search-input-group">
+          <input type="text" id="searchInput" placeholder="输入搜索词...">
+          <!-- 添加匹配方式选择下拉菜单 -->
+          <select id="matchType">
+            <option value="partial">局部匹配</option>
+            <option value="regex">完整匹配</option>
+          </select>
+          <button onclick="searchAndHighlight()">搜索</button>
         </div>
-
         <div class="button-group">
-          <button onclick="expandAll()">一键展开</button>
-          <button onclick="collapseAll()">一键折叠</button>
-        </div>
-        
-        <div class="search-section">
-          <div class="search-input-group">
-            <input type="text" id="searchInput" placeholder="输入搜索词...">
-            <!-- 添加匹配方式选择下拉菜单 -->
-            <select id="matchType">
-              <option value="partial">局部匹配</option>
-              <option value="regex">完整匹配</option>
-            </select>
-            <button onclick="searchAndHighlight()">搜索</button>
-          </div>
-          <div class="button-group">
-            <button onclick="prevHighlight()">上一个</button>
-            <button onclick="nextHighlight()">下一个</button>
-          </div>
+          <button onclick="prevHighlight()">上一个</button>
+          <button onclick="nextHighlight()">下一个</button>
         </div>
       </div>
     </div>
+  </div>
 
-      <div class="content" style="z-index: 0; position: relative;"> <!-- 为内容区域添加 z-index 并设置相对定位 -->
-        <details class="indent-level-1"><summary><span class="folder-icon"></span><span class="clickable-title">📢近期公告</span></summary>
+    <div class="content" style="z-index: 0; position: relative;"> <!-- 为内容区域添加 z-index 并设置相对定位 -->
+      <details class="indent-level-1"><summary><span class="folder-icon"></span><span class="clickable-title">📢近期公告</span></summary>
 <div class="content-container">
 <div style="text-align:center;color:#000;font-size:14px;">
   <a href="https://xydh.fun/gmengshuai" target="_blank">
@@ -4842,101 +4723,97 @@
 </div></details>
 </div></details>
 
-      </div>
-
-     <!-- 微信公众号展示 -->
-    <div class="wechat-section">
-      <!-- 添加使用提示信息 -->
-      <div class="help-tip">
-        <span title="按住Ctrl键并点击目录标题可以在弹窗中查看内容">Ctrl+点击可弹窗查看</span>
-      </div>
-      <p class="wechat-title">欢迎关注我的微信公众号: 小帅随笔</p>
-      <!-- 修改为将访问量和访客数放在一行 -->
-      <p class="visit-count">访问量: <span id="busuanzi_value_site_pv"></span> 次 | 访客数: <span id="busuanzi_value_site_uv"></span> 人</p>
     </div>
 
-    <!-- 右侧悬浮按钮和侧边栏 -->
-    <div id="floating-button" style="
-        position: fixed;
-        right: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        background-color: #2196F3;
-        border-radius: 25px 0 0 10px;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-size: 24px;
-        box-shadow: -2px 0 10px rgba(0,0,0,0.2);
-        z-index: 10000;
-        ">
-        👈侧边栏
-    </div>
+   <!-- 微信公众号展示 -->
+  <div class="wechat-section">
+    <p class="wechat-title">欢迎关注我的微信公众号: 小帅随笔</p>
+    <!-- 修改为将访问量和访客数放在一行 -->
+    <p class="visit-count">访问量: <span id="busuanzi_value_site_pv"></span> 次 | 访客数: <span id="busuanzi_value_site_uv"></span> 人</p>
+  </div>
 
-      <!-- 侧边栏广告位 -->
-    <div id="sidebar-content" style="
-        /* 固定定位，位于页面右侧 */
-        position: fixed;
-        /* 初始隐藏在页面右侧 */
-        right: -300px;
-        /* 垂直居中 */
-        top: 50%;
-        transform: translateY(-50%);
-        /* 侧边栏宽度 */
-        width: 260px; 
-        /* 过渡动画，实现平滑显示和隐藏 */
-        transition: right 0.3s ease;
-        /* 设置层级，确保显示在其他元素之上 */
-        z-index: 9999;
-        /* 左侧圆角 */
-        border-radius: 10px 0 0 10px;
-        /* 内边距 */
-        padding-top: 10px;
-        padding-right: 40px;
-        padding-bottom: 10px;
-        padding-left: 10px;
+  <!-- 右侧悬浮按钮和侧边栏 -->
+  <div id="floating-button" style="
+      position: fixed;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #2196F3;
+      border-radius: 25px 0 0 10px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 24px;
+      box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+      z-index: 10000;
       ">
-        
-        <div class="ad-container" style="
-            display: flex;
-            flex-direction: column;
-            gap: 20px;">
-            <a href="https://simhaoka.com/phone/index?id=0E47D457B933E60E233CD5772AB85559" 
-              target="_blank" 
-              style="
-                  display: block;
-                  transition: transform 0.3s ease;
-                  border-radius: 8px;
-                  overflow: hidden;
-                  box-shadow: 0 1px 2px 2px #64b5f6;
-                  text-align: center;
-                  padding: 10px;
-                  text-decoration: none;">
-                小帅的流量卡店铺
-            </a>
+      👈侧边栏
+  </div>
 
-            <a href="https://flowus.cn/share/45f5e4bf-0b9f-431a-9e18-86c47c490b78?code=JK1MBY" 
-              target="_blank"
-              style="
-                  display: block;
-                  transition: transform 0.3s ease;
-                  border-radius: 8px;
-                  overflow: hidden;
-                  box-shadow: 0 1px 2px 2px #64b5f6;
-                  text-align: center;
-                  padding: 10px;
-                  text-decoration: none;">
-                付费服务(密码:9527)
-            </a>
-        </div>
+    <!-- 侧边栏广告位 -->
+  <div id="sidebar-content" style="
+      /* 固定定位，位于页面右侧 */
+      position: fixed;
+      /* 初始隐藏在页面右侧 */
+      right: -300px;
+      /* 垂直居中 */
+      top: 50%;
+      transform: translateY(-50%);
+      /* 侧边栏宽度 */
+      width: 260px; 
+      /* 过渡动画，实现平滑显示和隐藏 */
+      transition: right 0.3s ease;
+      /* 设置层级，确保显示在其他元素之上 */
+      z-index: 9999;
+      /* 左侧圆角 */
+      border-radius: 10px 0 0 10px;
+      /* 内边距 */
+      padding-top: 10px;
+      padding-right: 40px;
+      padding-bottom: 10px;
+      padding-left: 10px;
+    ">
+      
+      <div class="ad-container" style="
+          display: flex;
+          flex-direction: column;
+          gap: 20px;">
+          <a href="https://simhaoka.com/phone/index?id=0E47D457B933E60E233CD5772AB85559" 
+            target="_blank" 
+            style="
+                display: block;
+                transition: transform 0.3s ease;
+                border-radius: 8px;
+                overflow: hidden;
+                box-shadow: 0 1px 2px 2px #64b5f6;
+                text-align: center;
+                padding: 10px;
+                text-decoration: none;">
+              小帅的流量卡店铺
+          </a>
+
+          <a href="https://flowus.cn/share/45f5e4bf-0b9f-431a-9e18-86c47c490b78?code=JK1MBY" 
+            target="_blank"
+            style="
+                display: block;
+                transition: transform 0.3s ease;
+                border-radius: 8px;
+                overflow: hidden;
+                box-shadow: 0 1px 2px 2px #64b5f6;
+                text-align: center;
+                padding: 10px;
+                text-decoration: none;">
+              付费服务(密码:9527)
+          </a>
       </div>
-      <!-- 添加粒子特效容器 -->
-      <div id="particles-js" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none;">
-      </div>
-  <script>
-      let highlightIndex=-1,highlightElements=[],isExpanding=!1,expandRequestId=null,detailsToExpand=[],expandIndex=0,BATCH_SIZE=50,isCollapsing=!1,collapseRequestId=null,particlesPaused=!1;function showOperationStatus(e,t=1500){let n=document.getElementById("operation-status");n||(n=document.createElement("div"),n.id="operation-status",n.style.position="fixed",n.style.bottom="20px",n.style.left="50%",n.style.transform="translateX(-50%)",n.style.backgroundColor="rgba(33, 150, 243, 0.9)",n.style.color="white",n.style.padding="8px 16px",n.style.borderRadius="20px",n.style.boxShadow="0 2px 10px rgba(0,0,0,0.2)",n.style.zIndex="2000",n.style.fontSize="14px",n.style.transition="opacity 0.3s",document.body.appendChild(n)),n.textContent=e,n.style.opacity="1",setTimeout((()=>{n.style.opacity="0",setTimeout((()=>{n.parentNode&&document.body.removeChild(n)}),300)}),t)}function detectDevicePerformance(){const e=window.innerWidth<768||"ontouchstart"in window;if(e){BATCH_SIZE=20;const e=performance.now();let t=0;for(let e=0;e<1e4;e++)t+=Math.sqrt(e);performance.now()-e>20&&(BATCH_SIZE=10,console.log("检测到低性能设备，降低批处理量:",BATCH_SIZE))}return e}function expandAll(){if(isExpanding)return;showOperationStatus("正在展开..."),isCollapsing&&(collapseRequestId&&cancelAnimationFrame(collapseRequestId),isCollapsing=!1),isExpanding=!0,detailsToExpand=Array.from(document.querySelectorAll("details:not([open])")),expandIndex=0;const e=window.innerWidth<768||"ontouchstart"in window;document.documentElement.style.setProperty("--transition-speed","0s"),e&&detailsToExpand.length>100?(window.addEventListener("scroll",expandOnScroll),expandVisibleDetails()):function t(){const n=e?15:BATCH_SIZE,i=Math.min(expandIndex+n,detailsToExpand.length);for(;expandIndex<i;expandIndex++)detailsToExpand[expandIndex].open=!0;expandIndex<detailsToExpand.length?expandRequestId=requestAnimationFrame(t):finishExpanding()}()}function expandVisibleDetails(){const e=window.innerHeight;for(;expandIndex<detailsToExpand.length;){const t=detailsToExpand[expandIndex],n=t.getBoundingClientRect();if(!(n.bottom>0&&n.top<2*e))break;t.open=!0,expandIndex++}expandIndex>=detailsToExpand.length&&finishExpanding()}function expandOnScroll(){expandVisibleDetails()}function finishExpanding(){document.documentElement.style.setProperty("--transition-speed","0.2s"),isExpanding=!1,window.removeEventListener("scroll",expandOnScroll),showOperationStatus("展开完成",1e3)}function collapseAll(){if(isCollapsing)return;showOperationStatus("正在折叠..."),isExpanding&&(expandRequestId&&cancelAnimationFrame(expandRequestId),isExpanding=!1,window.removeEventListener("scroll",expandOnScroll)),isCollapsing=!0,document.documentElement.style.setProperty("--transition-speed","0s");const e=Array.from(document.querySelectorAll("details[open]"));let t=0;const n=window.innerWidth<768||"ontouchstart"in window?20:BATCH_SIZE;!function i(){const o=Math.min(t+n,e.length);for(;t<o;t++)e[t].open=!1;t<e.length?collapseRequestId=requestAnimationFrame(i):(document.documentElement.style.setProperty("--transition-speed","0.2s"),isCollapsing=!1,showOperationStatus("折叠完成",1e3))}()}function searchAndHighlight(){const e=document.getElementById("searchInput").value.trim(),t=document.getElementById("matchType").value;if(!e)return void alert("请输入搜索内容");const n=document.querySelector('button[onclick="searchAndHighlight()"]'),i=n.textContent;n.textContent="搜索中...",n.disabled=!0,removeHighlights();const o=()=>{setTimeout((()=>{highlightText(document.querySelector(".content"),e,t),highlightElements=Array.from(document.querySelectorAll(".highlight")),n.textContent=i,n.disabled=!1,highlightElements.length>0?(highlightIndex=0,scrollToHighlight()):alert("没有找到匹配项")}),100)};if(isExpanding){const e=()=>{isExpanding?setTimeout(e,100):o()};e()}else{const e=finishExpanding;finishExpanding=function(){e(),o(),finishExpanding=e},expandAll()}}function highlightText(e,t,n){if(e.nodeType===Node.TEXT_NODE){const i=e.nodeValue,o=i.toLowerCase();if("partial"===n){const n=t.toLowerCase().trim(),l=o.indexOf(n);if(-1!==l){const n=function(e,t,n){const i=document.createElement("span");t>0&&i.appendChild(document.createTextNode(e.slice(0,t)));const o=document.createElement("span");return o.className="highlight",o.appendChild(document.createTextNode(e.slice(t,t+n))),i.appendChild(o),t+n<e.length&&i.appendChild(document.createTextNode(e.slice(t+n))),i}(i,l,t.length);return e.parentNode.replaceChild(n,e),!0}}else if("regex"===n)try{const n=new RegExp(`\\b${t}\\b`,"gi");let o,l=0;const a=document.createElement("span");let d=!1;for(;null!==(o=n.exec(i));){const e=o.index,t=e+o[0].length;e>l&&a.appendChild(document.createTextNode(i.slice(l,e)));const n=document.createElement("span");n.className="highlight",n.textContent=o[0],a.appendChild(n),l=t,d=!0}if(d)return l<i.length&&a.appendChild(document.createTextNode(i.slice(l))),e.parentNode.replaceChild(a,e),!0}catch(e){console.error("正则匹配出错:",e)}}else if(e.nodeType===Node.ELEMENT_NODE&&!["SCRIPT","STYLE","BUTTON"].includes(e.tagName)){let i=!1;return Array.from(e.childNodes).forEach((e=>{highlightText(e,t,n)&&(i=!0)})),i}return!1}function removeHighlights(){document.querySelectorAll(".highlight").forEach((e=>{const t=e.parentNode,n=document.createTextNode(e.textContent);t.replaceChild(n,e),t.normalize()})),highlightIndex=-1,highlightElements=[]}function nextHighlight(){highlightElements.length>0&&(highlightIndex>=0&&highlightElements[highlightIndex].classList.remove("active-highlight"),highlightIndex=(highlightIndex+1)%highlightElements.length,scrollToHighlight())}function prevHighlight(){highlightElements.length>0&&(highlightIndex>=0&&highlightElements[highlightIndex].classList.remove("active-highlight"),highlightIndex=(highlightIndex-1+highlightElements.length)%highlightElements.length,scrollToHighlight())}function scrollToHighlight(){if(highlightElements.length>0&&-1!==highlightIndex){highlightElements.forEach((e=>e.classList.remove("active-highlight"))),highlightElements[highlightIndex].classList.add("active-highlight");let e=highlightElements[highlightIndex].parentElement;for(;e;)"DETAILS"===e.tagName&&(e.open=!0),e=e.parentElement;highlightElements[highlightIndex].scrollIntoView({behavior:"smooth",block:"center"})}}if(document.getElementById("searchInput").addEventListener("keypress",(function(e){"Enter"===e.key&&(0===highlightElements.length?searchAndHighlight():nextHighlight())})),"ontouchstart"in window){document.querySelectorAll("button").forEach((e=>{e.addEventListener("touchstart",(function(){this.style.transform="scale(0.97)"}),{passive:!0}),e.addEventListener("touchend",(function(){this.style.transform=""}),{passive:!0}),e.addEventListener("touchcancel",(function(){this.style.transform=""}),{passive:!0})}))}const savedTheme=localStorage.getItem("theme");function updateDateTime(){var e=new Date,t=e.getFullYear()+"-"+(e.getMonth()+1).toString().padStart(2,"0")+"-"+e.getDate().toString().padStart(2,"0")+" "+e.getHours().toString().padStart(2,"0")+":"+e.getMinutes().toString().padStart(2,"0")+":"+e.getSeconds().toString().padStart(2,"0");document.getElementById("currentDateTime").textContent=t}function toggleTheme(){document.documentElement.style.setProperty("--transition-speed","0s");var e=document.body,t="light"===(localStorage.getItem("theme")||"light")?"dark":"light";e.classList.remove("light-theme","dark-theme"),e.classList.add(t+"-theme"),localStorage.setItem("theme",t),document.getElementById("themeIcon").textContent="dark"===t?"🔥":"💧",requestAnimationFrame((()=>{document.documentElement.style.setProperty("--transition-speed","0.2s")}))}function initialize(){detectDevicePerformance();var e=localStorage.getItem("theme")||"light";document.body.classList.add(e+"-theme"),document.getElementById("themeIcon").textContent="dark"===e?"🔥":"💧",document.querySelectorAll("a").forEach((e=>{e.closest("#sidebar-content")||(e.setAttribute("target","_blank"),e.setAttribute("rel","noopener noreferrer"))})),document.querySelectorAll("summary").forEach((e=>{e.addEventListener("click",(e=>{e.preventDefault()}))})),document.querySelectorAll(".clickable-title").forEach((e=>{e.addEventListener("click",(e=>{const t=e.target.closest("details"),n=e.target.textContent;e.ctrlKey||e.metaKey?function(e,t){const n=document.createElement("div");n.className="modal-overlay";const i=document.createElement("div");i.className="modal-content";const o=document.createElement("div");o.className="modal-header";const l=document.createElement("h3");l.textContent=e,o.appendChild(l);const a=document.createElement("button");a.className="modal-close-button",a.textContent="✕",a.onclick=()=>document.body.removeChild(n),o.appendChild(a),i.appendChild(o);const d=document.createElement("div");d.className="modal-body";const s=t.querySelector(".content-container");s&&(d.innerHTML=s.innerHTML);i.appendChild(d),n.appendChild(i),document.body.appendChild(n),document.addEventListener("keydown",(function e(t){"Escape"===t.key&&(document.body.removeChild(n),document.removeEventListener("keydown",e))})),n.addEventListener("click",(function(e){e.target===n&&document.body.removeChild(n)}))}(n,t):t.open=!t.open}))})),initParticles(),detectDevicePerformance()}function toggleSidebar(){const e=document.querySelector(".sidebar-ad"),t=document.getElementById("sidebarIcon");e.classList.contains("open")?(e.classList.remove("open"),t.textContent="👈"):(e.classList.add("open"),t.textContent="👉")}savedTheme?document.body.classList.toggle("dark-theme","dark"===savedTheme):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark-theme"),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",initialize):initialize(),document.addEventListener("DOMContentLoaded",(function(){const e=document.getElementById("floating-button"),t=document.getElementById("sidebar-content");let n=!1;e&&t&&e.addEventListener("click",(function(){n?(t.style.right="-300px",e.textContent="👈"):(t.style.right="0",e.textContent="👉"),n=!n}))}));const observer=new MutationObserver((e=>{e.forEach((e=>{e.addedNodes.forEach((e=>{if(1===e.nodeType){e.querySelectorAll("a").forEach((e=>{e.closest("#sidebar-content")||(e.setAttribute("target","_blank"),e.setAttribute("rel","noopener noreferrer"))}))}}))}))}));document.addEventListener("DOMContentLoaded",(()=>{observer.observe(document.body,{childList:!0,subtree:!0})}));const particlesConfig={particles:{number:{value:80,density:{enable:!0,value_area:800}},color:{value:"#1976D2"},shape:{type:"circle",stroke:{width:0,color:"#1976D2"},polygon:{nb_sides:5},image:{src:"img/github.svg",width:100,height:100}},opacity:{value:.5,random:!1,anim:{enable:!1,speed:1,opacity_min:.1,sync:!1}},size:{value:3,random:!0,anim:{enable:!1,speed:4,size_min:.1,sync:!1}},line_linked:{enable:!0,distance:150,color:"#1976D2",opacity:.4,width:1},move:{enable:!0,speed:2,direction:"none",random:!1,straight:!1,out_mode:"out",bounce:!1,attract:{enable:!1,rotateX:600,rotateY:1200}}},interactivity:{detect_on:"canvas",events:{onhover:{enable:!0,mode:"grab"},onclick:{enable:!0,mode:"push"},resize:!0},modes:{grab:{distance:140,line_linked:{opacity:1}},bubble:{distance:400,size:40,duration:2,opacity:8,speed:3},repulse:{distance:200,duration:.4},push:{particles_nb:4},remove:{particles_nb:2}}},retina_detect:!0};function initParticles(){particlesJS("particles-js",particlesConfig)}
-    </script>
-  </body>
-  </html>
+    </div>
+    <!-- 添加粒子特效容器 -->
+    <div id="particles-js" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none;">
+    </div>
+<script>
+    let highlightIndex=-1,highlightElements=[],isExpanding=!1,expandRequestId=null,detailsToExpand=[],expandIndex=0;const BATCH_SIZE=50;let isCollapsing=!1,collapseRequestId=null,particlesPaused=!1;function expandAll(){isExpanding||(isExpanding=!0,detailsToExpand=Array.from(document.querySelectorAll("details")),expandIndex=0,document.documentElement.style.setProperty("--transition-speed","0s"),function e(){const t=Math.min(expandIndex+50,detailsToExpand.length);for(;expandIndex<t;expandIndex++)detailsToExpand[expandIndex].open=!0;expandIndex<detailsToExpand.length?expandRequestId=requestAnimationFrame(e):finishExpanding()}())}function expandVisibleDetails(){const e=window.innerHeight;for(;expandIndex<detailsToExpand.length;){const t=detailsToExpand[expandIndex],n=t.getBoundingClientRect();if(!(n.bottom>0&&n.top<2*e))break;t.open=!0,expandIndex++}expandIndex>=detailsToExpand.length&&finishExpanding()}function expandOnScroll(){expandVisibleDetails()}function finishExpanding(){document.documentElement.style.setProperty("--transition-speed","0.2s"),isExpanding=!1,window.removeEventListener("scroll",expandOnScroll)}function collapseAll(){const e=document.querySelectorAll("details");document.documentElement.style.setProperty("--transition-speed","0s"),e.forEach((e=>e.open=!1)),document.documentElement.style.setProperty("--transition-speed","0.2s"),removeHighlights(),highlightIndex=-1,highlightElements=[]}function searchAndHighlight(){const e=document.getElementById("searchInput").value.trim(),t=document.getElementById("matchType").value;e?(console.log('开始搜索: "'+e+'", 匹配模式: '+t),removeHighlights(),expandAll(),setTimeout((()=>{console.log("开始执行匹配...");highlightText(document.querySelector(".content"),e,t);highlightElements=Array.from(document.querySelectorAll(".highlight")),console.log("匹配完成，共找到 "+highlightElements.length+" 个匹配项"),highlightElements.length>0?(highlightIndex=0,scrollToHighlight()):alert("没有找到匹配项")}),100)):alert("请输入搜索内容")}function highlightText(e,t,n){let i=!1;if(e.nodeType===Node.TEXT_NODE){const o=e.textContent;if(!o||""===o.trim())return!1;let l=[];if("partial"===n){const e=t.toLowerCase();let n=o.toLowerCase().indexOf(e);for(;-1!==n;)l.push({start:n,end:n+t.length}),console.log('[部分匹配] 在文本 "'+o+'" 中找到匹配: "'+o.substring(n,n+t.length)+'", 位置: '+n),n=o.toLowerCase().indexOf(e,n+1)}else if("regex"===n)if("wps"===t.toLowerCase()){console.log("[特殊处理] 查找WPS关键词，使用简单匹配");const e=o.toLowerCase();let t=e.indexOf("wps");for(;-1!==t;)l.push({start:t,end:t+3}),console.log('[WPS匹配] 找到匹配: "wps" 在位置: '+t+', 文本: "'+o+'"'),t=e.indexOf("wps",t+1)}else if(/^[a-zA-Z0-9]+$/.test(t)&&t.length>1){console.log('[全词匹配] 尝试词边界匹配: "'+t+'"');let e,n=new RegExp("\b"+t+"\b","gi");for(;null!==(e=n.exec(o));)l.push({start:e.index,end:e.index+e[0].length}),console.log('[全词匹配] 找到匹配: "'+e[0]+'" 在位置: '+e.index)}else{console.log('[全词匹配] 使用精确匹配: "'+t+'"');const e=new RegExp(t,"gi");let n;for(;null!==(n=e.exec(o));)l.push({start:n.index,end:n.index+n[0].length}),console.log('[精确匹配] 找到匹配: "'+n[0]+'" 在位置: '+n.index)}if(l.length>0){const t=document.createElement("span");let n=0;l.forEach((e=>{e.start>n&&t.appendChild(document.createTextNode(o.substring(n,e.start)));const i=document.createElement("span");i.className="highlight",i.textContent=o.substring(e.start,e.end),t.appendChild(i),n=e.end})),n<o.length&&t.appendChild(document.createTextNode(o.substring(n))),e.parentNode.replaceChild(t,e);let s=t.parentNode;for(;s;)"DETAILS"===s.tagName&&(s.open=!0),s=s.parentNode;i=!0}}else if(e.nodeType===Node.ELEMENT_NODE){if(["SCRIPT","STYLE","BUTTON"].includes(e.tagName))return!1;Array.from(e.childNodes).forEach((e=>{highlightText(e,t,n)&&(i=!0)}))}return i}function removeHighlights(){document.querySelectorAll(".highlight").forEach((e=>{const t=e.parentNode,n=document.createTextNode(e.textContent);t.replaceChild(n,e),t.normalize()})),highlightIndex=-1,highlightElements=[]}function nextHighlight(){highlightElements.length>0&&(highlightIndex>=0&&highlightElements[highlightIndex].classList.remove("active-highlight"),highlightIndex=(highlightIndex+1)%highlightElements.length,scrollToHighlight())}function prevHighlight(){highlightElements.length>0&&(highlightIndex>=0&&highlightElements[highlightIndex].classList.remove("active-highlight"),highlightIndex=(highlightIndex-1+highlightElements.length)%highlightElements.length,scrollToHighlight())}function scrollToHighlight(){if(highlightElements.length>0&&-1!==highlightIndex){highlightElements.forEach((e=>e.classList.remove("active-highlight"))),highlightElements[highlightIndex].classList.add("active-highlight");let e=highlightElements[highlightIndex].parentElement;for(;e;)"DETAILS"===e.tagName&&(e.open=!0),e=e.parentElement;highlightElements[highlightIndex].scrollIntoView({behavior:"smooth",block:"center"})}}if(document.getElementById("searchInput").addEventListener("keypress",(function(e){"Enter"===e.key&&(0===highlightElements.length?searchAndHighlight():nextHighlight())})),"ontouchstart"in window){document.querySelectorAll("button").forEach((e=>{e.addEventListener("touchstart",(function(){this.style.transform="scale(0.97)"}),{passive:!0}),e.addEventListener("touchend",(function(){this.style.transform=""}),{passive:!0}),e.addEventListener("touchcancel",(function(){this.style.transform=""}),{passive:!0})}))}const savedTheme=localStorage.getItem("theme");function updateDateTime(){var e=new Date,t=e.getFullYear()+"-"+(e.getMonth()+1).toString().padStart(2,"0")+"-"+e.getDate().toString().padStart(2,"0")+" "+e.getHours().toString().padStart(2,"0")+":"+e.getMinutes().toString().padStart(2,"0")+":"+e.getSeconds().toString().padStart(2,"0");document.getElementById("currentDateTime").textContent=t}function toggleTheme(){document.documentElement.style.setProperty("--transition-speed","0s");var e=document.body,t="light"===(localStorage.getItem("theme")||"light")?"dark":"light";e.classList.remove("light-theme","dark-theme"),e.classList.add(t+"-theme"),localStorage.setItem("theme",t),document.getElementById("themeIcon").textContent="dark"===t?"🔥":"💧",requestAnimationFrame((()=>{document.documentElement.style.setProperty("--transition-speed","0.2s")}))}function initialize(){var e=localStorage.getItem("theme")||"light";document.body.classList.add(e+"-theme"),document.getElementById("themeIcon").textContent="dark"===e?"🔥":"💧",document.querySelectorAll("a").forEach((e=>{e.closest("#sidebar-content")||(e.setAttribute("target","_blank"),e.setAttribute("rel","noopener noreferrer"))})),document.querySelectorAll("summary").forEach((e=>{e.addEventListener("click",(e=>{e.preventDefault()}))})),document.querySelectorAll(".clickable-title").forEach((e=>{e.addEventListener("click",(e=>{const t=e.target.closest("details");t.open=!t.open}))})),initParticles()}function toggleSidebar(){const e=document.querySelector(".sidebar-ad"),t=document.getElementById("sidebarIcon");e.classList.contains("open")?(e.classList.remove("open"),t.textContent="👈"):(e.classList.add("open"),t.textContent="👉")}savedTheme?document.body.classList.toggle("dark-theme","dark"===savedTheme):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark-theme"),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",initialize):initialize(),document.addEventListener("DOMContentLoaded",(function(){const e=document.getElementById("floating-button"),t=document.getElementById("sidebar-content");let n=!1;e&&t&&e.addEventListener("click",(function(){n?(t.style.right="-300px",e.textContent="👈"):(t.style.right="0",e.textContent="👉"),n=!n}))}));const observer=new MutationObserver((e=>{e.forEach((e=>{e.addedNodes.forEach((e=>{if(1===e.nodeType){e.querySelectorAll("a").forEach((e=>{e.closest("#sidebar-content")||(e.setAttribute("target","_blank"),e.setAttribute("rel","noopener noreferrer"))}))}}))}))}));document.addEventListener("DOMContentLoaded",(()=>{observer.observe(document.body,{childList:!0,subtree:!0})}));const particlesConfig={particles:{number:{value:80,density:{enable:!0,value_area:800}},color:{value:"#1976D2"},shape:{type:"circle",stroke:{width:0,color:"#1976D2"},polygon:{nb_sides:5},image:{src:"img/github.svg",width:100,height:100}},opacity:{value:.5,random:!1,anim:{enable:!1,speed:1,opacity_min:.1,sync:!1}},size:{value:3,random:!0,anim:{enable:!1,speed:4,size_min:.1,sync:!1}},line_linked:{enable:!0,distance:150,color:"#1976D2",opacity:.4,width:1},move:{enable:!0,speed:2,direction:"none",random:!1,straight:!1,out_mode:"out",bounce:!1,attract:{enable:!1,rotateX:600,rotateY:1200}}},interactivity:{detect_on:"canvas",events:{onhover:{enable:!0,mode:"grab"},onclick:{enable:!0,mode:"push"},resize:!0},modes:{grab:{distance:140,line_linked:{opacity:1}},bubble:{distance:400,size:40,duration:2,opacity:8,speed:3},repulse:{distance:200,duration:.4},push:{particles_nb:4},remove:{particles_nb:2}}},retina_detect:!0};function initParticles(){particlesJS("particles-js",particlesConfig)}
+  </script>
+</body>
+</html>
