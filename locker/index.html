@@ -32,6 +32,7 @@
           --subfolder-color: #17832494;
           --file-color: #9E9E9E;
           --theme-transition: all 0.3s ease; /* 统一所有元素过渡效果 */
+          --folder-hover-color: #FF5722; /* 文件夹图标悬停颜色 */
       }
 
       /* 添加暗色主题样式 */
@@ -49,6 +50,7 @@
         --folder-color: #FFD54F;
         --subfolder-color:rgba(51, 190, 67, 0.93);
         --file-color: #B0BEC5;
+        --folder-hover-color: #FF9800; /* 暗色主题下的文件夹图标悬停颜色 */
       }
 
       @media (prefers-color-scheme: dark) {
@@ -276,6 +278,18 @@
         display: inline-block;
         position: relative;
         margin-right: 10px;
+        cursor: pointer; /* 添加指针样式 */
+        transition: transform 0.2s ease; /* 添加变换过渡效果 */
+      }
+      
+      /* 文件夹图标悬停效果 */
+      .folder-icon:hover {
+        transform: scale(1.2); /* 悬停时放大图标 */
+      }
+      
+      .folder-icon:hover::before,
+      .folder-icon:hover::after {
+        background-color: #ff9800 !important; /* 悬停时改变颜色 */
       }
       
       .folder-icon::before {
@@ -287,7 +301,7 @@
         border-radius: 2px;
         bottom: 0;
         left: 0;
-        transition: none !important;
+        transition: background-color 0.2s ease !important; /* 仅对颜色添加过渡效果 */
       }
       
       .folder-icon::after {
@@ -299,7 +313,7 @@
         border-radius: 1px 1px 0 0;
         top: 0;
         left: 0;
-        transition: none !important;
+        transition: background-color 0.2s ease !important; /* 仅对颜色添加过渡效果 */
       }
       
       // details[open] .folder-icon::before {
@@ -892,7 +906,7 @@
             <!-- 添加最近更新日期显示 -->
             <div class="datetime-display">
               <span>🧭</span>
-              <span id="lastUpdatedDate">更新：2025-05-17</span>
+              <span id="lastUpdatedDate">更新：2025-05-18</span>
             </div>
             
             <!-- 添加粒子效果开关 -->
@@ -934,7 +948,7 @@
     </div>
 
       <div class="content" style="z-index: 0; position: relative;"> <!-- 为内容区域添加 z-index 并设置相对定位 -->
-        <details class="indent-level-1"><summary><span class="folder-icon"></span><span class="clickable-title">📢近期公告</span></summary>
+        <details class="indent-level-1"><summary><span class="folder-icon" data-level="1"></span><span class="clickable-title">📢近期公告</span></summary>
 <div class="content-container">
 <div style="text-align:center;color:#000;font-size:14px;">
   <a href="https://xydh.fun/gmengshuai" target="_blank">
@@ -972,15 +986,15 @@
 <p>💨6，03-03 栏更新大批量电子书/漫画源地址</p>
 </blockquote>
 </div></details>
-<details class="indent-level-1"><summary><span class="folder-icon"></span><span class="clickable-title">01 爆火 AI🔥</span></summary>
+<details class="indent-level-1"><summary><span class="folder-icon" data-level="1"></span><span class="clickable-title">01 爆火 AI🔥</span></summary>
 <div class="content-container">
 <p>✅ <a href="https://github.com/kaixindelele/2025-Awesome-AI-Bloggers">Github仓库：全网最全-2025年AI领域最值得关注的两百位博主和一手信息源盘点👍</a></p>
 <p>✅ <a href="https://github.com/wgwang/awesome-LLMs-In-China">大模型列表Github仓库👍</a></p>
 <p>✅ <a href="https://xiaoshuai.link/2024/01/01/chatgpt4omini%E6%9C%80%E6%96%B0%E6%B3%A8%E5%86%8C%E6%95%99%E7%A8%8B(%E5%8F%AF%E5%85%8D%E8%B4%B9%E5%AE%8C%E6%88%90%E6%B3%A8%E5%86%8C)/">ChatGPT4mini/Claude3.7最新注册教程 👍</a></p>
 <p>✅ <a href="https://xiaoshuai.link/2024/02/20/chatgpt_plus%E6%9C%80%E6%96%B0(2025)%E5%8D%87%E7%BA%A7%E6%95%99%E7%A8%8B/">ChatGPT4.0plus最新升级教程 👍</a></p>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">01.AI 对话通用大模型</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">01.AI 对话通用大模型</span></summary>
 <div class="content-container">
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">01.国外</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">01.国外</span></summary>
 <div class="content-container">
 <ul>
 <li>❌ <a href="https://chat.openai.com/auth/login">ChatGPT官网👍</a>【综合能力较强】</li>
@@ -992,7 +1006,7 @@
 <li>❌ <a href="https://copilot.microsoft.com/">NewBingChat -&gt; copilot</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">02.国内</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">02.国内</span></summary>
 <div class="content-container">
 <ul>
 <li>
@@ -1082,7 +1096,7 @@
 <li>✅ <a href="https://groq.com/#">Groq</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">03.镜像</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">03.镜像</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://lzw.me/x/chatgpt-sites/">导航站 - ChatGPT 免费网站在线体验列表 (lzw.me)</a></li>
@@ -1101,7 +1115,7 @@
 </ul>
 </div></details>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">02.AI 多模态大模型</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">02.AI 多模态大模型</span></summary>
 <div class="content-container">
 <p>【OCR识别、文档理解等，上面的AI对话大模型基本上也都支持】</p>
 <ul>
@@ -1119,10 +1133,10 @@
 </li>
 </ul>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">03.AI 编程大模型</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">03.AI 编程大模型</span></summary>
 <div class="content-container">
 <p>【代码理解、改错、生成等，上面的AI对话大模型基本上也都支持】</p>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">01.网页在线</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">01.网页在线</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://github.com/copilot/c/c6eb74e4-33c5-408d-9d76-b9914f382998">GitHub Copilot👍</a>【支持 Claude3.5、GPT-4o、GPTo3-mini、Gemini2.0】</li>
@@ -1138,7 +1152,7 @@
 <li>✅ <a href="https://webdraw.com/?ref=aitoolnet.com">Webdraw - Free AI App Generator</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">02.软件/插件</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">02.软件/插件</span></summary>
 <div class="content-container">
 <ul>
 <li>AI 代码补全
@@ -1163,7 +1177,7 @@
 </ul>
 </div></details>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">04.AI 推理大模型</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">04.AI 推理大模型</span></summary>
 <div class="content-container">
 <p>支持深度推理【思维链、强化学习】</p>
 <ul>
@@ -1176,7 +1190,7 @@
 <li>❌ <a href="http://103.170.5.190:7870/">Step-DPO: Step-wise Preference Optimization for Long-chain Reasoning of LLMs</a>【<a href="https://github.com/dvlab-research/Step-DPO">GitHub</a>】</li>
 </ul>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">05.AI 搜索引擎</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">05.AI 搜索引擎</span></summary>
 <div class="content-container">
 <p>支持全网搜索归纳总结</p>
 <ul>
@@ -1202,9 +1216,9 @@
 <li>❌ <a href="https://consensus.app/search/">Search - Consensus: AI Search Engine for Research</a></li>
 </ul>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">06.AI 工具</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">06.AI 工具</span></summary>
 <div class="content-container">
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">01.API接入</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">01.API接入</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://console.mistral.ai/">Mistral API</a>【免费】</li>
@@ -1212,7 +1226,7 @@
 <li>✅ <a href="https://platform.deepseek.com/">DeepSeek API</a>【便宜】</li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">02.提示词</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">02.提示词</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://www.aishort.top/?name=%C3%A7%C3%A7">ChatGPT 指令_AiShort(ChatGPT Shortcut)</a></li>
@@ -1221,14 +1235,14 @@
 <li>✅ <a href="https://api-docs.deepseek.com/zh-cn/prompt-library/">DeepSeek API Docs</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">03.AI科研</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">03.AI科研</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://academic.chatwithpaper.org/">GPT学术优化【文献在线/本地翻译、润色等】</a></li>
 <li>✅ <a href="https://chatwithpaper.org/">ChatPaper【文献速读、总结等】</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">04.AI办公</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">04.AI办公</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://www.aigc.cn/favorites/office">AI办公工具 - 提升工作效率，轻松应对各种办公场景 | AIGC工具导航</a></li>
@@ -1236,7 +1250,7 @@
 <li>✅ <a href="https://www.aippt.cn/?utm_type=Navweb&amp;utm_source=axutx&amp;utm_page=aippt&amp;utm_plan=ppt&amp;utm_unit=AIPPT&amp;utm_keyword=50646">AiPPT - 全智能 AI 一键生成 PPT</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">05.AI绘画</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">05.AI绘画</span></summary>
 <div class="content-container">
 <ul>
 <li>❌ <a href="https://www.bilibili.com/video/BV1iM4y1y7oA/?spm_id_from=333.999.0.0&amp;vd_source=f0ea2dc11fde7f3d9400eb4cbce40a60">👍【AI绘画·24年12月最新】Stable Diffusion整合包v4.6发布！解压即用 防爆显存秋叶整合包</a></li>
@@ -1255,19 +1269,19 @@
 </div></details>
 </div></details>
 </div></details>
-<details class="indent-level-1"><summary><span class="folder-icon"></span><span class="clickable-title">┄┄✂┄┄　全端软件</span></summary>
+<details class="indent-level-1"><summary><span class="folder-icon" data-level="1"></span><span class="clickable-title">┄┄✂┄┄　全端软件</span></summary>
 <div class="content-container">
 </div></details>
-<details class="indent-level-1"><summary><span class="folder-icon"></span><span class="clickable-title">02 电脑常用</span></summary>
+<details class="indent-level-1"><summary><span class="folder-icon" data-level="1"></span><span class="clickable-title">02 电脑常用</span></summary>
 <div class="content-container">
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">01 系统安全/软件卸载/禁止更新/远程工具</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">01 系统安全/软件卸载/禁止更新/远程工具</span></summary>
 <div class="content-container">
 <blockquote>
 <p><strong>系统修复工具</strong>：在系统可以正常进入时，而由于系统的组件丢失等原因导致出现很多bug，可以尝试使用该工具进行修复（相当于重装系统，不丢失数据）：✅ <a href="https://gmengshuai.lanzoul.com/b00xq45cb">win10/win11易升（密码：eobn）</a>【✅ <a href="https://pan.quark.cn/s/3eb46ca49fda">🌀夸克云</a>】</p>
 </blockquote>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">01.系统优化清理</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">01.系统优化清理</span></summary>
 <div class="content-container">
-<details class="indent-level-4"><summary><span class="folder-icon"></span><span class="clickable-title">系统清理</span></summary>
+<details class="indent-level-4"><summary><span class="folder-icon" data-level="4"></span><span class="clickable-title">系统清理</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://pan.quark.cn/s/be9ca36cc22e">👍Windows10Manager🌀夸克云</a>【✅ <a href="https://cloud.189.cn/web/share?code=iMfIzqY7fuEn">天翼云</a>】</li>
@@ -1280,7 +1294,7 @@
 <li>✅ <a href="http://pan-yz.chaoxing.com/share/info/f4b78882d485732a">Privacy Eraser隐私橡皮擦</a>【<a href="https://pan.quark.cn/s/75647162345d">夸克盘</a>】【<a href="https://mefcl.lanzouw.com/b0140996f">蓝奏云-密码：25m5</a>】【<a href="https://www.123pan.com/s/QdiA-msamh.html">123 盘</a>】</li>
 </ul>
 </div></details>
-<details class="indent-level-4"><summary><span class="folder-icon"></span><span class="clickable-title">系统优化</span></summary>
+<details class="indent-level-4"><summary><span class="folder-icon" data-level="4"></span><span class="clickable-title">系统优化</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://pan.quark.cn/s/42f5f5d17bbe">Ashampoo 2021免费安装版🌀夸克云</a>【✅ <a href="https://cloud.189.cn/web/share?code=3u2iInUBRrum">天翼云</a>】</li>
@@ -1291,7 +1305,7 @@
 </ul>
 </div></details>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">02.软件下载与卸载</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">02.软件下载与卸载</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://thoughts.teambition.com/share/6067df97a86a91004a91d22b">👍 Uninstall Tool v3.5.10 单文件版 </a></li>
@@ -1304,7 +1318,7 @@
 <li>✅ <a href="https://pan.quark.cn/s/ed05ddb9303a">win10应用商店独立安装包🌀夸克云</a>【❌ <a href="http://pan-yz.chaoxing.com/share/info/e76fd349b1a0e2a6">超星云</a>】</li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">03.WIN禁止更新工具</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">03.WIN禁止更新工具</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://thoughts.teambition.com/share/60c4b9cdc998b4004610a65d#title=%E7%BD%91%E7%9B%98%E5%88%86%E4%BA%AB">Windows Update Blocker 支持WIN10/11👍</a></li>
@@ -1313,7 +1327,7 @@
 <li>✅ <a href="https://pan.quark.cn/s/9657c21e87ab">Win10间谍杀手 DWS🌀夸克云</a>【❌ <a href="%5B%5D(https://cloud.189.cn/web/share?code=yEJbu2rAbyya)">天翼云</a>】</li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">04.远程控制</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">04.远程控制</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://uuyc.163.com/">【官网】网易UU远程（原GameViewer远程）_专业游戏串流远程控制软件</a></li>
@@ -1328,9 +1342,9 @@
 </ul>
 </div></details>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">02 系统激活/硬件检测/U盘启动/解除占用</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">02 系统激活/硬件检测/U盘启动/解除占用</span></summary>
 <div class="content-container">
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">01.系统激活</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">01.系统激活</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://yftk.fun/2125/">👍下载地址1　《激活Windows系统工具下载》</a></li>
@@ -1338,7 +1352,7 @@
 <li>✅ <a href="https://mp.weixin.qq.com/s/aDxnhffxa0zis1gA8D_kZQ">👍文章　《小帅教你用三种方法免费激活Windows系统》</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">02.硬件检测</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">02.硬件检测</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://pan.quark.cn/s/ae73380a5090">IsMyHdOK_x64（硬盘检测工具）🌀夸克云</a></li>
@@ -1355,7 +1369,7 @@
 <li>✅ <a href="https://cloud.189.cn/t/nyEv2q2U32qu">9M鲁大师 只保留PC信息查看</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">03.纯净U盘启动制作工具</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">03.纯净U盘启动制作工具</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://www.ventoy.net/cn/index.html">🏆【官网】Ventoy</a>【✅ <a href="https://www.bilibili.com/video/BV13g4y1B7JQ">视频教程</a>】</li>
@@ -1372,7 +1386,7 @@
 <li>✅ <a href="https://cloud.189.cn/t/2EZZz2y6JRji">ventoy-1.0.21-windows</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">04.强制解除占用</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">04.强制解除占用</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://www.huorong.cn/">火绒安全官网</a> / ✅ <a href="https://pan.quark.cn/s/be9ca36cc22e">Windows10Manager</a> 自带解除占用功能</li>
@@ -1382,9 +1396,9 @@
 </ul>
 </div></details>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">03 数据备份恢复/驱动软件/解压缩软件</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">03 数据备份恢复/驱动软件/解压缩软件</span></summary>
 <div class="content-container">
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">01.数据备份恢复</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">01.数据备份恢复</span></summary>
 <div class="content-container">
 <ul>
 <li>
@@ -1399,7 +1413,7 @@
 </li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">02.驱动软件</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">02.驱动软件</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://pan.quark.cn/s/4cea891c976e">360驱动大师2.0网卡版&amp;非网卡版🌀夸克云</a>【✅ <a href="https://cloud.189.cn/web/share?code=fiiANzEvum6z">天翼云-网卡版</a>】【✅ <a href="https://cloud.189.cn/web/share?code=q6zIZfqAVRvy">天翼云-非网卡版</a>】</li>
@@ -1409,7 +1423,7 @@
 <li>✅ <a href="https://cloud.189.cn/web/share?code=umam6fIJr2ae">DriverBooster Pro永久激活版</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">03.压缩软件</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">03.压缩软件</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://pan.quark.cn/s/2a7bffe55322">WINRAR整合—支持分割压缩🌀夸克云</a>【<a href="https://mefcl.lanzoux.com/b01006kcf">蓝奏云-密码：421a</a>】【<a href="https://cloud.189.cn/t/2YBziyQ3Yr6f">天翼云</a>】</li>
@@ -1422,13 +1436,13 @@
 </ul>
 </div></details>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">04 办公必备（Office/WPS/PDF/输入法）</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">04 办公必备（Office/WPS/PDF/输入法）</span></summary>
 <div class="content-container">
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">01.OFFICE</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">01.OFFICE</span></summary>
 <div class="content-container">
 <p>✅ <a href="https://www.yuque.com/docs/share/9f9027f5-91a9-4a97-a61e-30b87cd09a4f">Office官方版 / 精简版不限速下载（附激活工具）👍</a></p>
 <p>✅ <a href="https://otp.landian.vip/zh-cn/">Office Tool Plus 部署工具【官方网站】 👍</a></p>
-<details class="indent-level-4"><summary><span class="folder-icon"></span><span class="clickable-title">OFFICE辅助插件</span></summary>
+<details class="indent-level-4"><summary><span class="folder-icon" data-level="4"></span><span class="clickable-title">OFFICE辅助插件</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://www.yuque.com/docs/share/69247421-626d-44cb-b96b-309005bb5e36?#">文章　《Batch PPT（幻灯片文档批量处理）》</a></li>
@@ -1443,10 +1457,10 @@
 </ul>
 </div></details>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">02.WPS</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">02.WPS</span></summary>
 <div class="content-container">
 <p>✅ <a href="https://www.yuque.com/docs/share/0695ca33-f650-4294-9872-6d785d02cb26">WPS政府版/安装版/绿色版/单文件版不限速下载（全网最全）👍</a></p>
-<details class="indent-level-4"><summary><span class="folder-icon"></span><span class="clickable-title">WPS激活工具</span></summary>
+<details class="indent-level-4"><summary><span class="folder-icon" data-level="4"></span><span class="clickable-title">WPS激活工具</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://flowus.cn/share/6db5f141-086c-4511-96fb-8cbeb26a12dd?code=JK1MBY">最新 WPS 激活密钥分享 👍</a></li>
@@ -1456,7 +1470,7 @@
 </ul>
 </div></details>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">03.PDF</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">03.PDF</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://pan.quark.cn/s/a86904143c7f">Infix PDF Editor Pro v7.5.0🌀夸克云</a>【✅ <a href="https://cloud.189.cn/t/m6f2IbfEfYRr">天翼云</a>】</li>
@@ -1470,7 +1484,7 @@
 <li>✅ <a href="https://pan.quark.cn/s/c5c823dc1f2d">PDFelement（6.8.2.3704）已激活专业绿版🌀夸克云</a>【✅ <a href="https://cloud.189.cn/t/u2Ur6b3eEZby">天翼云</a>】</li>
 <li>✅ <a href="https://pan.quark.cn/s/bc7c0c4f9c2f">👍PDF-Xchange Editor 多版本🌀夸克云</a>【✅ <a href="https://cloud.189.cn/t/rqU7VnEvAR3a">天翼云</a>】</li>
 </ul>
-<details class="indent-level-4"><summary><span class="folder-icon"></span><span class="clickable-title">PDF辅助工具</span></summary>
+<details class="indent-level-4"><summary><span class="folder-icon" data-level="4"></span><span class="clickable-title">PDF辅助工具</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://pan.quark.cn/s/bf574fcfffaf">鼠标录制批量去pdf水印工具🌀夸克云</a>【✅ <a href="https://cloud.189.cn/t/jqyQjum2Mva2">天翼云</a>】</li>
@@ -1478,7 +1492,7 @@
 </ul>
 </div></details>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">04.EPUB等多格式阅读器</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">04.EPUB等多格式阅读器</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://pan.quark.cn/s/d42003a5a3b4">稻壳阅读器绿色版 🌀夸克云👍</a>【✅ <a href="https://cloud.189.cn/web/share?code=a6fM7z7zMzUr">天翼云</a>】【❌ <a href="http://www.daokeyuedu.com/">官网免费下载安装版</a>】</li>
@@ -1489,7 +1503,7 @@
 <li>✅ <a href="https://pan.quark.cn/s/15684ffbcf53">StartReader_windows_3.1.0_47_🌀夸克云</a>【✅ <a href="https://cloud.189.cn/t/biUBFfeQZbEn">天翼云</a>】</li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">05.输入法</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">05.输入法</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://cloud.189.cn/t/V3i6fmBVJJ7v">搜狗拼音_9.3pojie版</a>【✅ <a href="https://pan.quark.cn/s/b129b1f1cb16">夸克云</a>】</li>
@@ -1507,7 +1521,7 @@
 </blockquote>
 </div></details>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">05 下载神器（磁力/视频/音乐/文库）</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">05 下载神器（磁力/视频/音乐/文库）</span></summary>
 <div class="content-container">
 <p>✅ <a href="https://www.yuque.com/docs/share/4fc7c1e2-82ca-4d42-916a-e104b8c71fe0">👍文库、CSDN等下载神器</a></p>
 <p>✅ <a href="https://github.com/bigintpro/csdn_downloader">👍CSDN资源&amp;文章下载器（稍微便宜点）</a></p>
@@ -1518,7 +1532,7 @@
 <p>✅ <a href="https://github.com/PyJun/Mooc_Downloader/releases">📥学无止下载器-v1.9.3(支持慕课网,网易云课堂,中国大学,爱课程,学堂在线,超星视频及课件)</a></p>
 <p>✅ <a href="https://cloud.189.cn/t/UvQNRrArUj6b">📥WeChatDownload（微信公众号文章下载）</a></p>
 <p>✅ <a href="https://gmengshuai.lanzoul.com/ivDaY0trz0mj">📥AntDM</a> 【<a href="https://antdownloadmanager.com">官网</a>】</p>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">01.IDM下载神器</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">01.IDM下载神器</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://gopeed.com/zh-CN">Gopeed官网「多线程下载器，IDM的替换首推」👍</a></li>
@@ -1528,7 +1542,7 @@
 <li>✅ <a href="https://thoughts.teambition.com/share/60794f97a4e5b700462718db">IDM下载神器〖小帅提供 各种版本〗</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">02.M3U8下载神器</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">02.M3U8下载神器</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://github.com/Harlan-H/M3u8Downloader_H?tab=readme-ov-file">M3u8Downloader_H 开源项目地址</a> 【✅ <a href="https://pan.quark.cn/s/2cd0ad2e3c99">🌀夸克云</a>】【✅ <a href="https://note.youdao.com/ynoteshare/index.html?id=fb3e738dc7aea6f5e7ff9eb81abcb64d&amp;type=notebook&amp;_time=1712371632637">使用文档</a>】</li>
@@ -1540,7 +1554,7 @@
 <li>✅ <a href="https://cloud.189.cn/t/6Rb2EvVV36F3">M3U8 1.4.5</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">03.磁力搜索下载</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">03.磁力搜索下载</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://thoughts.teambition.com/share/60e69f6bc926bc004635db46">👍qBittorrent 各版本</a></li>
@@ -1553,20 +1567,20 @@
 <li>✅ <a href="https://cloud.189.cn/t/INFj22bmMz2u">ThunderX【绿色版】</a>【✅ <a href="https://pan.quark.cn/s/3012dc75c19e">🌀夸克云</a>】</li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">04.哔哩哔哩下载</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">04.哔哩哔哩下载</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://flowus.cn/share/53d1b790-bb5b-4b73-9a7b-926835d63c00">👍全网最全的B站下载工具</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">05.YouTube下载</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">05.YouTube下载</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://cloud.189.cn/t/ZrMRRfYbmeQb">油管视频批量下载 Jerry Downloader Pro 7.8.5</a></li>
 <li>✅ <a href="https://cloud.189.cn/t/yQjyAzQZRbMv">Youtube_DownloaderPro 7.9.0 单文件专业版</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">06.音乐下载神器</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">06.音乐下载神器</span></summary>
 <div class="content-container">
 <ul>
 <li>❌ <a href="https://www.aliyundrive.com/s/mkt4sunsmTn">👍喜马拉雅专辑下载4.0（不支持付费）</a></li>
@@ -1579,7 +1593,7 @@
 <li>❌ <a href="http://pan-yz.chaoxing.com/share/info/527f947f07d437d5">洛雪音乐助手</a>【✅ <a href="https://github.com/lyswhut/lx-music-desktop">开源地址</a>】</li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">07.短视频类下载</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">07.短视频类下载</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://cloud.189.cn/t/n2eAVvrquMZj">4KVideoDownloader4.12.5.36</a></li>
@@ -1587,9 +1601,9 @@
 <li>✅ <a href="https://cloud.189.cn/t/EVVB7n7zQVBb">视频下载器_52Pojie_V1.2.101.544</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">08.百度云下载神器</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">08.百度云下载神器</span></summary>
 <div class="content-container">
-<details class="indent-level-4"><summary><span class="folder-icon"></span><span class="clickable-title">利用油猴脚本下载</span></summary>
+<details class="indent-level-4"><summary><span class="folder-icon" data-level="4"></span><span class="clickable-title">利用油猴脚本下载</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://cloud.189.cn/t/byueEvRZFVBv">【WIN】NDM - 适用于API下载【官网：neatdownloadmanager.com</a></li>
@@ -1602,9 +1616,9 @@
 </div></details>
 </div></details>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">06 笔记/翻译/流程图/思维导图</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">06 笔记/翻译/流程图/思维导图</span></summary>
 <div class="content-container">
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">01.记笔记</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">01.记笔记</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://mp.weixin.qq.com/s?__biz=MzAxNDk3MTA4NA==&amp;mid=2247487684&amp;idx=1&amp;sn=f6934246bd43b0ca5943a4e3cee6655b&amp;chksm=9b8a6967acfde071722b966ab5571129c070369f0fcca4daf40784aea4104c3c8ddc5">👍文章　《小帅Typora使用经验》</a></li>
@@ -1620,13 +1634,13 @@
 <li>✅ <a href="https://cloud.189.cn/t/ryEjUr367rMb">👍myBaseDesktop6.3.3</a>【✅ <a href="https://pan.quark.cn/s/cbdaa8f52e47">🌀夸克云</a>】</li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">02.翻译</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">02.翻译</span></summary>
 <div class="content-container">
 <p>✅ <a href="https://cloud.189.cn/t/6n2qmiEn2aEb">百度翻译最新1.0.2绿色化版</a></p>
 <p>✅ <a href="https://cloud.189.cn/t/B3MriyVnIZzm">翻译软件Lingvanex.Translator.Pro.v1.01.11.64</a></p>
 <p>✅ <a href="https://cloud.189.cn/t/IRfqEjZnyuy2">PC网易有道词典v8.6.2pojie版</a></p>
 <p>✅ <a href="https://cloud.189.cn/t/fqQvIje6bEbu">有道词典_纯净版</a></p>
-<details class="indent-level-4"><summary><span class="folder-icon"></span><span class="clickable-title">欧陆词典+词典包</span></summary>
+<details class="indent-level-4"><summary><span class="folder-icon" data-level="4"></span><span class="clickable-title">欧陆词典+词典包</span></summary>
 <div class="content-container">
 <ul>
 <li>
@@ -1656,7 +1670,7 @@
 </ul>
 </div></details>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">03.流程图 / UML图</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">03.流程图 / UML图</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://app.diagrams.net/">👍 draw.io 在线免费使用</a></li>
@@ -1665,7 +1679,7 @@
 <li>✅ <a href="https://cloud.189.cn/t/vYRF7naAFVzu">ClickCharts.exe</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">04.思维导图</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">04.思维导图</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://www.processon.com/">Processon在线画图</a></li>
@@ -1676,7 +1690,7 @@
 </ul>
 </div></details>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">07 编程软件（VScode/VS/VB/VC/MYSQL）</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">07 编程软件（VScode/VS/VB/VC/MYSQL）</span></summary>
 <div class="content-container">
 <p>✅ <a href="https://code.visualstudio.com/Download">👍Visual Studio Code-最新版 - Mac, Linux, Windows</a></p>
 <p>✅ <a href="https://code.visualstudio.com/docs/supporting/faq#_previous-release-versions">👍Visual Studio Code-历史版下载方式 - Mac, Linux, Windows</a></p>
@@ -1691,13 +1705,13 @@
 <p>✅ <a href="https://www.codeblocks.org/post/codeblocks-25.03-is-here/">codeblocks-最新版</a></p>
 <p>✅ <a href="https://cloud.189.cn/t/YRZB7zfqMVNv">codeblocks17.12</a></p>
 <p>✅ <a href="https://cloud.189.cn/t/NFfYZrVryUZv">Cfree5_0_pro安装版</a></p>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">01.VMware虚拟机</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">01.VMware虚拟机</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://thoughts.teambition.com/share/61223217933fb100460186fe">👍VMware-workstation-full-15.5.0 附注册码</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">02.Visual✧Studio</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">02.Visual✧Studio</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://cloud.189.cn/t/zaimAzZnAZz2">visual_studio_community_2015_x86_x64（访问码：7hk5）</a>【✅ <a href="https://pan.quark.cn/s/d842b44aa0da">🌀夸克云</a>】</li>
@@ -1705,14 +1719,14 @@
 <li>✅ <a href="https://thoughts.teambition.com/share/606d8cef73af4e0046ff7642#title=visual_studio_community_2019">visual_studio_community_2019_x86_x64</a>【✅ <a href="https://pan.quark.cn/s/28b22b51f878">🌀夸克云</a>】</li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">03.DEV-CPP</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">03.DEV-CPP</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="http://royqh.net/redpandacpp/">👍小熊猫C++ (DEV-CPP升级版)</a></li>
 <li>✅ <a href="https://thoughts.teambition.com/share/61223176b9352a0041a25075#title=DEV-CPP%5B%E5%A4%9A%E7%A7%8D%E7%89%88%E6%9C%AC%5D">DEV-CPP〖各种版本〗</a>【✅ <a href="https://pan.quark.cn/s/cb02d1a0e8fb">🌀夸克云</a>】</li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">04.MySql</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">04.MySql</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://cloud.189.cn/t/EjAfeqeINbia">mysql-5.7.28-winx64-debug-test.zip</a></li>
@@ -1723,20 +1737,20 @@
 <li>✅ <a href="https://cloud.189.cn/t/RvAvEb3i2Erq">👍mysql-5.6.5-m8-win32+Navicat_Premium_11.0.10</a>【✅ <a href="https://pan.quark.cn/s/f086f7dbf9d7">🌀夸克云</a>】</li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">05.VB6.0</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">05.VB6.0</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://thoughts.teambition.com/share/612231a0b9352a0041a25076#title=VB6.0">VB6.0〖各种版本〗</a>【✅ <a href="https://pan.quark.cn/s/2f99d3af1772">🌀夸克云</a>】</li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">06.VC6.0</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">06.VC6.0</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://gmengshuai.lanzoux.com/iklYznp6ape">👍 VC6.0绿色安装版支持WIN10</a></li>
 <li>✅ <a href="https://thoughts.teambition.com/share/612231d4d9f39a0046f4a0ec#title=VC6.0%5B%E5%A4%9A%E7%A7%8D%E7%89%88%E6%9C%AC%5D">VC6.0〖各种版本〗</a>【✅ <a href="https://pan.quark.cn/s/2c3bf79ea35b">🌀夸克云</a>】</li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">07.Java</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">07.Java</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="http://www.123pan.com/s/46cA-G5c2d">Eclipse64位安装版（2018年）</a></li>
@@ -1745,21 +1759,21 @@
 <li>✅ <a href="http://www.123pan.com/s/46cA-Y5c2d">jdk-8u131（32位 和 64位）</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">08.Cisco</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">08.Cisco</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://www.123pan.com/s/46cA-75c2d">GNS3模拟器+Cisco镜像</a></li>
 <li>✅ <a href="https://www.123pan.com/s/46cA-S5c2d">Cisco Packet Tracer免登录版+汉化包</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">09.Git</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">09.Git</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="http://www.123pan.com/s/46cA-X5c2d">Tortoise-Git 安装包+汉化包</a></li>
 <li>✅ <a href="http://www.123pan.com/s/46cA-P5c2d">Git-2.31.1（32位 和 64位）</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">10.远程Linux</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">10.远程Linux</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://pan.quark.cn/s/f378a0cbd21f">👍MobaXterm 22.1 汉化专业版🌀夸克云</a>【✅ <a href="https://www.123pan.com/s/46cA-ya52d.html">123云</a>】</li>
@@ -1768,18 +1782,18 @@
 </ul>
 </div></details>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">08 看图/修图/截图/去|加水印</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">08 看图/修图/截图/去|加水印</span></summary>
 <div class="content-container">
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">01.看图</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">01.看图</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://cloud.189.cn/t/VbAzQr6VNFra">2345看图王绿色版</a></li>
 <li>✅ <a href="https://cloud.189.cn/t/RjeY3e6faiay">👍2345看图王_v10.0.0.8806_绿色版</a>【✅ <a href="https://pan.quark.cn/s/0f7167caddfa">🌀夸克云</a>】</li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">02.修图（PS）</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">02.修图（PS）</span></summary>
 <div class="content-container">
-<details class="indent-level-4"><summary><span class="folder-icon"></span><span class="clickable-title">PS—CC版本</span></summary>
+<details class="indent-level-4"><summary><span class="folder-icon" data-level="4"></span><span class="clickable-title">PS—CC版本</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://pan.quark.cn/s/23460adf9ad0">Adobe Photoshop 2025 v26.3.0 绿色版</a></li>
@@ -1797,7 +1811,7 @@
 <li>✅ <a href="https://cloud.189.cn/t/beiyUnIb6Fna">PS CC 14.0</a></li>
 </ul>
 </div></details>
-<details class="indent-level-4"><summary><span class="folder-icon"></span><span class="clickable-title">PS—CS版本</span></summary>
+<details class="indent-level-4"><summary><span class="folder-icon" data-level="4"></span><span class="clickable-title">PS—CS版本</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://cloud.189.cn/t/6VrIvaUNbi63">PS CS6 roustar31中文特别版(老机器使用)</a></li>
@@ -1807,7 +1821,7 @@
 <li>✅ <a href="https://cloud.189.cn/t/2a6bMvrquQni">Photoshop6.0单文件</a></li>
 </ul>
 </div></details>
-<details class="indent-level-4"><summary><span class="folder-icon"></span><span class="clickable-title">02.PS激活工具</span></summary>
+<details class="indent-level-4"><summary><span class="folder-icon" data-level="4"></span><span class="clickable-title">02.PS激活工具</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://pan.quark.cn/s/0ff2636aab5d#/list/share">Adobe CC 最新版 GenP激活器 v3.5👍</a></li>
@@ -1816,7 +1830,7 @@
 <li>✅ <a href="https://cloud.189.cn/t/nQFvAbJbEv6r">Aodbe2020 激活工具 (1)</a>【✅ <a href="https://pan.quark.cn/s/f6c8d7ba6a31">🌀夸克云</a>】</li>
 </ul>
 </div></details>
-<details class="indent-level-4"><summary><span class="folder-icon"></span><span class="clickable-title">03.PS插件</span></summary>
+<details class="indent-level-4"><summary><span class="folder-icon" data-level="4"></span><span class="clickable-title">03.PS插件</span></summary>
 <div class="content-container">
 <ul>
 <li>
@@ -1858,7 +1872,7 @@
 </ul>
 </div></details>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">03.截图</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">03.截图</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://cloud.189.cn/t/7jmayuInE7Jr">👍FSCapture_9.0_CHS（可为图片添加水印）</a>【✅ <a href="https://pan.quark.cn/s/f0057b31397e">🌀夸克云</a>】【✅ <a href="https://www.faststonecapture.cn/download">官网</a>】</li>
@@ -1868,7 +1882,7 @@
 <li>✅ <a href="https://cloud.189.cn/t/YJrQzanMr2u2">Win_setup-lightshot</a>【✅ <a href="https://pan.quark.cn/s/8c65f778363b">🌀夸克云</a>】</li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">04.去加水印</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">04.去加水印</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://cloud.189.cn/t/qe6fQbrY77Bz">👍图片批量添加水印</a>【✅ <a href="https://pan.quark.cn/s/5badd2b833dd">🌀夸克云</a>】</li>
@@ -1876,7 +1890,7 @@
 <li>✅ <a href="https://cloud.189.cn/t/A7Zr6feY32Ab">BatchInpaint（图片去水印）</a>【✅ <a href="https://pan.quark.cn/s/97d66f23e258">🌀夸克云</a>】</li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">05.图片批量压缩</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">05.图片批量压缩</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://www.123pan.com/s/46cA-u9i2d.html">👍Caesium便携版(win/mac)</a>（✅ <a href="https://gmengshuai.lanzoul.com/iKv1s10vye1c">备用</a>）【✅ <a href="https://pan.quark.cn/s/bbafdf17ad5f">🌀夸克云</a>】</li>
@@ -1884,13 +1898,13 @@
 <li>✅ <a href="https://cloud.189.cn/t/2QN3EnAb6NBf">图片批量压缩</a>（✅ <a href="https://www.123pan.com/s/46cA-CEi2d.html">备用</a>）【✅ <a href="https://pan.quark.cn/s/70ec672a536a">🌀夸克云</a>】</li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">06.批量添加水印</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">06.批量添加水印</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://cloud.189.cn/t/NnIFRzjUre6v">👍MiniPhoto(win)</a>（✅ <a href="https://gmengshuai.lanzoul.com/iF1Um10vyjcd">备用</a>）</li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">07.批量转换格式</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">07.批量转换格式</span></summary>
 <div class="content-container">
 <ul>
 <li>✅👍 <a href="https://www.123pan.com/s/46cA-REi2d.html">FSResizer 4.4汉化版(win)</a>（✅ <a href="https://gmengshuai.lanzoul.com/iaE3110vzd5g">备用</a>）【✅ <a href="https://pan.quark.cn/s/71f5f506d3b1">🌀夸克云</a>】</li>
@@ -1902,9 +1916,9 @@
 </blockquote>
 </div></details>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">09 视频录制/视频处理/GIF录制/媒体播放</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">09 视频录制/视频处理/GIF录制/媒体播放</span></summary>
 <div class="content-container">
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">01.视频录制</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">01.视频录制</span></summary>
 <div class="content-container">
 <ul>
 <li>✅👍 <a href="https://pan.quark.cn/s/37f8ce26854e">Bandicam(班迪)_7.0.2.2138_64bit_Portable (2024-04-06更新)🌀夸克云</a></li>
@@ -1921,7 +1935,7 @@
 <li>✅ <a href="https://cloud.189.cn/t/VNZ32mNvyERn">酷酷录像</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">02.视频处理(剪辑/压缩)</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">02.视频处理(剪辑/压缩)</span></summary>
 <div class="content-container">
 <ul>
 <li>✅👍 <a href="https://pan.quark.cn/s/f65715446c49">AdobePremierePro_23.1.0.86_64Bit_Portable🌀夸克云</a></li>
@@ -1936,7 +1950,7 @@
 <li>✅ <a href="https://pan.quark.cn/s/bf5a0432566a">基于 ffmpeg的视频分割软件byJoinerSplittertup_v1.5.3🌀夸克云</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">03.GIF录制</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">03.GIF录制</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://cloud.189.cn/t/yqEv6bJNFzmu">GIF小工具</a>【✅ <a href="https://pan.quark.cn/s/fd30e9442a22">夸克云</a>】</li>
@@ -1945,9 +1959,9 @@
 <li>✅ <a href="https://cloud.189.cn/t/qmqEfmZz263i">👍ScreenToGif（可以为GIF添加水印</a>【✅ <a href="https://www.screentogif.com/">开源免费</a>】</li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">04.媒体播放</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">04.媒体播放</span></summary>
 <div class="content-container">
-<details class="indent-level-4"><summary><span class="folder-icon"></span><span class="clickable-title">🎦potplayer播放器</span></summary>
+<details class="indent-level-4"><summary><span class="folder-icon" data-level="4"></span><span class="clickable-title">🎦potplayer播放器</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://pan.quark.cn/s/e1795bbb8263">👍 potplayer播放器 🌀夸克云多版本</a></li>
@@ -1959,14 +1973,14 @@
 <li>✅ <a href="https://cloud.189.cn/t/QZBnAn36fA73">potplayer 自制版【可复制字幕】(安装密码：Maitalen</a></li>
 </ul>
 </div></details>
-<details class="indent-level-4"><summary><span class="folder-icon"></span><span class="clickable-title">potplayer皮肤</span></summary>
+<details class="indent-level-4"><summary><span class="folder-icon" data-level="4"></span><span class="clickable-title">potplayer皮肤</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://cloud.189.cn/t/JzyMzeURb6V3">potplayer180个皮肤</a>【✅ <a href="https://pan.quark.cn/s/fa071484658d">夸克云</a>】</li>
 <li>✅ <a href="https://cloud.189.cn/t/vyIr2qmqEfey">PotPlayer皮肤 W10汉化版</a>【✅ <a href="https://pan.quark.cn/s/94b31bb60791">夸克云</a>】</li>
 </ul>
 </div></details>
-<details class="indent-level-4"><summary><span class="folder-icon"></span><span class="clickable-title">🎵音乐播放器</span></summary>
+<details class="indent-level-4"><summary><span class="folder-icon" data-level="4"></span><span class="clickable-title">🎵音乐播放器</span></summary>
 <div class="content-container">
 <ul>
 <li>
@@ -2030,9 +2044,9 @@
 </div></details>
 </div></details>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">10 浏览器/格式转换/网盘</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">10 浏览器/格式转换/网盘</span></summary>
 <div class="content-container">
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">01.浏览器</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">01.浏览器</span></summary>
 <div class="content-container">
 <ul>
 <li>
@@ -2099,9 +2113,9 @@
 </li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">02.转换软件</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">02.转换软件</span></summary>
 <div class="content-container">
-<details class="indent-level-4"><summary><span class="folder-icon"></span><span class="clickable-title">01.格式转换</span></summary>
+<details class="indent-level-4"><summary><span class="folder-icon" data-level="4"></span><span class="clickable-title">01.格式转换</span></summary>
 <div class="content-container">
 <ul>
 <li>❌ <a href="https://mytools.chiser.cc/music/">解密网易ncm / qq音乐的mflac / 酷狗kgm等加密格式</a></li>
@@ -2126,7 +2140,7 @@
 <li>✅ <a href="https://cloud.189.cn/t/aA7FVzeuMjEf">👍格式工厂v5.2.1 绿色去广告版</a>【✅ <a href="https://pan.quark.cn/s/5f932b544f3b">夸克云</a>】</li>
 </ul>
 </div></details>
-<details class="indent-level-4"><summary><span class="folder-icon"></span><span class="clickable-title">02.文字转语音/语音转文字</span></summary>
+<details class="indent-level-4"><summary><span class="folder-icon" data-level="4"></span><span class="clickable-title">02.文字转语音/语音转文字</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://github.com/WEIFENG2333/AsrTools">AsrTools-音频目录生成 .srt 或 .txt 字幕文件👍</a></li>
@@ -2134,20 +2148,20 @@
 <li>✅ <a href="https://mp.weixin.qq.com/s/wv7CiYgY-KHtIB7ACorgEg">文章　《文字转语音保姆级教程（可免费白嫖！）》</a></li>
 </ul>
 </div></details>
-<details class="indent-level-4"><summary><span class="folder-icon"></span><span class="clickable-title">03.OCR识别转换</span></summary>
+<details class="indent-level-4"><summary><span class="folder-icon" data-level="4"></span><span class="clickable-title">03.OCR识别转换</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://pan.quark.cn/s/7d810379d409">OCR识别转换所有软件🌀夸克云👍</a></li>
 </ul>
 </div></details>
-<details class="indent-level-4"><summary><span class="folder-icon"></span><span class="clickable-title">04.视频字幕</span></summary>
+<details class="indent-level-4"><summary><span class="folder-icon" data-level="4"></span><span class="clickable-title">04.视频字幕</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://github.com/WEIFENG2333/VideoCaptioner">VideoCaptioner-基于大语言模型(LLM)的视频字幕处理助手，支持语音识别、字幕断句、优化、翻译全流程处理👍</a></li>
 </ul>
 </div></details>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">03.网盘相关</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">03.网盘相关</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://mp.weixin.qq.com/s?__biz=MzAxNDk3MTA4NA==&amp;mid=2247488210&amp;idx=1&amp;sn=b92609385e86a0d004564716d743de4a&amp;chksm=9b8a6b71acfde2673a171d7f21cfc2c4d3485383013239cc1c1619d5aa1cccf834e8">👍文章　《你要的不限速网盘它来了，且用且珍惜~》</a></li>
@@ -2161,9 +2175,9 @@
 </ul>
 </div></details>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">11 实用工具/辅助工具</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">11 实用工具/辅助工具</span></summary>
 <div class="content-container">
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">01.WIN10实用工具</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">01.WIN10实用工具</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://cloud.189.cn/t/U3uiueNruYRz">👍WIN10全家桶卸载（附带安装）</a>【✅ <a href="https://pan.quark.cn/s/f17d8b5a4e4b">夸克云</a>】</li>
@@ -2192,9 +2206,9 @@
 <li>✅ <a href="https://cloud.189.cn/t/YJvEJbI773Qz">win10批处理工具箱</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">02.常用辅助工具🔥</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">02.常用辅助工具🔥</span></summary>
 <div class="content-container">
-<details class="indent-level-4"><summary><span class="folder-icon"></span><span class="clickable-title">磁盘文件快速查找删除</span></summary>
+<details class="indent-level-4"><summary><span class="folder-icon" data-level="4"></span><span class="clickable-title">磁盘文件快速查找删除</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://cloud.189.cn/t/2EFBrmAzuiem">重复文件查找器TriSun Duplicate File Finder Plus v14.0</a></li>
@@ -2208,28 +2222,28 @@
 <li>✅ <a href="https://cloud.189.cn/t/eUbIjqMBBfM3">Everything-1.4.1.987.x64(便携版)</a></li>
 </ul>
 </div></details>
-<details class="indent-level-4"><summary><span class="folder-icon"></span><span class="clickable-title">单文件制作工具</span></summary>
+<details class="indent-level-4"><summary><span class="folder-icon" data-level="4"></span><span class="clickable-title">单文件制作工具</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://cloud.189.cn/t/jYjU3yzM7nm2">👍单文件制作工具_v7.0.1.1（x86、x64）</a>【✅ <a href="https://pan.quark.cn/s/0bad312dfa3e">夸克云</a>】</li>
 <li>✅ <a href="https://gmengshuai.lanzoux.com/iUgKtlxb76d">👍单文件制作（X86、X64）</a>【✅ <a href="https://pan.quark.cn/s/2f9639d048fe">夸克云</a>】</li>
 </ul>
 </div></details>
-<details class="indent-level-4"><summary><span class="folder-icon"></span><span class="clickable-title">定时关机软件</span></summary>
+<details class="indent-level-4"><summary><span class="folder-icon" data-level="4"></span><span class="clickable-title">定时关机软件</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://cloud.189.cn/t/eUbIjqMBBfM3">AutoOff_4.17</a></li>
 <li>✅ <a href="https://cloud.189.cn/t/aE7zy2FfamM3">定时关机</a></li>
 </ul>
 </div></details>
-<details class="indent-level-4"><summary><span class="folder-icon"></span><span class="clickable-title">分屏软件</span></summary>
+<details class="indent-level-4"><summary><span class="folder-icon" data-level="4"></span><span class="clickable-title">分屏软件</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://cloud.189.cn/t/QF7NFfZVnyi2">👍Q-Dir_Portable_8.97</a>【✅ <a href="https://pan.quark.cn/s/b2f4e03bf576">夸克云</a>】</li>
 <li>✅ <a href="https://cloud.189.cn/t/iy2yUr2M36by">XYplorer_v21.10</a></li>
 </ul>
 </div></details>
-<details class="indent-level-4"><summary><span class="folder-icon"></span><span class="clickable-title">护眼工具</span></summary>
+<details class="indent-level-4"><summary><span class="folder-icon" data-level="4"></span><span class="clickable-title">护眼工具</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://cloud.189.cn/t/7ZFnArAJ3euy">联想护眼管理 v2.6.50.4081单文件版</a></li>
@@ -2239,7 +2253,7 @@
 <li>✅ <a href="https://cloud.189.cn/t/uyeQ7nNbueMn">👍Iris Pro v1.2.0</a>【✅ <a href="https://pan.quark.cn/s/6b6f7da40a72">夸克云</a>】</li>
 </ul>
 </div></details>
-<details class="indent-level-4"><summary><span class="folder-icon"></span><span class="clickable-title">批量文件重命名</span></summary>
+<details class="indent-level-4"><summary><span class="folder-icon" data-level="4"></span><span class="clickable-title">批量文件重命名</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://cloud.189.cn/t/qENZJn7vmY73">FFRenamePro_x86_4.0</a></li>
@@ -2254,14 +2268,14 @@
 <li>✅ <a href="https://cloud.189.cn/t/jERZNz3qIrmm">👍拖把更名器</a>【✅ <a href="https://pan.quark.cn/s/974ff3ebcea0">夸克云</a>】</li>
 </ul>
 </div></details>
-<details class="indent-level-4"><summary><span class="folder-icon"></span><span class="clickable-title">屏幕画笔工具</span></summary>
+<details class="indent-level-4"><summary><span class="folder-icon" data-level="4"></span><span class="clickable-title">屏幕画笔工具</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://cloud.189.cn/t/BzUFNrVNb2yi">屏幕画笔工具v1.0.0</a></li>
 <li>✅ <a href="https://cloud.189.cn/t/yeYzayiMBjYf">电子教鞭 Pointofix v1.8.0-2018.05.11 中文绿色便携版</a></li>
 </ul>
 </div></details>
-<details class="indent-level-4"><summary><span class="folder-icon"></span><span class="clickable-title">数学软件</span></summary>
+<details class="indent-level-4"><summary><span class="folder-icon" data-level="4"></span><span class="clickable-title">数学软件</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://cloud.189.cn/t/ZfQBVrb63yqi">MathType-win-zh_7.4.4.516</a></li>
@@ -2269,7 +2283,7 @@
 <li>✅ <a href="https://cloud.189.cn/t/3aUJfmyU7V7b">小计算器_v1.0</a></li>
 </ul>
 </div></details>
-<details class="indent-level-4"><summary><span class="folder-icon"></span><span class="clickable-title">桌面快速启动—文件整理</span></summary>
+<details class="indent-level-4"><summary><span class="folder-icon" data-level="4"></span><span class="clickable-title">桌面快速启动—文件整理</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://cloud.189.cn/t/ZnEnEfy2aMbe">极速启动v1.0.2.1</a></li>
@@ -2281,11 +2295,11 @@
 </div></details>
 </div></details>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">12 Adobe系列/CAD系列</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">12 Adobe系列/CAD系列</span></summary>
 <div class="content-container">
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">Adobe系列</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">Adobe系列</span></summary>
 <div class="content-container">
-<details class="indent-level-4"><summary><span class="folder-icon"></span><span class="clickable-title">Adobe系列插件</span></summary>
+<details class="indent-level-4"><summary><span class="folder-icon" data-level="4"></span><span class="clickable-title">Adobe系列插件</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://pan.baidu.com/share/init?surl=SramgG9mgfeThy16VswXLQ&amp;pwd=1111">Adobe 全套2025版本(windows)👍</a></li>
@@ -2305,9 +2319,9 @@
 </ul>
 </div></details>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">CAD系列</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">CAD系列</span></summary>
 <div class="content-container">
-<details class="indent-level-4"><summary><span class="folder-icon"></span><span class="clickable-title">CAD系列插件</span></summary>
+<details class="indent-level-4"><summary><span class="folder-icon" data-level="4"></span><span class="clickable-title">CAD系列插件</span></summary>
 <div class="content-container">
 <ul>
 <li>
@@ -2326,9 +2340,9 @@
 </div></details>
 </div></details>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">13 主题壁纸类</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">13 主题壁纸类</span></summary>
 <div class="content-container">
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">01.win10主题及动态壁纸</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">01.win10主题及动态壁纸</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://cloud.189.cn/t/uqM7na7B7Rvu">TaskbarTools桌面美化工具</a></li>
@@ -2345,7 +2359,7 @@
 <li>✅ <a href="https://cloud.189.cn/t/Ybe2eiFfYnMz">win动态壁纸+工具</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">02.跟主题相关</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">02.跟主题相关</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="http://bitdock.cn/">BitDock（模拟Mac系统桌面）</a></li>
@@ -2364,7 +2378,7 @@
 </ul>
 </div></details>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">14 大型软件以及安装教程</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">14 大型软件以及安装教程</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://cloud.189.cn/t/Ef6rIbfiANju">🀄【软件安装管家】的软件合集（天翼云）</a></li>
@@ -2374,9 +2388,9 @@
 <li>✅ <a href="https://mp.weixin.qq.com/s/RH0oCJWD00QFXpuCYwB8oA">🀄【软件管家】的软件目录</a></li>
 </ul>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">15 浏览器常用扩展和脚本</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">15 浏览器常用扩展和脚本</span></summary>
 <div class="content-container">
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">01.优质扩展</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">01.优质扩展</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://csser.top/">✅bilibili哔哩哔哩B站下载助手</a></li>
@@ -2407,7 +2421,7 @@
 <li>✅ <a href="https://gmengshuai.lanzoux.com/il6Ullad5ti">✅GitHub加速_1.1.1.crx</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">02.优质脚本</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">02.优质脚本</span></summary>
 <div class="content-container">
 <ul>
 <li>❌ <a href="https://greasyfork.org/zh-CN/scripts/462804-keepchatgpt">☕KeepChatGPT-ChatGPT网页版的畅聊与增强插件</a></li>
@@ -2426,9 +2440,9 @@
 <li>✅ <a href="https://www.runningcheese.com/go?url=https://greasyfork.org/zh-CN/scripts/14178">☕去百度搜狗谷歌必应广告 / 优化搜索结果</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">03.下载扩展网站</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">03.下载扩展网站</span></summary>
 <div class="content-container">
-<details class="indent-level-4"><summary><span class="folder-icon"></span><span class="clickable-title">01.各浏览器插件中心官网</span></summary>
+<details class="indent-level-4"><summary><span class="folder-icon" data-level="4"></span><span class="clickable-title">01.各浏览器插件中心官网</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://addons.mozilla.org/zh-CN/firefox/extensions/">火狐插件官网</a></li>
@@ -2437,7 +2451,7 @@
 </ul>
 </div></details>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">02.推荐站点（无广告、无诱导）</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">02.推荐站点（无广告、无诱导）</span></summary>
 <div class="content-container">
 <ul>
 <li>❌ <a href="https://www.chrome666.com/">chrome666（提供的都是.crx类型的）</a></li>
@@ -2448,7 +2462,7 @@
 <li>❌ <a href="https://crxdl.com/">CrxDl （先搜索，提供新旧版本）</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">03.不推荐（有广告 / 有诱导）</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">03.不推荐（有广告 / 有诱导）</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://www.chromedownloads.net/">chrome downloads（广告）</a></li>
@@ -2458,7 +2472,7 @@
 <li>❌ <a href="https://www.extfans.com/">扩展迷（下载需要关注公众号）</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">04.下载脚本网站</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">04.下载脚本网站</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://bbs.tampermonkey.net.cn/">油猴中文网</a></li>
@@ -2468,7 +2482,7 @@
 <li>❌ <a href="https://greasyfork.org/zh-CN/help/installing-user-scripts">Greasy Fork👍</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">05.解决Chrome浏览器提示</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">05.解决Chrome浏览器提示</span></summary>
 <div class="content-container">
 <p>解决Chrome浏览器「请停用以开发者模式运行的扩展程序」提示</p>
 <ul>
@@ -2481,7 +2495,7 @@
 <p>✅ <a href="https://mp.weixin.qq.com/s/vgWbK1nkpvSTGJeGnFIVjA">👍文章　《安装油猴脚本，看这一篇就够了》</a></p>
 </div></details>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">16 超星 / 智慧树 / 学习强国等平台刷课</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">16 超星 / 智慧树 / 学习强国等平台刷课</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://gmengshuai.lanzoux.com/iu73Cod25la">📜强国战答题库4564题</a></li>
@@ -2493,9 +2507,9 @@
 <li>❌ <a href="https://greasyfork.org/zh-CN/scripts?q=%E6%99%BA%E6%85%A7%E6%A0%91">☕脚本 　智慧树刷课脚本—— Greasy Fork</a></li>
 </ul>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">17 优化百度系列产品</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">17 优化百度系列产品</span></summary>
 <div class="content-container">
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">优化百度百科</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">优化百度百科</span></summary>
 <div class="content-container">
 <ul>
 <li>❌ <a href="https://greasyfork.org/zh-CN/scripts/16607">无水印图片查看（油猴脚本）</a></li>
@@ -2503,41 +2517,41 @@
 <li>✅ <a href="https://userstyles.org/styles/130739/theme">去广告</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">优化百度经验</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">优化百度经验</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://userstyles.org/styles/130901/theme">去广告</a></li>
 <li>❌ <a href="https://greasyfork.org/zh-CN/scripts/381414-baidu-jingyan">添目录（油猴脚本）</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">优化百度搜索</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">优化百度搜索</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://www.runningcheese.com/go?url=https://greasyfork.org/zh-CN/scripts/27752">searchEngineJump</a></li>
 <li>✅ <a href="https://www.runningcheese.com/go?url=https://greasyfork.org/zh-CN/scripts/14178">AC-baidu-重定向优化百度搜狗谷歌必应搜索</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">优化百度贴吧</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">优化百度贴吧</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://scriptcat.org/script-show-page/183">贴吧页面精简 (scriptcat.org)</a></li>
 <li>✅ <a href="https://scriptcat.org/script-show-page/108">百度贴吧自动签到 (scriptcat.org)</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">优化百度网盘</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">优化百度网盘</span></summary>
 <div class="content-container">
 <ul>
 <li>❌ <a href="https://greasyfork.org/zh-CN/scripts/411523">在线倍速播放</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">优化百度文库</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">优化百度文库</span></summary>
 <div class="content-container">
 <ul>
 <li>❌ <a href="https://greasyfork.org/zh-CN/scripts/452595">文本选中复制</a></li>
 <li>❌ <a href="https://greasyfork.org/zh-CN/scripts/437043">全文阅读| 开启右键复制</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">优化百度知道</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">优化百度知道</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://userstyles.org/styles/130901/theme">去除广告、精简排版</a></li>
@@ -2550,14 +2564,14 @@
 </div></details>
 </div></details>
 </div></details>
-<details class="indent-level-1"><summary><span class="folder-icon"></span><span class="clickable-title">03 手机常用</span></summary>
+<details class="indent-level-1"><summary><span class="folder-icon" data-level="1"></span><span class="clickable-title">03 手机常用</span></summary>
 <div class="content-container">
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">📱可长期使用Android软件</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">📱可长期使用Android软件</span></summary>
 <div class="content-container">
 <p>✅ <a href="https://gmengshuai.lanzoux.com/b00udw4gb">虚拟定位/多开/分身软件（密码：9527）</a></p>
 <p>✅ <a href="https://support.qq.com/products/174298/">👍多开/分身软件：比翼多开</a></p>
 <p>✅ <a href="https://flowus.cn/yan1998-28/share/22b9ee36-987d-4bbd-b7dd-e1ffb07ad038">外卖软件科技——知识库</a></p>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">01.微博/知乎/贴吧/豆瓣/b站/Telegram</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">01.微博/知乎/贴吧/豆瓣/b站/Telegram</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://thoughts.teambition.com/share/6117dab49ad2ef004618fd75#title=TIM%E5%AE%98%E6%96%B9_v2.3.1">TIM　官方版_v2.3.1（仅QQ空间有广告）</a>【✅ <a href="https://office.qq.com/">官网</a>】</li>
@@ -2573,7 +2587,7 @@
 <li>✅ <a href="https://thoughts.teambition.com/share/6117daed61d8520046ef0436#title=GitHub-1.1.5">GitHub　v1.1.5</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">02.P图 / 滤镜 / 图片去水印</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">02.P图 / 滤镜 / 图片去水印</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://thoughts.teambition.com/share/6066eb32a86a91004a91d1ed#title=ps_touch">Ps touch</a></li>
@@ -2583,7 +2597,7 @@
 <li>✅ <a href="https://thoughts.teambition.com/share/6066e7d2e561f6004634fd4e#title=%E3%80%90P%E5%9B%BE%E3%80%91Photoshop_Express-Premium-v5.8.561">Photoshop Express-Premium-v5.8.561</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">03.电子书/漫画阅读器</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">03.电子书/漫画阅读器</span></summary>
 <div class="content-container">
 <ul>
 <li>
@@ -2644,7 +2658,7 @@
 </li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">04.动漫图片阅览器</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">04.动漫图片阅览器</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://thoughts.teambition.com/share/609f407843b2b70046b09ae0#title=P%E7%AB%99%E5%8A%A9%E6%89%8B">P站助手（Pixiv镜像软件）</a></li>
@@ -2655,7 +2669,7 @@
 <li>✅ <a href="https://thoughts.teambition.com/share/609f402f4e0cbb004646da87#title=PivisionM">PivisionM（Pixiv镜像软件）</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">05.本地视频播放器</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">05.本地视频播放器</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://pan.lanzoux.com/b0f19eo3c">MX视频播放器 MX Video Player 👍</a></li>
@@ -2666,7 +2680,7 @@
 <li>✅ <a href="https://thoughts.teambition.com/share/6117e05d9ad2ef004618fd7b#title=MX%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E5%99%A8%E6%B1%89%E5%8C%96%E7%89%88">MX视频播放器汉化版 MX Video Player 👍</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">06.音乐播放器</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">06.音乐播放器</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://wwz.lanzout.com/s/magicplayer">🎵Magic Player 👍 </a></li>
@@ -2681,7 +2695,7 @@
 <li>✅ <a href="https://dmla.lanzoui.com/b05m79b3i">🎵听下——全网音乐无损音质下载（长期更新链接）👍</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">07.浏览器推荐</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">07.浏览器推荐</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://thoughts.teambition.com/share/6120cacb933fb100460186a9">安卓　Chrome浏览器_78.0.3904</a></li>
@@ -2697,7 +2711,7 @@
 <li>✅ <a href="https://apps.apple.com/cn/app/%E5%A4%B8%E5%85%8B-%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4%E6%97%97%E4%B8%8B%E6%99%BA%E8%83%BD%E6%90%9C%E7%B4%A2/id1160172628">iOS 　夸克浏览器-iOS版</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">08.记笔记推荐</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">08.记笔记推荐</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://zxltwp.lanzoux.com/b092uma3c">有道云笔记破解会员版【长期更新地址】👍</a></li>
@@ -2706,7 +2720,7 @@
 <li>✅ <a href="https://thoughts.teambition.com/share/6120d0e8b9352a0041a25031#title=%E6%9C%89%E9%81%93%E4%BA%91%E7%AC%94%E8%AE%B0%E8%B0%B7%E6%AD%8C%E7%89%88_6.6.6"> 有道云笔记谷歌版_6.6.6</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">09.课程表推荐</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">09.课程表推荐</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://mp.weixin.qq.com/s?__biz=MzAxNDk3MTA4NA==&amp;mid=2247488461&amp;idx=1&amp;sn=af09f0cf928531dc1d9f1fd00b9cb9ea&amp;chksm=9b8a6a6eacfde378e023553af43b6713ebd8a1cf63df6d57397774e8f53ebce76a0">👍文章　《评测了数款课程表软件，还是这些好用》</a></li>
@@ -2719,7 +2733,7 @@
 <li>✅ <a href="https://app.mi.com/details?id=com.strivexj.timetable">Simple课程表 （这个未破解，破解版公众号回复：课程表）👍</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">10.录屏推荐</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">10.录屏推荐</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://thoughts.teambition.com/share/6120d343b9352a0041a25032#title=%E5%B0%8F%E7%86%8A%E5%BD%95%E5%B1%8F_v2.2.1_%E4%BF%AE%E6%94%B9%E4%BC%9A%E5%91%98%E7%9B%B4%E8%A3%85%E7%89%88(%E5%85%8D%E7%99%BB%E5%BD%95)">小熊录屏 v2.2.1 修改会员直装版(免登录)</a></li>
@@ -2728,13 +2742,13 @@
 <li>✅ <a href="https://thoughts.teambition.com/share/6120d2b13a60e70046f934f0#title=AZ_Screen_Recorder">AZ Screen Recorder</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">11.WPS / OFFICE / PDF</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">11.WPS / OFFICE / PDF</span></summary>
 <div class="content-container">
 <p>✅ <a href="https://thoughts.teambition.com/share/6120d97e3a60e70046f934f2#title=PDF_Extra%EF%BC%88pdf%E9%98%85%E8%AF%BB%E5%99%A8%EF%BC%89">PDF Extra（pdf阅读器）</a></p>
 <p>✅ <a href="https://thoughts.teambition.com/share/6120e0653a60e70046f934f3#title=NoteShelf_4.3_%E8%AE%B0%E4%BA%8B%E6%9C%AC%E5%AE%89%E5%8D%93%E7%89%88">NoteShelf_4.3 记事本安卓版</a></p>
 <p>✅ <a href="https://mdl.ink/VnsDhn">【谷歌版】xodopdf编辑器</a></p>
 <p>✅ <a href="https://thoughts.teambition.com/share/6120d932e9078100460bc204#title=Quickoffice6.5.1.12%E3%80%96%E6%97%A0%E5%B9%BF%E5%91%8A%E7%89%88%E3%80%97">Quickoffice6.5.1.12〖无广告版〗</a></p>
-<details class="indent-level-4"><summary><span class="folder-icon"></span><span class="clickable-title">WPS手机版</span></summary>
+<details class="indent-level-4"><summary><span class="folder-icon" data-level="4"></span><span class="clickable-title">WPS手机版</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://pan.lanzoui.com/b0f197skb">WPS_Offiice_for_Android【423down长期更新链接】</a></li>
@@ -2747,7 +2761,7 @@
 </ul>
 </div></details>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">12.英语学习</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">12.英语学习</span></summary>
 <div class="content-container">
 <p>✅ <a href="https://thoughts.teambition.com/share/6120e6c8b9352a0041a2503b#title=%E7%9C%81%E5%BF%83%E8%8B%B1%E8%AF%ADV3.0.6%E5%85%8DVIP_%E8%B5%B0%E9%81%8D%E7%BE%8E%E5%9B%BD%E8%8B%B1%E8%AF%AD">省心英语V3.0.6免VIP 走遍美国英语</a></p>
 <p>✅ <a href="https://zxltwp.lanzoux.com/b093akyhe">可可英语破解会员版【长期更新地址】👍</a></p>
@@ -2759,7 +2773,7 @@
 <p>✅ <a href="https://thoughts.teambition.com/share/6120fac4d9f39a0046f4a0b8#title=%E8%8B%B1%E8%AF%AD%E9%80%9A%E5%B7%B2%E8%A7%A3%E9%94%81VIP_%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0%E5%85%9A%E5%BF%85%E5%A4%87">英语通已解锁VIP 英语学习党必备</a></p>
 <p>✅ <a href="https://thoughts.teambition.com/share/6120fb01d9f39a0046f4a0b9#title=WE_Learn_v4.1.0225">WE Learn_v4.1.0225</a></p>
 <p>✅ <a href="https://thoughts.teambition.com/share/6120fe67d9f39a0046f4a0ba#title=%E6%AF%8F%E6%97%A5%E8%8B%B1%E8%AF%AD%E5%90%AC%E5%8A%9Bv9.0.3%E6%9C%80%E6%96%B0%E7%A0%B4%E8%A7%A3%E7%89%88">每日英语听力v9.0.3最新破解版 👍</a></p>
-<details class="indent-level-4"><summary><span class="folder-icon"></span><span class="clickable-title">背单词软件</span></summary>
+<details class="indent-level-4"><summary><span class="folder-icon" data-level="4"></span><span class="clickable-title">背单词软件</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://thoughts.teambition.com/share/6120e39ce9078100460bc207#title=%E8%8B%B1%E8%AF%AD%E8%AF%8D%E6%B1%87%E8%BD%BB%E6%9D%BE%E5%AD%A6">英语词汇轻松学</a></li>
@@ -2772,7 +2786,7 @@
 <li>✅ <a href="https://thoughts.teambition.com/share/6120e182933fb100460186af">墨墨背单词_PJ新版</a></li>
 </ul>
 </div></details>
-<details class="indent-level-4"><summary><span class="folder-icon"></span><span class="clickable-title">翻译软件</span></summary>
+<details class="indent-level-4"><summary><span class="folder-icon" data-level="4"></span><span class="clickable-title">翻译软件</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://thoughts.teambition.com/share/6120e566e9078100460bc208#title=OALD9%E7%89%9B%E6%B4%A5%E9%AB%98%E9%98%B6%E8%AF%8D%E5%85%B8%EF%BC%88%E8%8B%B1%E8%8B%B1%E8%AF%8D%E5%85%B8%EF%BC%89">OALD9牛津高阶词典（英英词典）</a></li>
@@ -2781,7 +2795,7 @@
 </ul>
 </div></details>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">13.考证app</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">13.考证app</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://thoughts.teambition.com/share/6121128fd71e990041d736e6#title=%E4%BA%94%E7%AC%94%E5%AD%A6%E4%B9%A0">五笔学习</a></li>
@@ -2789,7 +2803,7 @@
 <li>✅ <a href="https://thoughts.teambition.com/share/61211310d9f39a0046f4a0bb#title=%E6%9C%AA%E6%9D%A5%E6%95%99%E8%82%B2%E7%A0%B4%E8%A7%A3%E7%89%88%E3%80%90%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%AD%89%E8%80%83%E9%A2%98%E5%BA%93%E3%80%91">未来教育破解版【计算机等考题库】</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">14.专注下载</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">14.专注下载</span></summary>
 <div class="content-container">
 <ul>
 <li>
@@ -2809,14 +2823,14 @@
 </li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">15.淘宝 / 京东</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">15.淘宝 / 京东</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://thoughts.teambition.com/share/612115a8b9352a0041a25044#title=%E6%89%8B%E6%9C%BA%E6%B7%98%E5%AE%9D_v8.10.2_Google_Play%E7%89%88">手机淘宝 v8.10.2 Google Play版</a></li>
 <li>✅ <a href="https://thoughts.teambition.com/share/612115d8933fb100460186d0#title=%E4%BA%AC%E4%B8%9C_v9.3.2%E8%B0%B7%E6%AD%8C%E5%B8%82%E5%9C%BA%E7%89%88">京东 v9.3.2谷歌市场版.</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">16.优化清理</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">16.优化清理</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="http://www.lbesec.com/#/products/2">LBE安全大师 官网</a></li>
@@ -2824,7 +2838,7 @@
 <li>✅ <a href="https://thoughts.teambition.com/share/60e699e70c22e7004603cc30#title=%E7%BD%91%E7%9B%98%E5%88%86%E4%BA%AB">清浊_v1.7.2高级解锁版</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">17.程序编绎器 / 电路模拟器 / 高数软件</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">17.程序编绎器 / 电路模拟器 / 高数软件</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://thoughts.teambition.com/share/61211711d9f39a0046f4a0be#title=%E9%AB%98%E6%95%B0%E7%BA%BF%E4%BB%A3%E5%A4%A7%E5%AD%A6%E5%BF%85%E5%A4%87%E8%BD%AF%E4%BB%B6">高数线代大学必备软件</a></li>
@@ -2832,7 +2846,7 @@
 <li>✅ <a href="https://thoughts.teambition.com/share/612117b0b9352a0041a25046#title=%E7%A8%8B%E5%BA%8F%E7%BC%96%E7%BB%8E%E5%99%A8">程序编绎器</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">18.网课助手</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">18.网课助手</span></summary>
 <div class="content-container">
 <ul>
 <li>❌ <a href="https://shuashuati.com/">刷刷题官网【查题需关注公众号】</a></li>
@@ -2841,7 +2855,7 @@
 <li>✅ <a href="https://www.51xuexiaoyi.com/">学小易【官网】</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">19.网盘推荐</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">19.网盘推荐</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://thoughts.teambition.com/share/612119d2b9352a0041a25047#title=%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98_%E6%9C%80%E7%BB%88%E6%9B%B4%E6%96%B0%E7%89%88%E3%80%90%E5%85%B1%E5%AD%98%E7%89%88%E3%80%91">百度网盘_最终更新版【共存版】</a></li>
@@ -2849,7 +2863,7 @@
 <li>✅ <a href="https://thoughts.teambition.com/share/612119853a60e70046f93508#title=%E7%99%BE%E5%BA%A6%E7%BD%91%E7%9B%98v9.0.2%E5%AE%8C%E7%BE%8E%E7%89%88%E3%80%90%E5%85%B1%E5%AD%98%E7%89%88%E3%80%91">百度网盘v9.0.2完美版【共存版】</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">20.去开屏广告</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">20.去开屏广告</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://wiki.ad-gone.com/">大圣净化官网</a></li>
@@ -2861,9 +2875,9 @@
 </ul>
 </div></details>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">📱授之以鱼不如授之以渔</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">📱授之以鱼不如授之以渔</span></summary>
 <div class="content-container">
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">01.安卓社区（软件|游戏|资讯）</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">01.安卓社区（软件|游戏|资讯）</span></summary>
 <div class="content-container">
 <ul>
 <li>❌ <a href="https://apk.tw/">台湾 　Android 台湾中文网（主打安卓破解软件，已被墙）</a></li>
@@ -2878,7 +2892,7 @@
 <li>❌ <a href="https://www.coolapk.com/apk/">👍酷安（主打安卓破解软件/互联网资讯）</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">02.搜蓝奏云资源</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">02.搜蓝奏云资源</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="http://www.xiongbeng.com/">👍熊崩-【网盘搜索聚合引擎】</a></li>
@@ -2887,7 +2901,7 @@
 <li>✅ <a href="https://lanzou.2su.cc/">网盘搜索,就上蓝搜搜 - 好用的蓝奏云搜索引擎</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">03.在线下载PJ软件</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">03.在线下载PJ软件</span></summary>
 <div class="content-container">
 <ul>
 <li>✅以下网站不能保证永远能用，我会定期更换</li>
@@ -2924,12 +2938,12 @@
 </div></details>
 </div></details>
 </div></details>
-<details class="indent-level-1"><summary><span class="folder-icon"></span><span class="clickable-title">┄┄✂┄┄　书签</span></summary>
+<details class="indent-level-1"><summary><span class="folder-icon" data-level="1"></span><span class="clickable-title">┄┄✂┄┄　书签</span></summary>
 <div class="content-container">
 </div></details>
-<details class="indent-level-1"><summary><span class="folder-icon"></span><span class="clickable-title">04 实用网站</span></summary>
+<details class="indent-level-1"><summary><span class="folder-icon" data-level="1"></span><span class="clickable-title">04 实用网站</span></summary>
 <div class="content-container">
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">00.导航网站推荐</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">00.导航网站推荐</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://xydh.fun/">书签导航 　　iLinks</a></li>
@@ -2949,11 +2963,11 @@
 <li>✅ <a href="https://clicli.com.cn/">ACG 导航　　全网优质ACGN资源二次元资源导航网站</a></li>
 </ul>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">01.阿里/夸克/天翼/TG搜</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">01.阿里/夸克/天翼/TG搜</span></summary>
 <div class="content-container">
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">01.综合站点</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">01.综合站点</span></summary>
 <div class="content-container">
-<details class="indent-level-4"><summary><span class="folder-icon"></span><span class="clickable-title">无需登录账号 | 无需关注公众号 | 无需验证码</span></summary>
+<details class="indent-level-4"><summary><span class="folder-icon" data-level="4"></span><span class="clickable-title">无需登录账号 | 无需关注公众号 | 无需验证码</span></summary>
 <div class="content-container">
 <p>这些网站主要支持：夸克/阿里/百度，其余云盘搜索功能相对有限</p>
 <ul>
@@ -2983,7 +2997,7 @@
 </li>
 </ul>
 </div></details>
-<details class="indent-level-4"><summary><span class="folder-icon"></span><span class="clickable-title">需登录账号 | 需关注公众号 | 需验证码 | 需回复</span></summary>
+<details class="indent-level-4"><summary><span class="folder-icon" data-level="4"></span><span class="clickable-title">需登录账号 | 需关注公众号 | 需验证码 | 需回复</span></summary>
 <div class="content-container">
 <ul>
 <li>
@@ -3007,7 +3021,7 @@
 </ul>
 </div></details>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">02.阿里云盘</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">02.阿里云盘</span></summary>
 <div class="content-container">
 <ul>
 <li>
@@ -3024,7 +3038,7 @@
 </li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">03.夸克云盘</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">03.夸克云盘</span></summary>
 <div class="content-container">
 <ul>
 <li>
@@ -3044,7 +3058,7 @@
 </li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">04.天翼云盘</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">04.天翼云盘</span></summary>
 <div class="content-container">
 <ul>
 <li>
@@ -3061,7 +3075,7 @@
 </li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">05.TG搜</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">05.TG搜</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://tgso.pro/">「TG搜」🌕tgso</a></li>
@@ -3070,7 +3084,7 @@
 </ul>
 </div></details>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">02.百度云盘搜索</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">02.百度云盘搜索</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://www.chaonengso.com/">☁️超能搜（合集性）</a></li>
@@ -3079,7 +3093,7 @@
 <li>✅ <a href="https://www.xiaobaipan.com/">☁️小白盘</a></li>
 </ul>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">03.百度云盘倍速</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">03.百度云盘倍速</span></summary>
 <div class="content-container">
 <ul>
 <li>✅插件：global speed（❌ <a href="https://chrome.google.com/webstore/category/extensions">谷歌插件官网（被墙）</a>、✅ <a href="https://microsoftedge.microsoft.com/addons/Microsoft-Edge-Extensions-Home?source=sfw">Edge插件官网</a>、✅ <a href="https://addons.mozilla.org/zh-CN/firefox/extensions">火狐插件官网</a>）</li>
@@ -3087,7 +3101,7 @@
 <li>✅ <a href="https://mp.weixin.qq.com/s/F8QO_AnpGu2vt7tc_DbD5g">👍更多方法：文章　《百度云盘不开SVIP也能在线倍速播放视频「考研党必备」》</a></li>
 </ul>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">04.小众资源搜索</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">04.小众资源搜索</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://quark.sm.cn/">🔍夸克搜索（原神马搜索）</a></li>
@@ -3098,7 +3112,7 @@
 <li>✅ <a href="https://kaifa.baidu.com/home?qq-pf-to=pcqq.group">🔍开发者搜索（程序员搜索）</a></li>
 </ul>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">05.在线图床推荐</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">05.在线图床推荐</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="http://imgdh.com/">图床导航 （大量的在线图床）</a></li>
@@ -3114,7 +3128,7 @@
 <li>✅ <a href="https://sm.ms/">sm.ms图床（加载速度一般）</a></li>
 </ul>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">06.在线以图识图</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">06.在线以图识图</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://mp.weixin.qq.com/s?__biz=MzAxNDk3MTA4NA==&amp;mid=2247488311&amp;idx=1&amp;sn=88b451040786c67df847c31cb213d24d&amp;chksm=9b8a6a94acfde382e046312092a8dd535779b9d23a839c495aa226ae93dfc80b8992327">👍文章　《以图识图，帮你找到原图出处》</a></li>
@@ -3128,7 +3142,7 @@
 <li>❌ <a href="https://unsplash.com/">📸Unsplash</a></li>
 <li>❌ <a href="https://www.everypixel.com/">📸EveryPixel（素材反向搜索）</a></li>
 </ul>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">01.动漫以图识图</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">01.动漫以图识图</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="http://saucenao.com/">📸Saucenao（被墙）</a></li>
@@ -3138,7 +3152,7 @@
 <li>✅ <a href="https://trace.moe/">📸Trace</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">02.找衣服同款</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">02.找衣服同款</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://jd.com/">📸京东识图</a></li>
@@ -3146,9 +3160,9 @@
 </ul>
 </div></details>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">07.素材模板网站</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">07.素材模板网站</span></summary>
 <div class="content-container">
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">01.免费视频素材</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">01.免费视频素材</span></summary>
 <div class="content-container">
 <ul>
 <li>❌ <a href="https://pixabay.com/zh/videos/">Pixabay（免费高清视频素材）</a></li>
@@ -3158,9 +3172,9 @@
 <li>✅ <a href="https://www.videvo.net/">Free Stock Video</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">02.免费图片素材</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">02.免费图片素材</span></summary>
 <div class="content-container">
-<details class="indent-level-4"><summary><span class="folder-icon"></span><span class="clickable-title">海报素材</span></summary>
+<details class="indent-level-4"><summary><span class="folder-icon" data-level="4"></span><span class="clickable-title">海报素材</span></summary>
 <div class="content-container">
 <ul>
 <li>❌ <a href="https://www.canva.cn/templates/search/5rW35oqlX64/">Canva可画（部分需要付费）</a></li>
@@ -3174,7 +3188,7 @@
 <li>✅ <a href="http://www.postermockup.com/">PosterMockup（海报模拟网站）</a></li>
 </ul>
 </div></details>
-<details class="indent-level-4"><summary><span class="folder-icon"></span><span class="clickable-title">其它图片素材</span></summary>
+<details class="indent-level-4"><summary><span class="folder-icon" data-level="4"></span><span class="clickable-title">其它图片素材</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="http://simpledesktops.com/browse/">Simpledesktops（极简）</a></li>
@@ -3192,7 +3206,7 @@
 </ul>
 </div></details>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">03.AE、PR等（模板 / 插件 / 素材）</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">03.AE、PR等（模板 / 插件 / 素材）</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://www.newcger.com/">新CG儿（视频、音效素材、AE模板）</a></li>
@@ -3205,7 +3219,7 @@
 <li>✅ <a href="https://www.cgown.com/">CG资源网（AE、C4D、3D、素材等）</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">04.免费PSD素材</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">04.免费PSD素材</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="http://www.sccnn.com/">素材中国</a></li>
@@ -3218,7 +3232,7 @@
 <li>✅ <a href="https://sc.chinaz.com/psd/">站长PSD</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">05.免费PPT模板</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">05.免费PPT模板</span></summary>
 <div class="content-container">
 <ul>
 <li>
@@ -3242,9 +3256,9 @@
 </ul>
 </div></details>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">08.电子书 / 漫画 / 小说📖</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">08.电子书 / 漫画 / 小说📖</span></summary>
 <div class="content-container">
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">01.书籍综合性搜索</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">01.书籍综合性搜索</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://www.52pojie.cn/forum.php?mod=forumdisplay&amp;fid=8&amp;filter=specialtype&amp;specialtype=reward&amp;rewardtype=1">吾爱论坛悬赏区 👍</a></li>
@@ -3259,7 +3273,7 @@
 <li>✅ <a href="http://shu.ziyuandi.cn/">资源帝（搜索导航站）👍</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">02.图书自助下载</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">02.图书自助下载</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://search.datacdn.cn/sbooklist">网站 　互助联盟</a></li>
@@ -3269,7 +3283,7 @@
 <li>❌ <a href="https://greasyfork.org/zh-CN/scripts/420751-%E5%9B%BE%E4%B9%A6%E4%BA%92%E5%8A%A9">脚本 　图书互助</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">03.专业性电子书</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">03.专业性电子书</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://www.pdfdrive.to/">PDF Drive（外文类电子书）</a></li>
@@ -3286,9 +3300,9 @@
 <li>✅ <a href="http://www.banshujiang.cn/">搬书匠（计算机书籍相关）👍</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">04.看漫画下漫画</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">04.看漫画下漫画</span></summary>
 <div class="content-container">
-<details class="indent-level-4"><summary><span class="folder-icon"></span><span class="clickable-title">01.看漫画</span></summary>
+<details class="indent-level-4"><summary><span class="folder-icon" data-level="4"></span><span class="clickable-title">01.看漫画</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://www.jsj66.com/">奇漫屋</a></li>
@@ -3301,7 +3315,7 @@
 <li>❌ <a href="https://www.soman.com/">搜漫（聚合搜索，被墙）</a></li>
 </ul>
 </div></details>
-<details class="indent-level-4"><summary><span class="folder-icon"></span><span class="clickable-title">02.下漫画</span></summary>
+<details class="indent-level-4"><summary><span class="folder-icon" data-level="4"></span><span class="clickable-title">02.下漫画</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://volmoe.com/">volmoe</a></li>
@@ -3311,9 +3325,9 @@
 </ul>
 </div></details>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">05.看小说下小说</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">05.看小说下小说</span></summary>
 <div class="content-container">
-<details class="indent-level-4"><summary><span class="folder-icon"></span><span class="clickable-title">01.看小说</span></summary>
+<details class="indent-level-4"><summary><span class="folder-icon" data-level="4"></span><span class="clickable-title">01.看小说</span></summary>
 <div class="content-container">
 <ul>
 <li>✅👍 <a href="https://gedoor.github.io/">阅读软件</a>+✅ <a href="https://yuedu.xiu2.xyz/">精品书源 </a></li>
@@ -3323,7 +3337,7 @@
 <li>✅ <a href="https://www.bqg128.com/">笔趣阁</a></li>
 </ul>
 </div></details>
-<details class="indent-level-4"><summary><span class="folder-icon"></span><span class="clickable-title">02.下小说</span></summary>
+<details class="indent-level-4"><summary><span class="folder-icon" data-level="4"></span><span class="clickable-title">02.下小说</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://uncle-novel.github.io/uncle-novel-official-site/">📚Uncle小说</a></li>
@@ -3336,7 +3350,7 @@
 </div></details>
 </div></details>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">09.云盘解析网站（度盘、天翼云盘）</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">09.云盘解析网站（度盘、天翼云盘）</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://mp.weixin.qq.com/s/PIsV3-yK25OGcG-ks2Z4qA">👍文章　《都2023年了，百度云盘不花钱还能不限速吗？》</a></li>
@@ -3344,7 +3358,7 @@
 <li>✅ <a href="http://189.ly93.cc/">天翼云盘 　解析网站1</a></li>
 </ul>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">10.百度文库复制和下载</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">10.百度文库复制和下载</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://www.yuque.com/xiaoshuai-09eym/bhsttx/iiyq3v?">永久更新地址：👍 文库、CSDN下载器</a></li>
@@ -3353,7 +3367,7 @@
 <li>✅ <a href="https://www.tool77.com/wenku">77工具 　免费版</a></li>
 </ul>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">11.编程在线刷题/博主/项目</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">11.编程在线刷题/博主/项目</span></summary>
 <div class="content-container">
 <ul>
 <li>在线刷题
@@ -3388,9 +3402,9 @@
 </ul>
 </div></details>
 </div></details>
-<details class="indent-level-1"><summary><span class="folder-icon"></span><span class="clickable-title">05 冷门网站</span></summary>
+<details class="indent-level-1"><summary><span class="folder-icon" data-level="1"></span><span class="clickable-title">05 冷门网站</span></summary>
 <div class="content-container">
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">01.二维码生成美化</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">01.二维码生成美化</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="http://tool.mkblog.cn/qrbtf/">艺术二维码（二维码生成）</a></li>
@@ -3403,7 +3417,7 @@
 <li>✅ <a href="https://cli.im/">👍草料二维码（二维码生成及美化）</a></li>
 </ul>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">02.ICON图标</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">02.ICON图标</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://9iphp.com/fa-icons">👍Font Awesome 4.7.0</a></li>
@@ -3421,7 +3435,7 @@
 <li>✅ <a href="https://fontawesome.com/cheatsheet?from=io">Font Awesome Free's Cheatsheet</a></li>
 </ul>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">03.接码平台</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">03.接码平台</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://tmioe.com/3642.html">国内外短信接码平台，2023年4月更新</a></li>
@@ -3430,7 +3444,7 @@
 <li>✅ <a href="http://www.z-sms.com/">短信接码</a></li>
 </ul>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">04.临时邮箱</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">04.临时邮箱</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://www.guerrillamail.com/zh">Guerrilla - 60分钟（域名多）</a></li>
@@ -3441,7 +3455,7 @@
 <li>✅ <a href="http://24mail.chacuo.net/">24mail 临时邮箱</a></li>
 </ul>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">05.网址缩短</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">05.网址缩短</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://www.ft12.com/">ft12短网址</a></li>
@@ -3453,7 +3467,7 @@
 <li>✅ <a href="https://sina.lt/">👍新浪短网址</a></li>
 </ul>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">06.表情包</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">06.表情包</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://www.diydoutu.com/">DIY表情包</a></li>
@@ -3463,7 +3477,7 @@
 <li>✅ <a href="https://mp.weixin.qq.com/s/59e9aZu-vVWZszNUaD6irA">👍文章　《这么多可爱的表情包，不进来收藏一波？》</a></li>
 </ul>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">07.有趣更有用</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">07.有趣更有用</span></summary>
 <div class="content-container">
 <p>✅📱 ❌ <a href="https://www.jiuwa.net/nokia/">诺基亚短信图片生成器</a></p>
 <p>✅ <a href="https://www.cbaigui.com/">🐷知妖 （中国妖怪百集，收集中国古今妖怪）</a></p>
@@ -3478,7 +3492,7 @@
 <li>❌ <a href="https://privacy.aiuys.com/">Privacy（个人数据泄露检测 QQ、手机号、微博互查）</a></li>
 </ul>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">08.在线设计制作工具</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">08.在线设计制作工具</span></summary>
 <div class="content-container">
 <p>✅👍 <a href="https://spidertools.cn/#/fixEncode">爬虫工具库</a></p>
 <p>❌ <a href="https://www.dute.org/code-snapshot">在线代码截图</a></p>
@@ -3499,7 +3513,7 @@
 <li>❌ <a href="https://jutool.dev/#/image2base64">优聚屋工具箱</a></li>
 </ul>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">09.pixiv镜像站</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">09.pixiv镜像站</span></summary>
 <div class="content-container">
 <ul>
 <li>❌👍 <a href="https://www.pixiv.net/">pixiv官网（被墙）</a></li>
@@ -3512,7 +3526,7 @@
 <li>✅ <a href="https://pixiv.moe/">pixiv.moe</a></li>
 </ul>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">10.羊毛/购票</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">10.羊毛/购票</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://new.ixbk.net/">线报酷 - 专注线报活动与优惠促销分享的线报网站</a></li>
@@ -3520,9 +3534,9 @@
 </ul>
 </div></details>
 </div></details>
-<details class="indent-level-1"><summary><span class="folder-icon"></span><span class="clickable-title">06 精品软件</span></summary>
+<details class="indent-level-1"><summary><span class="folder-icon" data-level="1"></span><span class="clickable-title">06 精品软件</span></summary>
 <div class="content-container">
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">01.国内精品软件1区</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">01.国内精品软件1区</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://tgso.pro/">👍Telegram中文搜索（被墙）　「集各类资源于一身的电报」</a></li>
@@ -3537,7 +3551,7 @@
 <li>✅ <a href="https://www.runningcheese.com/">奔跑中的奶酪「主打电脑浏览器」</a></li>
 </ul>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">02.国内精品软件2区</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">02.国内精品软件2区</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://www.tenlonstudio.com/">腾龙工作室【Windows / Android / MAC】</a></li>
@@ -3557,7 +3571,7 @@
 <li>❌ <a href="https://www.vipsrc.com/">资源大亨【Windows / Android / IOS】</a></li>
 </ul>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">03.国外精品软件</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">03.国外精品软件</span></summary>
 <div class="content-container">
 <ul>
 <li>❌ <a href="https://filehippo.com/zh/">Filehippo（Windows / MAC）</a></li>
@@ -3565,7 +3579,7 @@
 <li>✅ <a href="https://lrepacks.ru/">lrepacks（俄罗斯十年的老站点，Windows）</a></li>
 </ul>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">04.Mac破解软件</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">04.Mac破解软件</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://www.macat.vip/">👍马克喵 　 「提供七款云盘下载」</a></li>
@@ -3577,7 +3591,7 @@
 <li>✅ <a href="https://www.macbl.com/">马可菠萝（海量Mac软件免费下载）「百度云和城通网盘」</a></li>
 </ul>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">05.开源镜像站（支持系统、编程软件等下载）</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">05.开源镜像站（支持系统、编程软件等下载）</span></summary>
 <div class="content-container">
 <ul>
 <li>
@@ -3669,12 +3683,12 @@
 </li>
 </ul>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">06. 稀有资源</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">06. 稀有资源</span></summary>
 <div class="content-container">
 <p><strong>资源均来自网络，仅供学习交流试看，严禁用于商业用途，请于下载后24小时内删除！请支持正版！</strong></p>
 <p><strong>很多软件被苏州某丁软件有限公司代理而导致网上很多资源无法寻找</strong></p>
 <p><strong>前两栏主要收集的是这些软件的PJ版下载地址</strong></p>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">01.稀有软件</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">01.稀有软件</span></summary>
 <div class="content-container">
 <ul>
 <li>❌ <a href="https://ldqk.org/special/6">懒得勤快（被墙）</a></li>
@@ -3683,7 +3697,7 @@
 <li>❌ <a href="https://www.salanghe.com/">月情的自留地</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">02.稀有软件TG频道</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">02.稀有软件TG频道</span></summary>
 <div class="content-container">
 <ul>
 <li>❌ <a href="https://t.me/gaomutongxue">高木同学（被墙）</a></li>
@@ -3691,7 +3705,7 @@
 <li>❌ <a href="https://t.me/fxxkmkd_channel">FXXKMKD Channel（被墙）</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">03.下载谷歌/外网软件</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">03.下载谷歌/外网软件</span></summary>
 <div class="content-container">
 <ul>
 <li>
@@ -3719,7 +3733,7 @@
 </li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">苹果账号分享</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">苹果账号分享</span></summary>
 <div class="content-container">
 <ul>
 <li>🚫切记勿登录iCloud</li>
@@ -3731,7 +3745,7 @@
 <li>✅ <a href="https://iddog.cc/">苹果id分享网|苹果美区账号免费共享APPLE ID海外appstore账号密码 - iddog</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">第三方APP</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">第三方APP</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://www.yuque.com/docs/share/9116b792-cef7-4431-ae57-0d4cbcf78ecd"> 👍Instream/Youtube/Niconico/Twitter/微博合集地址</a></li>
@@ -3746,11 +3760,11 @@
 </div></details>
 </div></details>
 </div></details>
-<details class="indent-level-1"><summary><span class="folder-icon"></span><span class="clickable-title">07 影音专区</span></summary>
+<details class="indent-level-1"><summary><span class="folder-icon" data-level="1"></span><span class="clickable-title">07 影音专区</span></summary>
 <div class="content-container">
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">01.电影 / 电视剧 / 动漫 / 综艺 / 电视 / 体育直播【在线观看】</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">01.电影 / 电视剧 / 动漫 / 综艺 / 电视 / 体育直播【在线观看】</span></summary>
 <div class="content-container">
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">在线看　电视剧 / 电影 / 综艺</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">在线看　电视剧 / 电影 / 综艺</span></summary>
 <div class="content-container">
 <ul>
 <li>✅<a href="https://www.wandou.la/">🌕豆瓣PRO（全网影视搜）</a></li>
@@ -3776,7 +3790,7 @@
 <li>✅<a href="https://www.ork.ink/">🌖橙汁影视（无广告）</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">在线看　动漫</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">在线看　动漫</span></summary>
 <div class="content-container">
 <ul>
 <li>❌ <a href="https://www.bilibili.com/">🌕bilibili</a></li>
@@ -3792,7 +3806,7 @@
 <li>❌ <a href="https://www.mandao.tv/">🌖漫岛TV</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">在线看　国外影视剧</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">在线看　国外影视剧</span></summary>
 <div class="content-container">
 <ul>
 <li>❌ <a href="https://www.hmtv.me/">🌓韩迷TV</a></li>
@@ -3807,7 +3821,7 @@
 <li>❌ <a href="http://www.yyetss.com/">🌖人人美剧</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">在线看　体育直播 / 电视</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">在线看　体育直播 / 电视</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="http://www.88kq.net/">电视直播 　88看球👍</a></li>
@@ -3820,7 +3834,7 @@
 <li>✅ <a href="https://sports.qq.com/kbsweb/">体育直播 　腾讯体育直播（足球版权多，画质好、播放流畅）👍</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">在线看　影视垂直搜索</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">在线看　影视垂直搜索</span></summary>
 <div class="content-container">
 <ul>
 <li>❌ <a href="https://www.mvcat.com/">电影推荐（需关注微信公众号）</a></li>
@@ -3832,7 +3846,7 @@
 </ul>
 </div></details>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">02.电影 / 电视剧 / 综艺【提供百度云等网盘下载】</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">02.电影 / 电视剧 / 综艺【提供百度云等网盘下载】</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://yyets.dmesg.app/index.html">🔷人人影视下载站（提供磁力 / 微云/ 夸克 / 百度云））</a></li>
@@ -3847,9 +3861,9 @@
 <li>❌ <a href="https://www.dlkoo.cc/">🔷大连生活网（提供百度云）（备用域名dlkoo.com、dlkoo.me）</a></li>
 </ul>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">03.VIP看剧【提供电脑软件 / 手机软件】</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">03.VIP看剧【提供电脑软件 / 手机软件】</span></summary>
 <div class="content-container">
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">VIP看剧　【TV盒子】</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">VIP看剧　【TV盒子】</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://fsylr.com/tv">发烧友绿软【盒子区】</a></li>
@@ -3866,7 +3880,7 @@
 <li>❌ <a href="https://57cool.cool/archives/category/android/tv">☁️TV应用 - 57号同学</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">VIP看剧　【电脑软件】</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">VIP看剧　【电脑软件】</span></summary>
 <div class="content-container">
 <ul>
 <li>❌ <a href="https://www.jianpian6.com/">荐片播放器</a></li>
@@ -3874,7 +3888,7 @@
 <li>✅ <a href="https://npm.elemecdn.com/cycldstatic@1.1.0/index.html">次元城动漫-1080P日漫免费看 </a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">VIP看剧　【手机APP】</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">VIP看剧　【手机APP】</span></summary>
 <div class="content-container">
 <ul>
 <li>
@@ -3946,7 +3960,7 @@
 </ul>
 </div></details>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">04.BT磁力搜索【国内 / 国外】</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">04.BT磁力搜索【国内 / 国外】</span></summary>
 <div class="content-container">
 <ul>
 <li>❌ <a href="https://www.aiosearch.com/">🌕AIO Search（俄国BT网站）</a></li>
@@ -3966,7 +3980,7 @@
 <li>✅ <a href="https://cursor.vip/vip">🌕BT吃力网</a></li>
 </ul>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">05.VIP音乐在线听 / 下载</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">05.VIP音乐在线听 / 下载</span></summary>
 <div class="content-container">
 <ul>
 <li>
@@ -4026,7 +4040,7 @@
 </li>
 </ul>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">06.字幕 / 台词</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">06.字幕 / 台词</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://subhd.tv/">🔶SubHD - 分享交流下载字幕平台👍</a></li>
@@ -4040,9 +4054,9 @@
 </ul>
 </div></details>
 </div></details>
-<details class="indent-level-1"><summary><span class="folder-icon"></span><span class="clickable-title">08 游戏专栏</span></summary>
+<details class="indent-level-1"><summary><span class="folder-icon" data-level="1"></span><span class="clickable-title">08 游戏专栏</span></summary>
 <div class="content-container">
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">01.云游戏</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">01.云游戏</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://www.suileyoo.com/">随乐游</a></li>
@@ -4054,7 +4068,7 @@
 <li>✅ <a href="https://cg.163.com/#/mobile">网易云游戏</a></li>
 </ul>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">02.免费加速器</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">02.免费加速器</span></summary>
 <div class="content-container">
 <ul>
 <li>❌ <a href="https://gmengshuai.lanzous.com/iNP4vorsb6b">鲜牛加速器（可实现长时间白嫖使用）</a></li>
@@ -4066,7 +4080,7 @@
 <li>✅ <a href="https://www.qimiao.com/">奇妙网游加速器</a></li>
 </ul>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">03.几十TB游戏下载</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">03.几十TB游戏下载</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://gmengshuai.lanzoux.com/ie2asnsfwdg">小霸王 精选集 84合1</a></li>
@@ -4087,7 +4101,7 @@
 <li>❌ <a href="https://www.s-sgames.com/?ref=12706">SGAME（赛博2077） 提供最新攻略、单机游戏、汉化资源、游戏补丁等</a></li>
 </ul>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">04.在线小游戏 / 论坛 / 模拟器</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">04.在线小游戏 / 论坛 / 模拟器</span></summary>
 <div class="content-container">
 <ul>
 <li>❌ <a href="https://musiclab.chromeexperiments.com/Song-Maker/song/5033608827371520">🎵音乐实验室</a></li>
@@ -4114,15 +4128,15 @@
 </ul>
 </div></details>
 </div></details>
-<details class="indent-level-1"><summary><span class="folder-icon"></span><span class="clickable-title">┄┄✂┄┄　资源</span></summary>
+<details class="indent-level-1"><summary><span class="folder-icon" data-level="1"></span><span class="clickable-title">┄┄✂┄┄　资源</span></summary>
 <div class="content-container">
 </div></details>
-<details class="indent-level-1"><summary><span class="folder-icon"></span><span class="clickable-title">09 资源荟萃</span></summary>
+<details class="indent-level-1"><summary><span class="folder-icon" data-level="1"></span><span class="clickable-title">09 资源荟萃</span></summary>
 <div class="content-container">
 <blockquote>
 <p>长期更新，有需速存，失效不补</p>
 </blockquote>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">01.个人网盘（几百个T）私人网盘的资源，值得探索</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">01.个人网盘（几百个T）私人网盘的资源，值得探索</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://www.noiseyp.top/NV%E8%B5%84%E6%BA%90%E7%9B%98">🌕noise自留地（游戏、影视后期、软件、书籍、音乐）</a></li>
@@ -4137,7 +4151,7 @@
 <li>✅ <a href="https://book.tmzn.top/">🌕题目自拟的书库 (tmzn.top)</a>【✅ <a href="https://book2.tmzn.top/">备用</a>】</li>
 </ul>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">02.各大云盘上百TB资源　持续更新</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">02.各大云盘上百TB资源　持续更新</span></summary>
 <div class="content-container">
 <ul>
 <li>
@@ -4214,11 +4228,11 @@
 </li>
 </ul>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">03.同款储物间　汇聚各类资源</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">03.同款储物间　汇聚各类资源</span></summary>
 <div class="content-container">
 <p>✅ <a href="https://mp.weixin.qq.com/s/2pScJ-gmMYLG6yFmaQJnLA">👍文章　《小帅同款类型的储物间将近一百个，再也不用怕找不到资源了》</a></p>
 <p>✅ <a href="https://mp.weixin.qq.com/s?__biz=MzAxNDk3MTA4NA==&amp;mid=2247484104&amp;idx=1&amp;sn=c2b9d9b4096848018472e94e961d6c4a&amp;chksm=9b8a7b6bacfdf27dcef3ae7aa84fdcb811f23066b7f226f33270499ef0b9bd2b417">👍文章　《你确定会使用搜索吗？》</a></p>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">01.综合储物间　　提供各端软件、网站、资料、资源等</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">01.综合储物间　　提供各端软件、网站、资料、资源等</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://axutongxue.com/">阿虚同学的储物间</a></li>
@@ -4249,7 +4263,7 @@
 <li>✅ <a href="http://wrm8.ysok.net/">万人迷社区</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">02.软件储物间　　主要提供软件</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">02.软件储物间　　主要提供软件</span></summary>
 <div class="content-container">
 <ul>
 <li>
@@ -4281,7 +4295,7 @@
 </li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">03.影音储物间　　主要提供影音</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">03.影音储物间　　主要提供影音</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="http://www.uiuiui.ys168.com/">UIUIUI影视导航</a></li>
@@ -4289,7 +4303,7 @@
 <li>✅ <a href="http://im2008.ys168.com/">音乐典藏</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">04.游戏储物间　　主要提供游戏</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">04.游戏储物间　　主要提供游戏</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="http://438985757.ys168.com/">经典游戏网盘</a></li>
@@ -4307,7 +4321,7 @@
 <li>✅ <a href="http://gat3drride.ys168.com/">韬哥制作组官方网盘</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">05.资料储物间　　主要提供考研、考博、考证、学习等资源</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">05.资料储物间　　主要提供考研、考博、考证、学习等资源</span></summary>
 <div class="content-container">
 <ul>
 <li>❌ <a href="http://qzbltushu.ys168.com/">金榜题名</a></li>
@@ -4325,7 +4339,7 @@
 <li>❌ <a href="http://2006b.ys168.com/">《英语》翻转课堂 信息化课程教学空间</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">06.电子书储物间　主要提供电子书</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">06.电子书储物间　主要提供电子书</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="http://yyds007.ys168.com/">一见如故储物室</a></li>
@@ -4333,7 +4347,7 @@
 <li>✅ <a href="http://apkbook.ys168.com/">旷世奇才电子书</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">07.程序员储物间　提供编程相关资料</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">07.程序员储物间　提供编程相关资料</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="http://lisinan.ys168.com/">你大妈的网盘（网络攻防）</a></li>
@@ -4350,7 +4364,7 @@
 <li>✅ <a href="http://bscmuma.ys168.com/">蓝天云研究所3</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">08.杂物间　　　　比较小众、资源较少</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">08.杂物间　　　　比较小众、资源较少</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="http://zuliang.ys168.com/">zuliang</a></li>
@@ -4366,7 +4380,7 @@
 </ul>
 </div></details>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">04.B站资源合集</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">04.B站资源合集</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://www.yuque.com/docs/share/d97ad821-1659-4354-8d00-8e55b9af9a8d">B站资源合集</a></li>
@@ -4374,7 +4388,7 @@
 <li>❌ <a href="https://www.aliyundrive.com/s/TrXYMQReao6">B站费课程 汇总</a></li>
 </ul>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">05.图书漫画资源</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">05.图书漫画资源</span></summary>
 <div class="content-container">
 <ul>
 <li>❌ <a href="http://echs.top/">电子书 　二次寒树书架【支持搜索】</a></li>
@@ -4389,11 +4403,11 @@
 <li>✅ <a href="https://dylanbai8.github.io/ideahub/#X:/%E7%B2%BE%E5%93%81%E8%B5%84%E6%BA%90">电子书 　精品电子书（共2492本电子书，合计 9.66 GB）</a></li>
 </ul>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">06.影视音乐资源</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">06.影视音乐资源</span></summary>
 <div class="content-container">
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">电影电视剧</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">电影电视剧</span></summary>
 <div class="content-container">
-<details class="indent-level-4"><summary><span class="folder-icon"></span><span class="clickable-title">电影</span></summary>
+<details class="indent-level-4"><summary><span class="folder-icon" data-level="4"></span><span class="clickable-title">电影</span></summary>
 <div class="content-container">
 <ul>
 <li>
@@ -4416,7 +4430,7 @@
 </li>
 </ul>
 </div></details>
-<details class="indent-level-4"><summary><span class="folder-icon"></span><span class="clickable-title">电视剧</span></summary>
+<details class="indent-level-4"><summary><span class="folder-icon" data-level="4"></span><span class="clickable-title">电视剧</span></summary>
 <div class="content-container">
 <ul>
 <li>
@@ -4440,7 +4454,7 @@
 </ul>
 </div></details>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">音乐</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">音乐</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://www.hercd.com/radio/">音乐 　陈一发儿全集【百度云、天翼云、和彩云】</a></li>
@@ -4450,12 +4464,12 @@
 </div></details>
 </div></details>
 </div></details>
-<details class="indent-level-1"><summary><span class="folder-icon"></span><span class="clickable-title">┄┄✂┄┄　学习</span></summary>
+<details class="indent-level-1"><summary><span class="folder-icon" data-level="1"></span><span class="clickable-title">┄┄✂┄┄　学习</span></summary>
 <div class="content-container">
 </div></details>
-<details class="indent-level-1"><summary><span class="folder-icon"></span><span class="clickable-title">10 共同进步</span></summary>
+<details class="indent-level-1"><summary><span class="folder-icon" data-level="1"></span><span class="clickable-title">10 共同进步</span></summary>
 <div class="content-container">
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">01.专升本 / 教资</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">01.专升本 / 教资</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://pan.quark.cn/s/8a3d6f2791f4">专升本   2023大雁专升本英语👍</a></li>
@@ -4490,7 +4504,7 @@
 <li>✅ <a href="https://www.bd6.net/">专升本/教资/考证/考研/考博/考公等  拉西学习资源站官网/lasee官网/lasee官方网站 - 一切为了助力您的学习成长。</a></li>
 </ul>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">02.考研 / 考博 / 考公</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">02.考研 / 考博 / 考公</span></summary>
 <div class="content-container">
 <p>更多考研资料，在公众号「小帅随笔」上回复：<strong>考研</strong></p>
 <ul>
@@ -4525,7 +4539,7 @@
 <li>✅ <a href="https://www.bd6.net/">专升本/教资/考证/考研/考博/考公等  拉西学习资源站官网/lasee官网/lasee官方网站 - 一切为了助力您的学习成长👍</a></li>
 </ul>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">03.英语四六级</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">03.英语四六级</span></summary>
 <div class="content-container">
 <ul>
 <li><strong>小帅共享</strong>
@@ -4556,7 +4570,7 @@
 <li>✅ <a href="https://www.bd6.net/">专升本/教资/考证/考研/考博/考公等  拉西学习资源站官网/lasee官网/lasee官方网站 - 一切为了助力您的学习成长👍</a></li>
 </ul>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">04.会计 / 建造师 / 造价师</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">04.会计 / 建造师 / 造价师</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://www.kdocs.cn/l/cllf7xRLvH9A">会计师　 网课+手机题库+各种电子版资料（下拉更多）！</a>👍【公众号：财会小生】</li>
@@ -4581,7 +4595,7 @@
 <li>✅ <a href="https://www.bd6.net/">专升本/教资/考证/考研/考博/考公等  拉西学习资源站官网/lasee官网/lasee官方网站 - 一切为了助力您的学习成长👍</a></li>
 </ul>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">05.中小学课程 / 教师备课</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">05.中小学课程 / 教师备课</span></summary>
 <div class="content-container">
 <p>❌ <a href="https://www.aliyundrive.com/s/b8Qri6R2BqY">教资　 2021年教资笔试网课【幼儿园、小学、初中】</a></p>
 <p>✅ <a href="https://shimo.im/docs/VwqgJy8pYtVcvwY6/read">教资　 2014-2020教资笔试、面试网课资料合集</a></p>
@@ -4590,19 +4604,19 @@
 <p>✅ <a href="http://mfkskj.ys168.com/">课件 　免费考试课件－含会计 / 自考 / 考研 / 建造师 / 造价师 / 消防 / 监理 / 公务员 / 等</a></p>
 <p>❌ <a href="http://sifalianmemg.ys168.com/">法考 　法考（法考资源网站，里面全是关于法考最新资料）</a></p>
 <p>❌ <a href="http://xu05218023.ysepan.com/">考研/考公/四六级/建造师/医学/财会/银行 　刺客知识库--密码需要关注公众号获取</a></p>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">00.各个科目【小学-初中-高中】</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">00.各个科目【小学-初中-高中】</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://pan.baidu.com/s/1xbdXGqCYLFCVKGpateS56w?pwd=1uz5">百度云盘分享</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">01.语文</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">01.语文</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://pan.baidu.com/share/init?surl=VUqAjp5M1J5RkaN0ruoClg">小学 🔹 学而思1-6年级语文【提取码：f5dg</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">02.数学</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">02.数学</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://pan.quark.cn/s/60cdab7d575d">1-6年级 🔹 学而思_小学数学思维培养👍</a></li>
@@ -4617,13 +4631,13 @@
 <li>✅ <a href="https://pan.quark.cn/s/78d77c44c5af">小学 🔹 学而思小学数学6年级</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">03.英语</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">03.英语</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="https://pan.baidu.com/s/1CUbPxqLaeQizRZF82OEuWQ#list/path=/&amp;parentPath=/sharelink3439847-818826760333555">小学 🔹 学而思小学英语1-6年级【提取码：t8jr</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">04.教师备课</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">04.教师备课</span></summary>
 <div class="content-container">
 <ul>
 <li>✅ <a href="http://www.cflo.com.cn/">教师备课 　教师资源_ISmart</a></li>
@@ -4635,7 +4649,7 @@
 <li>✅ <a href="https://www.timebook.cc/new/index.html">教师备课 　时代天华七彩课堂（内容非常丰富）👍</a></li>
 </ul>
 </div></details>
-<details class="indent-level-3"><summary><span class="folder-icon"></span><span class="clickable-title">05.教材课件</span></summary>
+<details class="indent-level-3"><summary><span class="folder-icon" data-level="3"></span><span class="clickable-title">05.教材课件</span></summary>
 <div class="content-container">
 <ul>
 <li>
@@ -4683,7 +4697,7 @@
 </ul>
 </div></details>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">06.计算机证书相关</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">06.计算机证书相关</span></summary>
 <div class="content-container">
 <ul>
 <li>软考-网络工程师
@@ -4701,12 +4715,12 @@
 </ul>
 </div></details>
 </div></details>
-<details class="indent-level-1"><summary><span class="folder-icon"></span><span class="clickable-title">┄┄✂┄┄</span></summary>
+<details class="indent-level-1"><summary><span class="folder-icon" data-level="1"></span><span class="clickable-title">┄┄✂┄┄</span></summary>
 <div class="content-container">
 </div></details>
-<details class="indent-level-1"><summary><span class="folder-icon"></span><span class="clickable-title">11 微信文章</span></summary>
+<details class="indent-level-1"><summary><span class="folder-icon" data-level="1"></span><span class="clickable-title">11 微信文章</span></summary>
 <div class="content-container">
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">01.🔍小帅搜索技巧</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">01.🔍小帅搜索技巧</span></summary>
 <div class="content-container">
 <ul>
 <li>📖✅ <a href="https://mp.weixin.qq.com/s/1kYBPBB5HG7IIlJgqPVrGA">👍文章　《各大网盘搜索推荐「解锁数字世界的宝藏！」》</a></li>
@@ -4716,7 +4730,7 @@
 <li>📖✅ <a href="https://mp.weixin.qq.com/s/N9Vmz193RRINLo-MxgEi7A">👍文章　《以图识图，帮你找到原图出处》</a></li>
 </ul>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">02.📥小帅下载技巧</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">02.📥小帅下载技巧</span></summary>
 <div class="content-container">
 <ul>
 <li>📖✅ <a href="https://mp.weixin.qq.com/s/EBIdCc9ygUF-lY6bx4zkBQ">👍文章　《全网的PDF电子书任你下载【2024最新】》</a></li>
@@ -4732,7 +4746,7 @@
 <li>📖✅ <a href="https://mp.weixin.qq.com/s/WoVYOFDnOwSrqkB1eZ6RZw">👍文章　《看完本篇，百度云无限加速》</a></li>
 </ul>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">03.🎨小帅杂物分享</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">03.🎨小帅杂物分享</span></summary>
 <div class="content-container">
 <ul>
 <li>📖✅ <a href="https://mp.weixin.qq.com/s/HfyZj8KOLs8T44yQt3NuBw">👍文章　《看上一眼就爱上的导航「文末送码」》</a></li>
@@ -4745,7 +4759,7 @@
 <li>📖✅ <a href="https://mp.weixin.qq.com/s/72OncitJbMVdv1irDAlXvQ">👍文章　《周星驰电影51部超清全集【国粤双语】》</a></li>
 </ul>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">04.💻电脑软件评测</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">04.💻电脑软件评测</span></summary>
 <div class="content-container">
 <ul>
 <li>📖👍 <a href="https://mp.weixin.qq.com/s/JCATXzYNvldAeFkPOd211A">文章　《Win系统必备，这些截图工具让你效率飙升！》</a></li>
@@ -4759,21 +4773,21 @@
 <li>📖✅ <a href="https://mp.weixin.qq.com/s/lJAnCJfgHD1R4OXeZH8Iuw">👍文章　《装上这些软件，让你的电脑直接起飞》</a></li>
 </ul>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">05.📲手机软件评测</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">05.📲手机软件评测</span></summary>
 <div class="content-container">
 <ul>
 <li>📖✅ <a href="https://mp.weixin.qq.com/s/pcX8-FP1OKhQdJ5AzynGkw">👍文章　《Instagram、Youtube、Niconico、Twitter、微博第三方APP评测》</a></li>
 <li>📖✅ <a href="https://mp.weixin.qq.com/s/qwVD0fevrrmxcoE5xq8dHg">👍文章　《评测了数款课程表软件，还是这些好用》</a></li>
 </ul>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">06.🍳科学研究必备</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">06.🍳科学研究必备</span></summary>
 <div class="content-container">
 <ul>
 <li>📖✅ <a href="https://mp.weixin.qq.com/s?__biz=MzAxNDk3MTA4NA==&amp;mid=2247488703&amp;idx=1&amp;sn=88da27092fa73328a9ec9762feac8638&amp;chksm=9b8a6d1cacfde40a465a9a745616f0341e47330a22c6c0e434fdb5bbf1a4305265a">👍文章　《关于小帅「内含多重福利」》</a></li>
 <li>📖✅ <a href="https://mp.weixin.qq.com/s/rs0ufS21R7P-eZvAbCSjUg">👍文章　《免翻直连谷歌、YouTube等网站（冒险分享）》</a></li>
 </ul>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">07.⌨编程语言相关</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">07.⌨编程语言相关</span></summary>
 <div class="content-container">
 <ul>
 <li>📖✅👍 <a href="https://mp.weixin.qq.com/s/2NASc2DHC3VV5fKzvGks0g">文章　《程序员必备《超强大的AI编程插件永久白嫖》》</a></li>
@@ -4781,7 +4795,7 @@
 <li>📖✅ <a href="https://mp.weixin.qq.com/s?__biz=MzAxNDk3MTA4NA==&amp;mid=2247488583&amp;idx=1&amp;sn=99b251ce40b7147098c0f1a4229ad4b3&amp;chksm=9b8a6de4acfde4f23447a377d089fd8f2568670537583e3c33b9d775df3ab7e0fba">👍文章　《VC++6.0居然比VS使用起来更加丝滑》</a></li>
 </ul>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">08.💡小帅的效率办公指南</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">08.💡小帅的效率办公指南</span></summary>
 <div class="content-container">
 <ul>
 <li>📖✅👍 <a href="https://mp.weixin.qq.com/s/zz7_Il6K1ceyluV_TkM59Q">文章　《近百款AI对话通用大模型，值得使用的有这些！》</a></li>
@@ -4797,13 +4811,13 @@
 <li>📖✅ <a href="https://mp.weixin.qq.com/s/IaX3XshH2naLUiwZDp1WXQ">👍文章　《安装浏览器插件，看这一篇就够了》</a></li>
 </ul>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">09.🙋‍♂️考研系列</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">09.🙋‍♂️考研系列</span></summary>
 <div class="content-container">
 <ul>
 <li>📖✅ <a href="https://mp.weixin.qq.com/s/OW9LMIBEGYgXgJJ3FGaIPw">👍文章　《关于考研的①点经验》</a></li>
 </ul>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">10.⏳科研生产力</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">10.⏳科研生产力</span></summary>
 <div class="content-container">
 <ul>
 <li>
@@ -4814,7 +4828,7 @@
 </li>
 </ul>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">11.Typora以及图床搭建</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">11.Typora以及图床搭建</span></summary>
 <div class="content-container">
 <ul>
 <li>📖✅ <a href="https://mp.weixin.qq.com/s/q8-5LXCqDck3y-gaeJvBLg">👍文章　《小帅Typora使用经验》</a></li>
@@ -4822,7 +4836,7 @@
 <li>📖✅ <a href="https://mp.weixin.qq.com/s/_0G5iKebK4M_MPfXsLE_KQ">👍文章　《Typora+阿里云图床详解（小白都能学得会）》</a></li>
 </ul>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">12.Github搭建博客系列</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">12.Github搭建博客系列</span></summary>
 <div class="content-container">
 <ul>
 <li>📖✅ <a href="https://mp.weixin.qq.com/s/jHciz8zfmrRfNAxMbROsOQ">👍文章　《Gridea+Github搭建个人静态博客》</a></li>
@@ -4833,7 +4847,7 @@
 <li>📖✅ <a href="https://mp.weixin.qq.com/s/d-jlCtKGa2oh7lmcY1DN-A">👍文章　《Github或Github.io打开缓慢及无法访问解决方案》</a></li>
 </ul>
 </div></details>
-<details class="indent-level-2"><summary><span class="folder-icon"></span><span class="clickable-title">13.AI 生产工具</span></summary>
+<details class="indent-level-2"><summary><span class="folder-icon" data-level="2"></span><span class="clickable-title">13.AI 生产工具</span></summary>
 <div class="content-container">
 <ul>
 <li>📖✅ <a href="https://mp.weixin.qq.com/s/MClClgVKY6YHGv6qyPFCkw">👍文章　《Cursor学生认证享一年会员，恢复中国地区访问（速进）》</a></li>
@@ -5291,7 +5305,7 @@
       <div id="particles-js" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none;">
       </div>
   <script>
-      let highlightIndex=-1,highlightElements=[],isExpanding=!1,expandRequestId=null,detailsToExpand=[],expandIndex=0;const BATCH_SIZE=50;let isCollapsing=!1,collapseRequestId=null,particlesPaused=!1;function showProgressIndicator(e,t){let n=document.getElementById("operation-progress");if(n||(n=document.createElement("div"),n.id="operation-progress",n.style.position="fixed",n.style.bottom="20px",n.style.left="50%",n.style.transform="translateX(-50%)",n.style.backgroundColor="rgba(33, 150, 243, 0.9)",n.style.color="white",n.style.padding="10px 20px",n.style.borderRadius="20px",n.style.zIndex="9999",n.style.boxShadow="0 2px 8px rgba(0,0,0,0.2)",n.style.display="flex",n.style.alignItems="center",n.style.justifyContent="center",n.style.gap="10px",document.body.appendChild(n)),t>=100)n.innerHTML=e+" 完成!",setTimeout((function(){n.style.opacity="0",setTimeout((function(){n.parentNode&&document.body.removeChild(n)}),300)}),1e3);else{const o='<div style="flex: 1; background: rgba(255,255,255,0.3); height: 8px; border-radius: 4px; overflow: hidden;"><div style="background: white; height: 100%; width: '+t+'%;"></div></div><span>'+t+"%</span>";n.innerHTML=e+" "+o,n.style.opacity="1"}}function expandAll(){if(isExpanding)return;isCollapsing&&(collapseRequestId&&cancelAnimationFrame(collapseRequestId),isCollapsing=!1),isExpanding=!0,document.documentElement.style.setProperty("--transition-speed","0s");const e=Array.from(document.querySelectorAll("details:not([open])")),t=e.length;if(0===t)return isExpanding=!1,void document.documentElement.style.setProperty("--transition-speed","0.2s");console.log("开始展开，共 "+t+" 个元素");const n=window.innerHeight,o=[],i=[];if(e.forEach((e=>{const t=e.getBoundingClientRect();t.top<2*n&&t.bottom>-n?o.push(e):(i.push(e),e.setAttribute("data-pending-expand","true"))})),o.forEach((e=>e.open=!0)),console.log("已展开可见区域内 "+o.length+" 个元素"),0===i.length)return document.documentElement.style.setProperty("--transition-speed","0.2s"),isExpanding=!1,void console.log("所有元素已展开");const l=document.createElement("div");l.id="expand-info-message",l.style.position="fixed",l.style.bottom="20px",l.style.left="50%",l.style.transform="translateX(-50%)",l.style.backgroundColor="rgba(33, 150, 243, 0.8)",l.style.color="white",l.style.padding="8px 16px",l.style.borderRadius="20px",l.style.zIndex="9999",l.style.boxShadow="0 2px 5px rgba(0,0,0,0.2)",l.textContent="✅ 可见内容已展开，滚动查看更多内容",document.body.appendChild(l),setTimeout((()=>{l.style.transition="opacity 0.5s",l.style.opacity="0",setTimeout((()=>{l.parentNode&&l.parentNode.removeChild(l)}),500)}),5e3);let s=null;const a=()=>{s||(s=setTimeout((()=>{const e=1.5*window.innerHeight,t=document.querySelectorAll('details[data-pending-expand="true"]');let n=0;t.forEach((t=>{t.getBoundingClientRect().top<e&&(t.open=!0,t.removeAttribute("data-pending-expand"),n++)})),n>0&&console.log("滚动时展开了 "+n+" 个元素"),0===document.querySelectorAll('details[data-pending-expand="true"]').length&&(window.removeEventListener("scroll",a),console.log("所有元素已展开"),isExpanding=!1),s=null}),100))};a(),window.addEventListener("scroll",a,{passive:!0}),document.documentElement.style.setProperty("--transition-speed","0.2s")}function expandVisibleOnly(){const e=window.innerHeight;let t=0;detailsToExpand.forEach((n=>{const o=n.getBoundingClientRect();o.top<1.5*e&&o.bottom>.5*-e&&(n.open=!0,t++)})),console.log("已展开可见区域内 "+t+" 个元素")}function progressiveExpand(){this.expandScrollThrottle||(this.expandScrollThrottle=!0,setTimeout((()=>{this.expandScrollThrottle=!1;const e=window.innerHeight;let t=0;detailsToExpand.forEach((n=>{if(!n.open){const o=n.getBoundingClientRect();o.top<1.5*e&&o.bottom>.5*-e&&(n.open=!0,t++)}})),t>0&&console.log("滚动时展开了 "+t+" 个元素");0===document.querySelectorAll("details:not([open])").length&&forceCompleteExpand()}),200))}function forceCompleteExpand(){window.removeEventListener("scroll",progressiveExpand),window.removeEventListener("scroll",arguments.callee),document.documentElement.style.setProperty("--transition-speed","0.2s"),isExpanding=!1;const e=document.getElementById("progressive-expand-info");e&&e.parentNode&&e.parentNode.removeChild(e),showProgressIndicator("展开",100),console.log("展开操作完成")}function processDetailsInChunks(e,t){let n=0;const o=e.length,i=window.requestIdleCallback||window.requestAnimationFrame;i((function l(s){const a=performance.now();let r=0;for(;n<o&&r<t&&(e[n++].open=!0,r++,!(performance.now()-a>20)););const d=Math.floor(n/o*100);d%10==0&&showProgressIndicator("展开中",d),n<o?i(l):(document.documentElement.style.setProperty("--transition-speed","0.2s"),showProgressIndicator("展开",100),isExpanding=!1,console.log("展开操作完成"))}))}function collapseAll(){if(isCollapsing)return;isCollapsing=!0,isExpanding&&(expandRequestId&&cancelAnimationFrame(expandRequestId),window.removeEventListener("scroll",progressiveExpand),isExpanding=!1),document.documentElement.style.setProperty("--transition-speed","0s"),removeHighlights(),highlightIndex=-1,highlightElements=[];const e=Array.from(document.querySelectorAll("details[open]")),t=e.length;if(console.log("开始折叠，共 "+t+" 个元素"),0===t)return isCollapsing=!1,void document.documentElement.style.setProperty("--transition-speed","0.2s");e.forEach((e=>{e.open=!1})),requestAnimationFrame((()=>{document.documentElement.style.setProperty("--transition-speed","0.2s"),isCollapsing=!1,console.log("折叠完成")}))}function collapseInvisibleFirst(e){const t=window.innerHeight,n=[],o=[];e.forEach((e=>{const i=e.getBoundingClientRect();i.top<t&&i.bottom>0?n.push(e):o.push(e)})),console.log("可见元素: "+n.length+", 不可见元素: "+o.length),o.forEach((e=>e.open=!1)),requestAnimationFrame((()=>{n.forEach((e=>e.open=!1)),finishCollapsing()}))}function processCollapseInChunks(e,t){let n=0;const o=e.length,i=window.requestIdleCallback||window.requestAnimationFrame;i((function l(s){const a=performance.now();let r=0;for(;n<o&&r<t&&(e[n++].open=!1,r++,!(performance.now()-a>20)););const d=Math.floor(n/o*100);d%10==0&&showProgressIndicator("折叠中",d),n<o?i(l):finishCollapsing()}))}function finishCollapsing(){document.documentElement.style.setProperty("--transition-speed","0.2s"),showProgressIndicator("折叠",100),isCollapsing=!1,console.log("折叠完成")}function searchAndHighlight(){const e=document.getElementById("searchInput").value.trim(),t=document.getElementById("matchType").value;e?(console.log('开始搜索: "'+e+'", 匹配模式: '+t),removeHighlights(),expandAll(),setTimeout((()=>{console.log("开始执行匹配...");highlightText(document.querySelector(".content"),e,t);highlightElements=Array.from(document.querySelectorAll(".highlight")),console.log("匹配完成，共找到 "+highlightElements.length+" 个匹配项"),highlightElements.length>0?(highlightIndex=0,scrollToHighlight()):alert("没有找到匹配项")}),100)):alert("请输入搜索内容")}function highlightText(e,t,n){let o=!1;if(e.nodeType===Node.TEXT_NODE){const i=e.textContent;if(!i||""===i.trim())return!1;let l=[];if("partial"===n){const e=t.toLowerCase();let n=i.toLowerCase().indexOf(e);for(;-1!==n;)l.push({start:n,end:n+t.length}),console.log('[部分匹配] 在文本 "'+i+'" 中找到匹配: "'+i.substring(n,n+t.length)+'", 位置: '+n),n=i.toLowerCase().indexOf(e,n+1)}else if("regex"===n)if("wps"===t.toLowerCase()){console.log("[特殊处理] 查找WPS关键词，使用简单匹配");const e=i.toLowerCase();let t=e.indexOf("wps");for(;-1!==t;)l.push({start:t,end:t+3}),console.log('[WPS匹配] 找到匹配: "wps" 在位置: '+t+', 文本: "'+i+'"'),t=e.indexOf("wps",t+1)}else if(/^[a-zA-Z0-9]+$/.test(t)&&t.length>1){console.log('[全词匹配] 尝试词边界匹配: "'+t+'"');let e,n=new RegExp("\b"+t+"\b","gi");for(;null!==(e=n.exec(i));)l.push({start:e.index,end:e.index+e[0].length}),console.log('[全词匹配] 找到匹配: "'+e[0]+'" 在位置: '+e.index)}else{console.log('[全词匹配] 使用精确匹配: "'+t+'"');const e=new RegExp(t,"gi");let n;for(;null!==(n=e.exec(i));)l.push({start:n.index,end:n.index+n[0].length}),console.log('[精确匹配] 找到匹配: "'+n[0]+'" 在位置: '+n.index)}if(l.length>0){const t=document.createElement("span");let n=0;l.forEach((e=>{e.start>n&&t.appendChild(document.createTextNode(i.substring(n,e.start)));const o=document.createElement("span");o.className="highlight",o.textContent=i.substring(e.start,e.end),t.appendChild(o),n=e.end})),n<i.length&&t.appendChild(document.createTextNode(i.substring(n))),e.parentNode.replaceChild(t,e);let s=t.parentNode;for(;s;)"DETAILS"===s.tagName&&(s.open=!0),s=s.parentNode;o=!0}}else if(e.nodeType===Node.ELEMENT_NODE){if(["SCRIPT","STYLE","BUTTON"].includes(e.tagName))return!1;Array.from(e.childNodes).forEach((e=>{highlightText(e,t,n)&&(o=!0)}))}return o}function removeHighlights(){document.querySelectorAll(".highlight").forEach((e=>{const t=e.parentNode,n=document.createTextNode(e.textContent);t.replaceChild(n,e),t.normalize()})),highlightIndex=-1,highlightElements=[]}function nextHighlight(){highlightElements.length>0&&(highlightIndex>=0&&highlightElements[highlightIndex].classList.remove("active-highlight"),highlightIndex=(highlightIndex+1)%highlightElements.length,scrollToHighlight())}function prevHighlight(){highlightElements.length>0&&(highlightIndex>=0&&highlightElements[highlightIndex].classList.remove("active-highlight"),highlightIndex=(highlightIndex-1+highlightElements.length)%highlightElements.length,scrollToHighlight())}function scrollToHighlight(){if(highlightElements.length>0&&-1!==highlightIndex){highlightElements.forEach((e=>e.classList.remove("active-highlight"))),highlightElements[highlightIndex].classList.add("active-highlight");let e=highlightElements[highlightIndex].parentElement;for(;e;)"DETAILS"===e.tagName&&(e.open=!0),e=e.parentElement;highlightElements[highlightIndex].scrollIntoView({behavior:"smooth",block:"center"})}}if(document.getElementById("searchInput").addEventListener("keypress",(function(e){"Enter"===e.key&&(0===highlightElements.length?searchAndHighlight():nextHighlight())})),"ontouchstart"in window){document.querySelectorAll("button").forEach((e=>{e.addEventListener("touchstart",(function(){this.style.transform="scale(0.97)"}),{passive:!0}),e.addEventListener("touchend",(function(){this.style.transform=""}),{passive:!0}),e.addEventListener("touchcancel",(function(){this.style.transform=""}),{passive:!0})}))}const savedTheme=localStorage.getItem("theme");function updateDateTime(){var e=new Date,t=e.getFullYear()+"-"+(e.getMonth()+1).toString().padStart(2,"0")+"-"+e.getDate().toString().padStart(2,"0")+" "+e.getHours().toString().padStart(2,"0")+":"+e.getMinutes().toString().padStart(2,"0")+":"+e.getSeconds().toString().padStart(2,"0");document.getElementById("currentDateTime").textContent=t}function toggleTheme(){const e=document.getElementById("particlesToggle")?.checked||!1,t=document.getElementById("particles-js"),n=!document.body.classList.contains("dark-theme"),o=document.createElement("div");o.style.position="fixed",o.style.top="0",o.style.left="0",o.style.width="100%",o.style.height="100%",o.style.backgroundColor=n?"rgba(0,0,0,0.08)":"rgba(255,255,255,0.08)",o.style.opacity="0",o.style.transition="opacity 0.3s ease",o.style.pointerEvents="none",o.style.zIndex="9998",document.body.appendChild(o),requestAnimationFrame((()=>{o.style.opacity="1"})),e&&t&&(t.style.opacity="0"),setTimeout((()=>{document.body.classList.toggle("dark-theme"),document.getElementById("themeIcon").textContent=document.body.classList.contains("dark-theme")?"🔥":"💧",localStorage.setItem("theme",document.body.classList.contains("dark-theme")?"dark":"light"),e&&(window.pJSDom&&window.pJSDom.length>0&&(window.pJSDom[0].pJS.fn.vendors.destroypJS(),window.pJSDom=[]),setTimeout((()=>{t&&(initParticles(),setTimeout((()=>{t.style.opacity="1"}),100))}),300)),setTimeout((()=>{o.style.opacity="0",setTimeout((()=>{o.parentNode&&document.body.removeChild(o)}),300)}),200)}),100)}function initialize(){const e=window.innerWidth<=768;("dark"===localStorage.getItem("theme")||!localStorage.getItem("theme")&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&(document.body.classList.add("dark-theme"),document.getElementById("themeIcon").textContent="🔥");let t=localStorage.getItem("particles-enabled");null===t&&(t=e?"false":"true",localStorage.setItem("particles-enabled",t));const n=document.getElementById("particlesToggle");if(n&&(n.checked="true"===t,n.addEventListener("change",(function(e){localStorage.setItem("particles-enabled",e.target.checked?"true":"false");const t=document.getElementById("particles-js");e.target.checked?t&&(t.style.display="block",window.pJSDom&&0!==window.pJSDom.length||setTimeout(initParticles,300)):t&&(t.style.display="none")}))),"true"===t)setTimeout(initParticles,e?1500:800);else{const e=document.getElementById("particles-js");e&&(e.style.display="none")}e||setTimeout((()=>{document.querySelectorAll("a").forEach((e=>{e.closest("#sidebar-content")||(e.setAttribute("target","_blank"),e.setAttribute("rel","noopener noreferrer"))}))}),1e3),setTimeout((()=>{document.querySelectorAll("summary").forEach((e=>{e.addEventListener("click",(e=>{e.stopPropagation(),e.preventDefault()}))})),document.querySelectorAll(".clickable-title").forEach((e=>{let t=null,n=null;e.addEventListener("click",(function(e){e.stopPropagation(),e.preventDefault();const t=this.closest("details");t&&(t.open=!t.open,console.log("点击切换状态:",t.open))}),!0),e.addEventListener("mouseenter",(e=>{e.stopPropagation();const o=e.target.closest("details");n&&(clearTimeout(n),n=null),o.open?n=setTimeout((()=>{o.open=!1,n=null}),800):t=setTimeout((()=>{o.open=!0,t=null}),600)})),e.addEventListener("mouseleave",(e=>{e.stopPropagation(),t&&(clearTimeout(t),t=null),n&&(clearTimeout(n),n=null)}))}))}),e?1e3:500)}function toggleSidebar(){const e=document.querySelector(".sidebar-ad"),t=document.getElementById("sidebarIcon");e.classList.contains("open")?(e.classList.remove("open"),t.textContent="👈"):(e.classList.add("open"),t.textContent="👉")}savedTheme?document.body.classList.toggle("dark-theme","dark"===savedTheme):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark-theme"),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",initialize):initialize(),document.addEventListener("DOMContentLoaded",(function(){const e=document.getElementById("floating-button"),t=document.getElementById("sidebar-content");if(e&&t){e.addEventListener("touchstart",(function(n){n.preventDefault(),t.style.right="0",e.style.opacity="0"})),e.addEventListener("mouseenter",(function(){t.style.right="0",e.style.opacity="0"})),t.addEventListener("touchstart",(function(e){e.stopPropagation()})),t.addEventListener("mouseenter",(function(){t.style.right="0",e.style.opacity="0"})),t.addEventListener("mouseleave",(function(){t.style.right="-321px",e.style.opacity="1"}));const n=document.createElement("div");n.innerHTML="✕",n.style.position="absolute",n.style.top="10px",n.style.right="10px",n.style.width="30px",n.style.height="30px",n.style.borderRadius="50%",n.style.backgroundColor="rgba(0,0,0,0.1)",n.style.display="flex",n.style.alignItems="center",n.style.justifyContent="center",n.style.cursor="pointer",n.style.zIndex="10001",n.addEventListener("touchstart",(function(n){n.preventDefault(),t.style.right="-321px",e.style.opacity="1"})),n.addEventListener("click",(function(){t.style.right="-321px",e.style.opacity="1"})),t.appendChild(n),document.addEventListener("touchstart",(function(n){t.contains(n.target)||e.contains(n.target)||(t.style.right="-321px",e.style.opacity="1")})),e.addEventListener("mouseleave",(function(n){n.clientX>e.getBoundingClientRect().right||(t.style.right="-321px",e.style.opacity="1")})),document.querySelectorAll('[id^="tab-"]').forEach((e=>{e.addEventListener("touchstart",(function(e){e.preventDefault();const t=this.id.replace("tab-","");switchTab(t)}))}))}window.switchTab=function(e){document.querySelectorAll('[id^="content-"]').forEach((e=>{e.style.display="none"}));document.querySelectorAll('[id^="tab-"] div').forEach((e=>{e.style.display="none"})),document.getElementById("content-"+e).style.display="block",document.querySelector("#tab-"+e+" div").style.display="block"}}));const observer=new MutationObserver((e=>{e.forEach((e=>{e.addedNodes.forEach((e=>{if(1===e.nodeType){e.querySelectorAll("a").forEach((e=>{e.closest("#sidebar-content")||(e.setAttribute("target","_blank"),e.setAttribute("rel","noopener noreferrer"))}))}}))}))}));document.addEventListener("DOMContentLoaded",(()=>{observer.observe(document.body,{childList:!0,subtree:!0})}));const particlesConfig={particles:{number:{value:80,density:{enable:!0,value_area:800}},color:{value:"#1976D2"},shape:{type:"circle",stroke:{width:0,color:"#1976D2"},polygon:{nb_sides:5},image:{src:"img/github.svg",width:100,height:100}},opacity:{value:.5,random:!1,anim:{enable:!1,speed:1,opacity_min:.1,sync:!1}},size:{value:3,random:!0,anim:{enable:!1,speed:4,size_min:.1,sync:!1}},line_linked:{enable:!0,distance:150,color:"#1976D2",opacity:.4,width:1},move:{enable:!0,speed:2,direction:"none",random:!1,straight:!1,out_mode:"out",bounce:!1,attract:{enable:!1,rotateX:600,rotateY:1200}}},interactivity:{detect_on:"canvas",events:{onhover:{enable:!0,mode:"grab"},onclick:{enable:!0,mode:"push"},resize:!0},modes:{grab:{distance:140,line_linked:{opacity:1}},bubble:{distance:400,size:40,duration:2,opacity:8,speed:3},repulse:{distance:200,duration:.4},push:{particles_nb:4},remove:{particles_nb:2}}},retina_detect:!0},mobileParticlesConfig={particles:{number:{value:20,density:{enable:!0,value_area:800}},color:{value:"#1976D2"},shape:{type:"circle"},opacity:{value:.3,random:!1},size:{value:2,random:!0},line_linked:{enable:!0,distance:100,color:"#1976D2",opacity:.2,width:1},move:{enable:!0,speed:1,direction:"none",random:!1,straight:!1,out_mode:"out"}},interactivity:{detect_on:"canvas",events:{onhover:{enable:!1},onclick:{enable:!1},resize:!0}},retina_detect:!1};function initParticles(){window.innerWidth<=768?particlesJS("particles-js",{particles:{number:{value:15,density:{enable:!0,value_area:800}},color:{value:"#1976D2"},shape:{type:"circle"},opacity:{value:.3},size:{value:2},line_linked:{enable:!0,distance:150,color:"#1976D2",opacity:.2,width:1},move:{enable:!0,speed:1,direction:"none",random:!1,straight:!1}},interactivity:{detect_on:"canvas",events:{onhover:{enable:!1},onclick:{enable:!1}}},retina_detect:!1}):particlesJS("particles-js",particlesConfig)}
+      let highlightIndex=-1,highlightElements=[],isExpanding=!1,expandRequestId=null,detailsToExpand=[],expandIndex=0;const BATCH_SIZE=50;let isCollapsing=!1,collapseRequestId=null,particlesPaused=!1;function showProgressIndicator(e,t){let n=document.getElementById("operation-progress");if(n||(n=document.createElement("div"),n.id="operation-progress",n.style.position="fixed",n.style.bottom="20px",n.style.left="50%",n.style.transform="translateX(-50%)",n.style.backgroundColor="rgba(33, 150, 243, 0.9)",n.style.color="white",n.style.padding="10px 20px",n.style.borderRadius="20px",n.style.zIndex="9999",n.style.boxShadow="0 2px 8px rgba(0,0,0,0.2)",n.style.display="flex",n.style.alignItems="center",n.style.justifyContent="center",n.style.gap="10px",document.body.appendChild(n)),t>=100)n.innerHTML=e+" 完成!",setTimeout((function(){n.style.opacity="0",setTimeout((function(){n.parentNode&&document.body.removeChild(n)}),300)}),1e3);else{const o='<div style="flex: 1; background: rgba(255,255,255,0.3); height: 8px; border-radius: 4px; overflow: hidden;"><div style="background: white; height: 100%; width: '+t+'%;"></div></div><span>'+t+"%</span>";n.innerHTML=e+" "+o,n.style.opacity="1"}}function expandAll(){if(isExpanding)return;isCollapsing&&(collapseRequestId&&cancelAnimationFrame(collapseRequestId),isCollapsing=!1),isExpanding=!0,document.documentElement.style.setProperty("--transition-speed","0s");const e=Array.from(document.querySelectorAll("details:not([open])")),t=e.length;if(0===t)return isExpanding=!1,void document.documentElement.style.setProperty("--transition-speed","0.2s");console.log("开始展开，共 "+t+" 个元素");const n=window.innerHeight,o=[],i=[];if(e.forEach((e=>{const t=e.getBoundingClientRect();t.top<2*n&&t.bottom>-n?o.push(e):(i.push(e),e.setAttribute("data-pending-expand","true"))})),o.forEach((e=>e.open=!0)),console.log("已展开可见区域内 "+o.length+" 个元素"),0===i.length)return document.documentElement.style.setProperty("--transition-speed","0.2s"),isExpanding=!1,void console.log("所有元素已展开");const l=document.createElement("div");l.id="expand-info-message",l.style.position="fixed",l.style.bottom="20px",l.style.left="50%",l.style.transform="translateX(-50%)",l.style.backgroundColor="rgba(33, 150, 243, 0.8)",l.style.color="white",l.style.padding="8px 16px",l.style.borderRadius="20px",l.style.zIndex="9999",l.style.boxShadow="0 2px 5px rgba(0,0,0,0.2)",l.textContent="✅ 可见内容已展开，滚动查看更多内容",document.body.appendChild(l),setTimeout((()=>{l.style.transition="opacity 0.5s",l.style.opacity="0",setTimeout((()=>{l.parentNode&&l.parentNode.removeChild(l)}),500)}),5e3);let s=null;const a=()=>{s||(s=setTimeout((()=>{const e=1.5*window.innerHeight,t=document.querySelectorAll('details[data-pending-expand="true"]');let n=0;t.forEach((t=>{t.getBoundingClientRect().top<e&&(t.open=!0,t.removeAttribute("data-pending-expand"),n++)})),n>0&&console.log("滚动时展开了 "+n+" 个元素"),0===document.querySelectorAll('details[data-pending-expand="true"]').length&&(window.removeEventListener("scroll",a),console.log("所有元素已展开"),isExpanding=!1),s=null}),100))};a(),window.addEventListener("scroll",a,{passive:!0}),document.documentElement.style.setProperty("--transition-speed","0.2s")}function expandVisibleOnly(){const e=window.innerHeight;let t=0;detailsToExpand.forEach((n=>{const o=n.getBoundingClientRect();o.top<1.5*e&&o.bottom>.5*-e&&(n.open=!0,t++)})),console.log("已展开可见区域内 "+t+" 个元素")}function progressiveExpand(){this.expandScrollThrottle||(this.expandScrollThrottle=!0,setTimeout((()=>{this.expandScrollThrottle=!1;const e=window.innerHeight;let t=0;detailsToExpand.forEach((n=>{if(!n.open){const o=n.getBoundingClientRect();o.top<1.5*e&&o.bottom>.5*-e&&(n.open=!0,t++)}})),t>0&&console.log("滚动时展开了 "+t+" 个元素");0===document.querySelectorAll("details:not([open])").length&&forceCompleteExpand()}),200))}function forceCompleteExpand(){window.removeEventListener("scroll",progressiveExpand),window.removeEventListener("scroll",arguments.callee),document.documentElement.style.setProperty("--transition-speed","0.2s"),isExpanding=!1;const e=document.getElementById("progressive-expand-info");e&&e.parentNode&&e.parentNode.removeChild(e),showProgressIndicator("展开",100),console.log("展开操作完成")}function processDetailsInChunks(e,t){let n=0;const o=e.length,i=window.requestIdleCallback||window.requestAnimationFrame;i((function l(s){const a=performance.now();let r=0;for(;n<o&&r<t&&(e[n++].open=!0,r++,!(performance.now()-a>20)););const d=Math.floor(n/o*100);d%10==0&&showProgressIndicator("展开中",d),n<o?i(l):(document.documentElement.style.setProperty("--transition-speed","0.2s"),showProgressIndicator("展开",100),isExpanding=!1,console.log("展开操作完成"))}))}function collapseAll(){if(isCollapsing)return;isCollapsing=!0,isExpanding&&(expandRequestId&&cancelAnimationFrame(expandRequestId),window.removeEventListener("scroll",progressiveExpand),isExpanding=!1),document.documentElement.style.setProperty("--transition-speed","0s"),removeHighlights(),highlightIndex=-1,highlightElements=[];const e=Array.from(document.querySelectorAll("details[open]")),t=e.length;if(console.log("开始折叠，共 "+t+" 个元素"),0===t)return isCollapsing=!1,void document.documentElement.style.setProperty("--transition-speed","0.2s");e.forEach((e=>{e.open=!1})),requestAnimationFrame((()=>{document.documentElement.style.setProperty("--transition-speed","0.2s"),isCollapsing=!1,console.log("折叠完成")}))}function collapseInvisibleFirst(e){const t=window.innerHeight,n=[],o=[];e.forEach((e=>{const i=e.getBoundingClientRect();i.top<t&&i.bottom>0?n.push(e):o.push(e)})),console.log("可见元素: "+n.length+", 不可见元素: "+o.length),o.forEach((e=>e.open=!1)),requestAnimationFrame((()=>{n.forEach((e=>e.open=!1)),finishCollapsing()}))}function processCollapseInChunks(e,t){let n=0;const o=e.length,i=window.requestIdleCallback||window.requestAnimationFrame;i((function l(s){const a=performance.now();let r=0;for(;n<o&&r<t&&(e[n++].open=!1,r++,!(performance.now()-a>20)););const d=Math.floor(n/o*100);d%10==0&&showProgressIndicator("折叠中",d),n<o?i(l):finishCollapsing()}))}function finishCollapsing(){document.documentElement.style.setProperty("--transition-speed","0.2s"),showProgressIndicator("折叠",100),isCollapsing=!1,console.log("折叠完成")}function searchAndHighlight(){const e=document.getElementById("searchInput").value.trim(),t=document.getElementById("matchType").value;e?(console.log('开始搜索: "'+e+'", 匹配模式: '+t),removeHighlights(),expandAll(),setTimeout((()=>{console.log("开始执行匹配...");highlightText(document.querySelector(".content"),e,t);highlightElements=Array.from(document.querySelectorAll(".highlight")),console.log("匹配完成，共找到 "+highlightElements.length+" 个匹配项"),highlightElements.length>0?(highlightIndex=0,scrollToHighlight()):alert("没有找到匹配项")}),100)):alert("请输入搜索内容")}function highlightText(e,t,n){let o=!1;if(e.nodeType===Node.TEXT_NODE){const i=e.textContent;if(!i||""===i.trim())return!1;let l=[];if("partial"===n){const e=t.toLowerCase();let n=i.toLowerCase().indexOf(e);for(;-1!==n;)l.push({start:n,end:n+t.length}),console.log('[部分匹配] 在文本 "'+i+'" 中找到匹配: "'+i.substring(n,n+t.length)+'", 位置: '+n),n=i.toLowerCase().indexOf(e,n+1)}else if("regex"===n)if("wps"===t.toLowerCase()){console.log("[特殊处理] 查找WPS关键词，使用简单匹配");const e=i.toLowerCase();let t=e.indexOf("wps");for(;-1!==t;)l.push({start:t,end:t+3}),console.log('[WPS匹配] 找到匹配: "wps" 在位置: '+t+', 文本: "'+i+'"'),t=e.indexOf("wps",t+1)}else if(/^[a-zA-Z0-9]+$/.test(t)&&t.length>1){console.log('[全词匹配] 尝试词边界匹配: "'+t+'"');let e,n=new RegExp("\b"+t+"\b","gi");for(;null!==(e=n.exec(i));)l.push({start:e.index,end:e.index+e[0].length}),console.log('[全词匹配] 找到匹配: "'+e[0]+'" 在位置: '+e.index)}else{console.log('[全词匹配] 使用精确匹配: "'+t+'"');const e=new RegExp(t,"gi");let n;for(;null!==(n=e.exec(i));)l.push({start:n.index,end:n.index+n[0].length}),console.log('[精确匹配] 找到匹配: "'+n[0]+'" 在位置: '+n.index)}if(l.length>0){const t=document.createElement("span");let n=0;l.forEach((e=>{e.start>n&&t.appendChild(document.createTextNode(i.substring(n,e.start)));const o=document.createElement("span");o.className="highlight",o.textContent=i.substring(e.start,e.end),t.appendChild(o),n=e.end})),n<i.length&&t.appendChild(document.createTextNode(i.substring(n))),e.parentNode.replaceChild(t,e);let s=t.parentNode;for(;s;)"DETAILS"===s.tagName&&(s.open=!0),s=s.parentNode;o=!0}}else if(e.nodeType===Node.ELEMENT_NODE){if(["SCRIPT","STYLE","BUTTON"].includes(e.tagName))return!1;Array.from(e.childNodes).forEach((e=>{highlightText(e,t,n)&&(o=!0)}))}return o}function removeHighlights(){document.querySelectorAll(".highlight").forEach((e=>{const t=e.parentNode,n=document.createTextNode(e.textContent);t.replaceChild(n,e),t.normalize()})),highlightIndex=-1,highlightElements=[]}function nextHighlight(){highlightElements.length>0&&(highlightIndex>=0&&highlightElements[highlightIndex].classList.remove("active-highlight"),highlightIndex=(highlightIndex+1)%highlightElements.length,scrollToHighlight())}function prevHighlight(){highlightElements.length>0&&(highlightIndex>=0&&highlightElements[highlightIndex].classList.remove("active-highlight"),highlightIndex=(highlightIndex-1+highlightElements.length)%highlightElements.length,scrollToHighlight())}function scrollToHighlight(){if(highlightElements.length>0&&-1!==highlightIndex){highlightElements.forEach((e=>e.classList.remove("active-highlight"))),highlightElements[highlightIndex].classList.add("active-highlight");let e=highlightElements[highlightIndex].parentElement;for(;e;)"DETAILS"===e.tagName&&(e.open=!0),e=e.parentElement;highlightElements[highlightIndex].scrollIntoView({behavior:"smooth",block:"center"})}}if(document.getElementById("searchInput").addEventListener("keypress",(function(e){"Enter"===e.key&&(0===highlightElements.length?searchAndHighlight():nextHighlight())})),"ontouchstart"in window){document.querySelectorAll("button").forEach((e=>{e.addEventListener("touchstart",(function(){this.style.transform="scale(0.97)"}),{passive:!0}),e.addEventListener("touchend",(function(){this.style.transform=""}),{passive:!0}),e.addEventListener("touchcancel",(function(){this.style.transform=""}),{passive:!0})}))}const savedTheme=localStorage.getItem("theme");function updateDateTime(){var e=new Date,t=e.getFullYear()+"-"+(e.getMonth()+1).toString().padStart(2,"0")+"-"+e.getDate().toString().padStart(2,"0")+" "+e.getHours().toString().padStart(2,"0")+":"+e.getMinutes().toString().padStart(2,"0")+":"+e.getSeconds().toString().padStart(2,"0");document.getElementById("currentDateTime").textContent=t}function toggleTheme(){const e=document.getElementById("particlesToggle")?.checked||!1,t=document.getElementById("particles-js"),n=!document.body.classList.contains("dark-theme"),o=document.createElement("div");o.style.position="fixed",o.style.top="0",o.style.left="0",o.style.width="100%",o.style.height="100%",o.style.backgroundColor=n?"rgba(0,0,0,0.08)":"rgba(255,255,255,0.08)",o.style.opacity="0",o.style.transition="opacity 0.3s ease",o.style.pointerEvents="none",o.style.zIndex="9998",document.body.appendChild(o),requestAnimationFrame((()=>{o.style.opacity="1"})),e&&t&&(t.style.opacity="0"),setTimeout((()=>{document.body.classList.toggle("dark-theme"),document.getElementById("themeIcon").textContent=document.body.classList.contains("dark-theme")?"🔥":"💧",localStorage.setItem("theme",document.body.classList.contains("dark-theme")?"dark":"light"),e&&(window.pJSDom&&window.pJSDom.length>0&&(window.pJSDom[0].pJS.fn.vendors.destroypJS(),window.pJSDom=[]),setTimeout((()=>{t&&(initParticles(),setTimeout((()=>{t.style.opacity="1"}),100))}),300)),setTimeout((()=>{o.style.opacity="0",setTimeout((()=>{o.parentNode&&document.body.removeChild(o)}),300)}),200)}),100)}function initialize(){const e=window.innerWidth<=768;("dark"===localStorage.getItem("theme")||!localStorage.getItem("theme")&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&(document.body.classList.add("dark-theme"),document.getElementById("themeIcon").textContent="🔥");let t=localStorage.getItem("particles-enabled");null===t&&(t=e?"false":"true",localStorage.setItem("particles-enabled",t));const n=document.getElementById("particlesToggle");if(n&&(n.checked="true"===t,n.addEventListener("change",(function(e){localStorage.setItem("particles-enabled",e.target.checked?"true":"false");const t=document.getElementById("particles-js");e.target.checked?t&&(t.style.display="block",window.pJSDom&&0!==window.pJSDom.length||setTimeout(initParticles,300)):t&&(t.style.display="none")}))),"true"===t)setTimeout(initParticles,e?1500:800);else{const e=document.getElementById("particles-js");e&&(e.style.display="none")}e||setTimeout((()=>{document.querySelectorAll("a").forEach((e=>{e.closest("#sidebar-content")||(e.setAttribute("target","_blank"),e.setAttribute("rel","noopener noreferrer"))}))}),1e3),setTimeout((()=>{document.querySelectorAll("summary").forEach((e=>{e.addEventListener("click",(e=>{e.stopPropagation(),e.preventDefault()}))})),document.querySelectorAll(".folder-icon").forEach((e=>{e.addEventListener("click",(function(e){e.stopPropagation(),e.preventDefault(),toggleFolderContent(this)})),e.style.cursor="pointer"})),document.querySelectorAll(".clickable-title").forEach((e=>{let t=null,n=null;e.addEventListener("click",(function(e){e.stopPropagation(),e.preventDefault();const t=this.closest("details");t&&(t.open=!t.open,console.log("点击切换状态:",t.open))}),!0),e.addEventListener("mouseenter",(e=>{e.stopPropagation();const o=e.target.closest("details");n&&(clearTimeout(n),n=null),o.open?n=setTimeout((()=>{o.open=!1,n=null}),800):t=setTimeout((()=>{o.open=!0,t=null}),600)})),e.addEventListener("mouseleave",(e=>{e.stopPropagation(),t&&(clearTimeout(t),t=null),n&&(clearTimeout(n),n=null)}))}))}),e?1e3:500)}function toggleSidebar(){const e=document.querySelector(".sidebar-ad"),t=document.getElementById("sidebarIcon");e.classList.contains("open")?(e.classList.remove("open"),t.textContent="👈"):(e.classList.add("open"),t.textContent="👉")}savedTheme?document.body.classList.toggle("dark-theme","dark"===savedTheme):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark-theme"),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",initialize):initialize(),document.addEventListener("DOMContentLoaded",(function(){const e=document.getElementById("floating-button"),t=document.getElementById("sidebar-content");if(e&&t){e.addEventListener("touchstart",(function(n){n.preventDefault(),t.style.right="0",e.style.opacity="0"})),e.addEventListener("mouseenter",(function(){t.style.right="0",e.style.opacity="0"})),t.addEventListener("touchstart",(function(e){e.stopPropagation()})),t.addEventListener("mouseenter",(function(){t.style.right="0",e.style.opacity="0"})),t.addEventListener("mouseleave",(function(){t.style.right="-321px",e.style.opacity="1"}));const n=document.createElement("div");n.innerHTML="✕",n.style.position="absolute",n.style.top="10px",n.style.right="10px",n.style.width="30px",n.style.height="30px",n.style.borderRadius="50%",n.style.backgroundColor="rgba(0,0,0,0.1)",n.style.display="flex",n.style.alignItems="center",n.style.justifyContent="center",n.style.cursor="pointer",n.style.zIndex="10001",n.addEventListener("touchstart",(function(n){n.preventDefault(),t.style.right="-321px",e.style.opacity="1"})),n.addEventListener("click",(function(){t.style.right="-321px",e.style.opacity="1"})),t.appendChild(n),document.addEventListener("touchstart",(function(n){t.contains(n.target)||e.contains(n.target)||(t.style.right="-321px",e.style.opacity="1")})),e.addEventListener("mouseleave",(function(n){n.clientX>e.getBoundingClientRect().right||(t.style.right="-321px",e.style.opacity="1")})),document.querySelectorAll('[id^="tab-"]').forEach((e=>{e.addEventListener("touchstart",(function(e){e.preventDefault();const t=this.id.replace("tab-","");switchTab(t)}))}))}window.switchTab=function(e){document.querySelectorAll('[id^="content-"]').forEach((e=>{e.style.display="none"}));document.querySelectorAll('[id^="tab-"] div').forEach((e=>{e.style.display="none"})),document.getElementById("content-"+e).style.display="block",document.querySelector("#tab-"+e+" div").style.display="block"}}));const observer=new MutationObserver((e=>{e.forEach((e=>{e.addedNodes.forEach((e=>{if(1===e.nodeType){e.querySelectorAll("a").forEach((e=>{e.closest("#sidebar-content")||(e.setAttribute("target","_blank"),e.setAttribute("rel","noopener noreferrer"))}))}}))}))}));document.addEventListener("DOMContentLoaded",(()=>{observer.observe(document.body,{childList:!0,subtree:!0})}));const particlesConfig={particles:{number:{value:80,density:{enable:!0,value_area:800}},color:{value:"#1976D2"},shape:{type:"circle",stroke:{width:0,color:"#1976D2"},polygon:{nb_sides:5},image:{src:"img/github.svg",width:100,height:100}},opacity:{value:.5,random:!1,anim:{enable:!1,speed:1,opacity_min:.1,sync:!1}},size:{value:3,random:!0,anim:{enable:!1,speed:4,size_min:.1,sync:!1}},line_linked:{enable:!0,distance:150,color:"#1976D2",opacity:.4,width:1},move:{enable:!0,speed:2,direction:"none",random:!1,straight:!1,out_mode:"out",bounce:!1,attract:{enable:!1,rotateX:600,rotateY:1200}}},interactivity:{detect_on:"canvas",events:{onhover:{enable:!0,mode:"grab"},onclick:{enable:!0,mode:"push"},resize:!0},modes:{grab:{distance:140,line_linked:{opacity:1}},bubble:{distance:400,size:40,duration:2,opacity:8,speed:3},repulse:{distance:200,duration:.4},push:{particles_nb:4},remove:{particles_nb:2}}},retina_detect:!0},mobileParticlesConfig={particles:{number:{value:20,density:{enable:!0,value_area:800}},color:{value:"#1976D2"},shape:{type:"circle"},opacity:{value:.3,random:!1},size:{value:2,random:!0},line_linked:{enable:!0,distance:100,color:"#1976D2",opacity:.2,width:1},move:{enable:!0,speed:1,direction:"none",random:!1,straight:!1,out_mode:"out"}},interactivity:{detect_on:"canvas",events:{onhover:{enable:!1},onclick:{enable:!1},resize:!0}},retina_detect:!1};function initParticles(){window.innerWidth<=768?particlesJS("particles-js",{particles:{number:{value:15,density:{enable:!0,value_area:800}},color:{value:"#1976D2"},shape:{type:"circle"},opacity:{value:.3},size:{value:2},line_linked:{enable:!0,distance:150,color:"#1976D2",opacity:.2,width:1},move:{enable:!0,speed:1,direction:"none",random:!1,straight:!1}},interactivity:{detect_on:"canvas",events:{onhover:{enable:!1},onclick:{enable:!1}}},retina_detect:!1}):particlesJS("particles-js",particlesConfig)}function toggleFolderContent(e){const t=e.closest("details");if(!t)return;parseInt(e.getAttribute("data-level")||"0");const n=t.open;if(t.open=!n,n){Array.from(t.querySelectorAll("details")).forEach((e=>{e.open=!1}));showTemporaryMessage("已折叠当前目录的所有子文件夹")}else{Array.from(t.querySelectorAll("details")).forEach((e=>{e.open=!0}));showTemporaryMessage("已展开当前目录的所有子文件夹")}}function showTemporaryMessage(e,t=2e3){let n=document.getElementById("temp-message");n||(n=document.createElement("div"),n.id="temp-message",n.style.position="fixed",n.style.bottom="20px",n.style.left="50%",n.style.transform="translateX(-50%)",n.style.backgroundColor="rgba(33, 150, 243, 0.9)",n.style.color="white",n.style.padding="10px 20px",n.style.borderRadius="20px",n.style.zIndex="9999",n.style.boxShadow="0 2px 8px rgba(0,0,0,0.2)",n.style.opacity="0",n.style.transition="opacity 0.3s ease",document.body.appendChild(n)),n.textContent=e,setTimeout((()=>{n.style.opacity="1"}),10),setTimeout((()=>{n.style.opacity="0",setTimeout((()=>{n.parentNode&&document.body.removeChild(n)}),300)}),t)}
     </script>
   </body>
   </html>
