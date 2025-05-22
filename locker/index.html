@@ -697,14 +697,14 @@
       .content-container, .content-container p, .content-container li, .content-container a {
         -webkit-user-select: text;
         user-select: text;
-        cursor: text;
+        /* cursor: text; */ /* Removed to allow pointer cursor from 'a' tag rule */
       }
 
       /* 链接可以选择但不显示高亮框 */
       a {
         outline: none;
         -webkit-tap-highlight-color: transparent;
-        cursor: pointer;
+        cursor: pointer; /* Ensure pointer cursor for all links */
       }
 
       /* 浏览器自动的点击高亮抑制 */
@@ -721,7 +721,7 @@
         .content p, .content li, .content a {
           -webkit-user-select: text !important;
           user-select: text !important;
-          cursor: text;
+          /* cursor: text; */ /* Removed to allow pointer cursor from 'a' tag rule */
         }
       }
 
@@ -729,6 +729,7 @@
       a {
         color: #05376b; /* 改为您想要的颜色，这里是珊瑚红色 */
         text-decoration: none; /* 移除下划线 */
+        cursor: pointer; /* Ensure pointer cursor for all links */
       }
 
       a:hover {
@@ -1207,7 +1208,7 @@
             <!-- 添加最近更新日期显示 -->
             <div class="datetime-display">
               <span>🕒</span>
-              <span id="lastUpdatedDate">更新：2025-05-21</span>
+              <span id="lastUpdatedDate">更新：2025-05-22</span>
             </div>
             
             <!-- 添加粒子效果开关 -->
