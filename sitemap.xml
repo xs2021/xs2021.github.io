@@ -11,7 +11,7 @@
   <url>
     <loc>https://xiaoshuai.link/2023/01/28/%E7%9C%8B%E5%AE%8C%E6%9C%AC%E7%AF%87%EF%BC%8C%E7%99%BE%E5%BA%A6%E4%BA%91%E6%97%A0%E9%99%90%E5%8A%A0%E9%80%9F%E3%80%8C2025%E6%9C%80%E6%96%B0%E3%80%8D/</loc>
     
-    <lastmod>2025-07-12</lastmod>
+    <lastmod>2025-07-16</lastmod>
     
   </url>
   
@@ -144,6 +144,13 @@
   </url>
   
   <url>
+    <loc>https://xiaoshuai.link/tags/iOS/</loc>
+    <lastmod>2025-07-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://xiaoshuai.link/tags/PDF/</loc>
     <lastmod>2025-07-19</lastmod>
     <changefreq>daily</changefreq>
@@ -151,7 +158,7 @@
   </url>
   
   <url>
-    <loc>https://xiaoshuai.link/tags/iOS/</loc>
+    <loc>https://xiaoshuai.link/tags/%E7%99%BE%E5%BA%A6%E4%BA%91%E4%B8%8D%E9%99%90%E9%80%9F/</loc>
     <lastmod>2025-07-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -166,13 +173,6 @@
   
   <url>
     <loc>https://xiaoshuai.link/tags/%E8%B6%8A%E7%8B%B1/</loc>
-    <lastmod>2025-07-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://xiaoshuai.link/tags/%E7%99%BE%E5%BA%A6%E4%BA%91%E4%B8%8D%E9%99%90%E9%80%9F/</loc>
     <lastmod>2025-07-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -195,6 +195,13 @@
   </url>
   
   <url>
+    <loc>https://xiaoshuai.link/categories/iOS/</loc>
+    <lastmod>2025-07-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://xiaoshuai.link/categories/PDF/</loc>
     <lastmod>2025-07-19</lastmod>
     <changefreq>daily</changefreq>
@@ -202,7 +209,7 @@
   </url>
   
   <url>
-    <loc>https://xiaoshuai.link/categories/iOS/</loc>
+    <loc>https://xiaoshuai.link/categories/%E7%99%BE%E5%BA%A6%E4%BA%91%E4%B8%8D%E9%99%90%E9%80%9F/</loc>
     <lastmod>2025-07-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -217,13 +224,6 @@
   
   <url>
     <loc>https://xiaoshuai.link/categories/%E8%B6%8A%E7%8B%B1/</loc>
-    <lastmod>2025-07-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://xiaoshuai.link/categories/%E7%99%BE%E5%BA%A6%E4%BA%91%E4%B8%8D%E9%99%90%E9%80%9F/</loc>
     <lastmod>2025-07-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
