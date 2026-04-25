@@ -229,8 +229,10 @@
     .toc-widget {
         width: 390px;
         padding-left: 20px;
-        overflow-y: auto;
-        max-height: 70vh
+        overflow: hidden;
+        max-height: 70vh;
+        display: flex;
+        flex-direction: column;
     }
 
 
@@ -247,8 +249,11 @@
     }
 
     #toc-content {
-        padding-bottom: 30px;
-        overflow: auto;
+        padding: 0 0 12px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        flex: 1 1 auto;
+        min-height: 0;
     }
 
     #toc-content ol {
@@ -718,6 +723,16 @@
 <script>
     $(function () {
         let tocHeading = 'toc-heading-';
+        let tocOptions = {
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        };
+        let getArticleHeadings = function () {
+            return $('#articleContent').find('h1, h2, h3, h4');
+        };
         let alignTocAnchors = function () {
             let i = 0;
             $('#toc-content a').each(function () {
@@ -725,35 +740,25 @@
             });
 
             i = 0;
-            $('#articleContent').find('h1, h2, h3, h4').each(function () {
+            getArticleHeadings().each(function () {
                 $(this).attr('id', tocHeading + (++i));
             });
         };
-
-        let initToc = function () {
-            tocbot.init({
-                tocSelector: '#toc-content',
-                contentSelector: '#articleContent',
-                headingsOffset: -($(window).height() * 0.4 - 45),
-                collapseDepth: Number('0'),
-                headingSelector: 'h1, h2, h3, h4'
-            });
+        let syncTocIfChanged = function () {
+            let tocLinkCount = $('#toc-content a').length;
+            let headingCount = getArticleHeadings().length;
+            if (!tocLinkCount || tocLinkCount !== headingCount) {
+                tocbot.refresh(tocOptions);
+            }
             alignTocAnchors();
         };
 
-        let refreshToc = function () {
-            tocbot.refresh({
-                tocSelector: '#toc-content',
-                contentSelector: '#articleContent',
-                headingsOffset: -($(window).height() * 0.4 - 45),
-                collapseDepth: Number('0'),
-                headingSelector: 'h1, h2, h3, h4'
-            });
-            alignTocAnchors();
-        };
+        tocbot.init(tocOptions);
+        alignTocAnchors();
 
-        initToc();
-        setTimeout(refreshToc, 800);
+        $(window).on('load', function () {
+            syncTocIfChanged();
+        });
 
         // Set scroll toc fixed.
         let tocHeight = parseInt($(window).height() * 0.4 - 64);
