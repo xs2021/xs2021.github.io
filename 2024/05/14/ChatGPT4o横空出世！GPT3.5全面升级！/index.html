@@ -753,26 +753,43 @@
 <script src="/libs/tocbot/tocbot.min.js"></script>
 <script>
     $(function () {
-        tocbot.init({
-            tocSelector: '#toc-content',
-            contentSelector: '#articleContent',
-            headingsOffset: -($(window).height() * 0.4 - 45),
-            collapseDepth: Number('0'),
-            headingSelector: 'h1, h2, h3, h4'
-        });
-
-        // modify the toc link href to support Chinese.
-        let i = 0;
         let tocHeading = 'toc-heading-';
-        $('#toc-content a').each(function () {
-            $(this).attr('href', '#' + tocHeading + (++i));
-        });
+        let alignTocAnchors = function () {
+            let i = 0;
+            $('#toc-content a').each(function () {
+                $(this).attr('href', '#' + tocHeading + (++i));
+            });
 
-        // modify the heading title id to support Chinese.
-        i = 0;
-        $('#articleContent').children('h1, h2, h3, h4').each(function () {
-            $(this).attr('id', tocHeading + (++i));
-        });
+            i = 0;
+            $('#articleContent').find('h1, h2, h3, h4').each(function () {
+                $(this).attr('id', tocHeading + (++i));
+            });
+        };
+
+        let initToc = function () {
+            tocbot.init({
+                tocSelector: '#toc-content',
+                contentSelector: '#articleContent',
+                headingsOffset: -($(window).height() * 0.4 - 45),
+                collapseDepth: Number('0'),
+                headingSelector: 'h1, h2, h3, h4'
+            });
+            alignTocAnchors();
+        };
+
+        let refreshToc = function () {
+            tocbot.refresh({
+                tocSelector: '#toc-content',
+                contentSelector: '#articleContent',
+                headingsOffset: -($(window).height() * 0.4 - 45),
+                collapseDepth: Number('0'),
+                headingSelector: 'h1, h2, h3, h4'
+            });
+            alignTocAnchors();
+        };
+
+        initToc();
+        setTimeout(refreshToc, 800);
 
         // Set scroll toc fixed.
         let tocHeight = parseInt($(window).height() * 0.4 - 64);
